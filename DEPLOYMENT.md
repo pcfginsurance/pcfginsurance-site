@@ -29,18 +29,14 @@ This guide explains how to deploy the PCFG Insurance Services website using Netl
 4. Select your `pcfg-insurance-services` repository
 5. Configure build settings:
    - **Base directory**: Leave empty if project is in root, or set to subdirectory path for monorepos
-   - **Build command**: `npm run build` (auto-detected)
-   - **Publish directory**: `dist` (auto-detected)
-   - **Branch to deploy**: `main`
-   - **Build command**: `npm run build` (auto-detected)
-   - **Publish directory**: `dist` (auto-detected)
+   - **Build command**: `npm run build` (will be auto-detected from netlify.toml)
+   - **Publish directory**: `dist` (will be auto-detected from netlify.toml)
    - **Branch to deploy**: `main`
 
-6. **For Monorepo Setup**:
+6. **Important**: Netlify will automatically use the settings from `netlify.toml`, so you can leave the build settings as default
+
+7. **For Monorepo Setup**:
    If your project is in a subdirectory of a larger repository:
-   - Set **Base directory** to the path containing your project (e.g., `packages/insurance-site`)
-   - Update the `base` setting in `netlify.toml` to match
-   - Ensure all paths in build commands are relative to the base directory
 
 ### Netlify GitHub Setup Process:
 
