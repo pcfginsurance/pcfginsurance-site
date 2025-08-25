@@ -1,0 +1,783 @@
+---
+---
+
+<div id="personal-lines-quote-form-container" class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <!-- Progress Bar -->
+  <div class="bg-gray-50 px-8 py-4 border-b">
+    <div class="flex items-center justify-between mb-2">
+      <span class="text-sm font-medium text-gray-600">Step <span id="current-step-number">1</span> of 5</span>
+      <span class="text-sm text-gray-500"><span id="progress-percentage">20</span>% Complete</span>
+    </div>
+    <div class="w-full bg-gray-200 rounded-full h-2">
+      <div id="progress-bar" class="bg-orange-600 h-2 rounded-full transition-all duration-300" style="width: 20%"></div>
+    </div>
+  </div>
+
+  <!-- Step Indicators -->
+  <div class="bg-white px-8 py-4 border-b">
+    <div class="flex justify-between items-center">
+      <div id="step-1-indicator" class="flex items-center step-indicator active">
+        <div class="w-8 h-8 rounded-full bg-orange-600 text-white flex items-center justify-center text-sm font-medium">1</div>
+        <span class="ml-2 text-sm font-medium text-gray-900">Personal Info</span>
+      </div>
+      <div id="step-2-indicator" class="flex items-center step-indicator">
+        <div class="w-8 h-8 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center text-sm font-medium">2</div>
+        <span class="ml-2 text-sm font-medium text-gray-500">Address</span>
+      </div>
+      <div id="step-3-indicator" class="flex items-center step-indicator">
+        <div class="w-8 h-8 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center text-sm font-medium">3</div>
+        <span class="ml-2 text-sm font-medium text-gray-500">Insurance Type</span>
+      </div>
+      <div id="step-4-indicator" class="flex items-center step-indicator">
+        <div class="w-8 h-8 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center text-sm font-medium">4</div>
+        <span class="ml-2 text-sm font-medium text-gray-500">Details</span>
+      </div>
+      <div id="step-5-indicator" class="flex items-center step-indicator">
+        <div class="w-8 h-8 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center text-sm font-medium">5</div>
+        <span class="ml-2 text-sm font-medium text-gray-500">Review</span>
+      </div>
+    </div>
+  </div>
+
+  <form id="personal-lines-quote-form" class="p-8" name="personal-lines-quote" data-netlify="true" data-netlify-recaptcha="true">
+    <input type="hidden" name="form-name" value="personal-lines-quote" />
+    <!-- Step 1: Personal Information -->
+    <div id="step-1" class="form-step active">
+      <div class="mb-6">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Personal Information</h3>
+        <p class="text-gray-600">Let's start with your basic information</p>
+      </div>
+      
+      <div class="space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+            <input type="text" id="first-name" name="first-name" required class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors">
+          </div>
+          <div>
+            <label for="last-name" class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+            <input type="text" id="last-name" name="last-name" required class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors">
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+            <input type="email" id="email" name="email" required class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors">
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors">
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="date-of-birth" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+            <input type="date" id="date-of-birth" name="date-of-birth" class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors">
+          </div>
+          <div>
+            <label for="marital-status" class="block text-sm font-medium text-gray-700 mb-1">Marital Status</label>
+            <select id="marital-status" name="marital-status" class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors">
+              <option value="">Select Status</option>
+              <option value="single">Single</option>
+              <option value="married">Married</option>
+              <option value="divorced">Divorced</option>
+              <option value="widowed">Widowed</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Address Information -->
+    <div id="step-2" class="form-step hidden">
+      <div class="mb-6">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Address Information</h3>
+        <p class="text-gray-600">Where do you live?</p>
+      </div>
+      
+      <div class="space-y-4">
+        <div>
+          <label for="street-address" class="block text-sm font-medium text-gray-700 mb-1">Street Address *</label>
+          <input type="text" id="street-address" name="street-address" required class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors">
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label for="city" class="block text-sm font-medium text-gray-700 mb-1">City *</label>
+            <input type="text" id="city" name="city" required class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors">
+          </div>
+          <div>
+            <label for="state" class="block text-sm font-medium text-gray-700 mb-1">State *</label>
+            <select id="state" name="state" required class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors">
+              <option value="">Select State</option>
+              <option value="AL">Alabama</option>
+              <option value="AZ">Arizona</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="IN">Indiana</option>
+              <option value="MD">Maryland</option>
+              <option value="ME">Maine</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="OH">Ohio</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="VA">Virginia</option>
+            </select>
+          </div>
+          <div>
+            <label for="zip-code" class="block text-sm font-medium text-gray-700 mb-1">ZIP Code *</label>
+            <input type="text" id="zip-code" name="zip-code" required pattern="[0-9]{5}(-[0-9]{4})?" class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors">
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="residence-type" class="block text-sm font-medium text-gray-700 mb-1">Residence Type</label>
+            <select id="residence-type" name="residence-type" class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors">
+              <option value="">Select Type</option>
+              <option value="house">House</option>
+              <option value="apartment">Apartment</option>
+              <option value="condo">Condo</option>
+              <option value="townhouse">Townhouse</option>
+              <option value="mobile-home">Mobile Home</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="years-at-address" class="block text-sm font-medium text-gray-700 mb-1">Years at Current Address</label>
+            <input type="number" id="years-at-address" name="years-at-address" min="0" max="100" class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: Insurance Type Selection -->
+    <div id="step-3" class="form-step hidden">
+      <div class="mb-6">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Insurance Types</h3>
+        <p class="text-gray-600">What type of insurance coverage do you need? (Select all that apply)</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <label class="insurance-type-card cursor-pointer">
+          <input type="checkbox" name="insurance-types" value="auto" class="sr-only">
+          <div class="border-2 border-gray-300 rounded-lg p-4 hover:border-orange-500 transition-colors">
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a4 4 0 118 0v4m-4 8a2 2 0 11-4 0 2 2 0 014 0zm6 0a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Auto Insurance</h4>
+                <p class="text-sm text-gray-600">Coverage for your vehicles</p>
+              </div>
+            </div>
+          </div>
+        </label>
+        
+        <label class="insurance-type-card cursor-pointer">
+          <input type="checkbox" name="insurance-types" value="home" class="sr-only">
+          <div class="border-2 border-gray-300 rounded-lg p-4 hover:border-orange-500 transition-colors">
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Homeowners Insurance</h4>
+                <p class="text-sm text-gray-600">Protection for your home</p>
+              </div>
+            </div>
+          </div>
+        </label>
+        
+        <label class="insurance-type-card cursor-pointer">
+          <input type="checkbox" name="insurance-types" value="renters" class="sr-only">
+          <div class="border-2 border-gray-300 rounded-lg p-4 hover:border-orange-500 transition-colors">
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Renters Insurance</h4>
+                <p class="text-sm text-gray-600">Coverage for your belongings</p>
+              </div>
+            </div>
+          </div>
+        </label>
+        
+        <label class="insurance-type-card cursor-pointer">
+          <input type="checkbox" name="insurance-types" value="condo" class="sr-only">
+          <div class="border-2 border-gray-300 rounded-lg p-4 hover:border-orange-500 transition-colors">
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
+                <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Condo Insurance</h4>
+                <p class="text-sm text-gray-600">Coverage for condo owners</p>
+              </div>
+            </div>
+          </div>
+        </label>
+        
+        <label class="insurance-type-card cursor-pointer">
+          <input type="checkbox" name="insurance-types" value="umbrella" class="sr-only">
+          <div class="border-2 border-gray-300 rounded-lg p-4 hover:border-orange-500 transition-colors">
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mr-4">
+                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h4a2 2 0 002-2V9a2 2 0 00-2-2H7a2 2 0 00-2 2v6a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Umbrella Insurance</h4>
+                <p class="text-sm text-gray-600">Extra liability protection</p>
+              </div>
+            </div>
+          </div>
+        </label>
+        
+        <label class="insurance-type-card cursor-pointer">
+          <input type="checkbox" name="insurance-types" value="other" class="sr-only">
+          <div class="border-2 border-gray-300 rounded-lg p-4 hover:border-orange-500 transition-colors">
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mr-4">
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Other Insurance</h4>
+                <p class="text-sm text-gray-600">Motorcycle, boat, RV, etc.</p>
+              </div>
+            </div>
+          </div>
+        </label>
+      </div>
+      
+      <div class="mt-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="current-carrier" class="block text-sm font-medium text-gray-700 mb-1">Current Insurance Carrier</label>
+            <input type="text" id="current-carrier" name="current-carrier" class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors">
+          </div>
+          <div>
+            <label for="coverage-start-date" class="block text-sm font-medium text-gray-700 mb-1">When do you need coverage to start?</label>
+            <input type="date" id="coverage-start-date" name="coverage-start-date" class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Insurance Details -->
+    <div id="step-4" class="form-step hidden">
+      <div class="mb-6">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Insurance Details</h3>
+        <p class="text-gray-600">Provide specific details for your selected coverage types</p>
+      </div>
+      
+      <!-- Auto Insurance Details -->
+      <div id="auto-details" class="insurance-details hidden">
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+          <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+            <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a4 4 0 118 0v4m-4 8a2 2 0 11-4 0 2 2 0 014 0zm6 0a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            Auto Insurance Details
+          </h4>
+          
+          <div class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label for="vehicle-year" class="block text-sm font-medium text-gray-700 mb-1">Vehicle Year</label>
+                <input type="number" id="vehicle-year" name="vehicle-year" min="1900" max="2025" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+              </div>
+              <div>
+                <label for="vehicle-make" class="block text-sm font-medium text-gray-700 mb-1">Make</label>
+                <input type="text" id="vehicle-make" name="vehicle-make" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+              </div>
+              <div>
+                <label for="vehicle-model" class="block text-sm font-medium text-gray-700 mb-1">Model</label>
+                <input type="text" id="vehicle-model" name="vehicle-model" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="vehicle-usage" class="block text-sm font-medium text-gray-700 mb-1">Primary Usage</label>
+                <select id="vehicle-usage" name="vehicle-usage" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                  <option value="">Select Usage</option>
+                  <option value="commute">Commute to Work/School</option>
+                  <option value="pleasure">Pleasure/Personal</option>
+                  <option value="business">Business</option>
+                </select>
+              </div>
+              <div>
+                <label for="annual-mileage" class="block text-sm font-medium text-gray-700 mb-1">Annual Mileage</label>
+                <input type="number" id="annual-mileage" name="annual-mileage" min="0" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Home Insurance Details -->
+      <div id="home-details" class="insurance-details hidden">
+        <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
+          <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+            <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+            </svg>
+            Home Insurance Details
+          </h4>
+          
+          <div class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="home-year-built" class="block text-sm font-medium text-gray-700 mb-1">Year Built</label>
+                <input type="number" id="home-year-built" name="home-year-built" min="1900" max="2024" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+              </div>
+              <div>
+                <label for="home-square-feet" class="block text-sm font-medium text-gray-700 mb-1">Square Footage</label>
+                <input type="number" id="home-square-feet" name="home-square-feet" min="0" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="home-construction-type" class="block text-sm font-medium text-gray-700 mb-1">Construction Type</label>
+                <select id="home-construction-type" name="home-construction-type" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                  <option value="">Select Type</option>
+                  <option value="frame">Frame</option>
+                  <option value="masonry">Masonry/Brick</option>
+                  <option value="veneer">Brick Veneer</option>
+                  <option value="stucco">Stucco</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="home-purchase-price" class="block text-sm font-medium text-gray-700 mb-1">Purchase Price</label>
+                <input type="text" id="home-purchase-price" name="home-purchase-price" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="e.g., $250,000">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Current Insurance Information -->
+      <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+        <h4 class="text-lg font-semibold text-gray-900 mb-4">Current Insurance Information</h4>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="current-premium" class="block text-sm font-medium text-gray-700 mb-1">Current Annual Premium</label>
+            <input type="text" id="current-premium" name="current-premium" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="e.g., $1,200">
+          </div>
+          <div>
+            <label for="reason-for-quote" class="block text-sm font-medium text-gray-700 mb-1">Reason for New Quote</label>
+            <select id="reason-for-quote" name="reason-for-quote" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+              <option value="">Select Reason</option>
+              <option value="new-policy">Need New Policy</option>
+              <option value="renewal">Policy Renewal</option>
+              <option value="better-rate">Looking for Better Rate</option>
+              <option value="poor-service">Poor Service from Current Carrier</option>
+              <option value="claim-issues">Claim Issues</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5: Review and Submit -->
+    <div id="step-5" class="form-step hidden">
+      <div class="mb-6">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Review Your Information</h3>
+        <p class="text-gray-600">Please review your information before submitting</p>
+      </div>
+      
+      <div id="review-content" class="space-y-6">
+        <!-- Review content will be populated by JavaScript -->
+      </div>
+      
+      <div class="mt-8 bg-orange-50 border border-orange-200 rounded-lg p-6">
+        <h4 class="text-lg font-semibold text-gray-900 mb-4">Additional Information</h4>
+        
+        <div class="space-y-4">
+          <div>
+            <label for="additional-coverage" class="block text-sm font-medium text-gray-700 mb-1">Additional Coverage Needs or Comments</label>
+            <textarea id="additional-coverage" name="additional-coverage" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="Any specific coverage needs or questions?"></textarea>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Contact Method</label>
+            <div class="flex space-x-4">
+              <label class="flex items-center">
+                <input type="radio" name="preferred-contact-method" value="phone" class="text-orange-600 focus:ring-orange-500">
+                <span class="ml-2 text-sm text-gray-700">Phone</span>
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="preferred-contact-method" value="email" class="text-orange-600 focus:ring-orange-500">
+                <span class="ml-2 text-sm text-gray-700">Email</span>
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="preferred-contact-method" value="either" checked class="text-orange-600 focus:ring-orange-500">
+                <span class="ml-2 text-sm text-gray-700">Either</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div data-netlify-recaptcha="true"></div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+      <button type="button" id="prev-btn" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors hidden">
+        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Previous
+      </button>
+      
+      <div class="flex space-x-3">
+        <button type="button" id="save-progress-btn" class="px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors">
+          Save Progress
+        </button>
+        <button type="button" id="clear-form-btn" class="px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors">
+          Clear Form
+        </button>
+      </div>
+      
+      <button type="button" id="next-btn" class="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition-colors">
+        Next
+        <svg class="w-4 h-4 inline ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+      
+      <button type="submit" id="submit-btn" class="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition-colors font-semibold hidden">
+        Submit Quote Request
+      </button>
+    </div>
+  </form>
+</div>
+
+<style>
+  .form-step {
+    display: none;
+  }
+  
+  .form-step.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .step-indicator.active .w-8 {
+    background-color: #ea580c;
+    color: white;
+  }
+  
+  .step-indicator.completed .w-8 {
+    background-color: #16a34a;
+    color: white;
+  }
+  
+  .step-indicator.active span {
+    color: #111827;
+    font-weight: 600;
+  }
+  
+  .step-indicator.completed span {
+    color: #16a34a;
+    font-weight: 600;
+  }
+  
+  .insurance-type-card input:checked + div {
+    border-color: #ea580c;
+    background-color: #fff7ed;
+  }
+  
+  .insurance-type-card:hover div {
+    border-color: #ea580c;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let currentStep = 1;
+    const totalSteps = 5;
+    
+    const form = document.getElementById('personal-lines-quote-form');
+    const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const submitBtn = document.getElementById('submit-btn');
+    const saveProgressBtn = document.getElementById('save-progress-btn');
+    const clearFormBtn = document.getElementById('clear-form-btn');
+    
+    // Update progress indicators
+    function updateProgress() {
+      const progressPercentage = (currentStep / totalSteps) * 100;
+      document.getElementById('progress-bar').style.width = progressPercentage + '%';
+      document.getElementById('current-step-number').textContent = currentStep;
+      document.getElementById('progress-percentage').textContent = Math.round(progressPercentage);
+      
+      // Update step indicators
+      for (let i = 1; i <= totalSteps; i++) {
+        const indicator = document.getElementById(`step-${i}-indicator`);
+        const circle = indicator.querySelector('.w-8');
+        const text = indicator.querySelector('span');
+        
+        if (i < currentStep) {
+          indicator.className = 'flex items-center step-indicator completed';
+          circle.className = 'w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center text-sm font-medium';
+          circle.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+        } else if (i === currentStep) {
+          indicator.className = 'flex items-center step-indicator active';
+          circle.className = 'w-8 h-8 rounded-full bg-orange-600 text-white flex items-center justify-center text-sm font-medium';
+          circle.textContent = i;
+        } else {
+          indicator.className = 'flex items-center step-indicator';
+          circle.className = 'w-8 h-8 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center text-sm font-medium';
+          circle.textContent = i;
+        }
+      }
+    }
+    
+    // Show/hide steps
+    function showStep(step) {
+      document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+      document.getElementById(`step-${step}`).classList.add('active');
+      
+      // Update button visibility
+      prevBtn.classList.toggle('hidden', step === 1);
+      nextBtn.classList.toggle('hidden', step === totalSteps);
+      submitBtn.classList.toggle('hidden', step !== totalSteps);
+      
+      updateProgress();
+      
+      // Update insurance details visibility based on selections
+      if (step === 4) {
+        updateInsuranceDetails();
+      }
+      
+      // Populate review content
+      if (step === 5) {
+        populateReviewContent();
+      }
+    }
+    
+    // Validate current step
+    function validateStep(step) {
+      const stepElement = document.getElementById(`step-${step}`);
+      const requiredFields = stepElement.querySelectorAll('input[required], select[required]');
+      let isValid = true;
+      
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          field.classList.add('border-red-500');
+          isValid = false;
+        } else {
+          field.classList.remove('border-red-500');
+        }
+      });
+      
+      // Special validation for step 3 (insurance types)
+      if (step === 3) {
+        const insuranceTypes = document.querySelectorAll('input[name="insurance-types"]:checked');
+        if (insuranceTypes.length === 0) {
+          alert('Please select at least one type of insurance.');
+          isValid = false;
+        }
+      }
+      
+      return isValid;
+    }
+    
+    // Update insurance details visibility
+    function updateInsuranceDetails() {
+      const autoSelected = document.querySelector('input[name="insurance-types"][value="auto"]').checked;
+      const homeSelected = document.querySelector('input[name="insurance-types"][value="home"]').checked;
+      
+      document.getElementById('auto-details').classList.toggle('hidden', !autoSelected);
+      document.getElementById('home-details').classList.toggle('hidden', !homeSelected);
+    }
+    
+    // Populate review content
+    function populateReviewContent() {
+      const reviewContent = document.getElementById('review-content');
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+      
+      // Get selected insurance types
+      const insuranceTypes = Array.from(document.querySelectorAll('input[name="insurance-types"]:checked')).map(cb => cb.value);
+      
+      let reviewHTML = `
+        <div class="bg-white border border-gray-200 rounded-lg p-6">
+          <h4 class="text-lg font-semibold text-gray-900 mb-4">Personal Information</h4>
+          <div class="grid grid-cols-2 gap-4 text-sm">
+            <div><strong>Name:</strong> ${data['first-name']} ${data['last-name']}</div>
+            <div><strong>Email:</strong> ${data['email']}</div>
+            <div><strong>Phone:</strong> ${data['phone']}</div>
+            <div><strong>Date of Birth:</strong> ${data['date-of-birth'] || 'Not provided'}</div>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-gray-200 rounded-lg p-6">
+          <h4 class="text-lg font-semibold text-gray-900 mb-4">Address</h4>
+          <div class="text-sm">
+            <p>${data['street-address']}</p>
+            <p>${data['city']}, ${data['state']} ${data['zip-code']}</p>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-gray-200 rounded-lg p-6">
+          <h4 class="text-lg font-semibold text-gray-900 mb-4">Insurance Types</h4>
+          <div class="flex flex-wrap gap-2">
+            ${insuranceTypes.map(type => `<span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">${type.charAt(0).toUpperCase() + type.slice(1)}</span>`).join('')}
+          </div>
+        </div>
+      `;
+      
+      reviewContent.innerHTML = reviewHTML;
+    }
+    
+    // Handle insurance type card clicks
+    document.querySelectorAll('.insurance-type-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const checkbox = this.querySelector('input[type="checkbox"]');
+        checkbox.checked = !checkbox.checked;
+        
+        // Trigger change event for any listeners
+        checkbox.dispatchEvent(new Event('change'));
+      });
+    });
+    
+    // Navigation event listeners
+    nextBtn.addEventListener('click', function() {
+      if (validateStep(currentStep)) {
+        if (currentStep < totalSteps) {
+          currentStep++;
+          showStep(currentStep);
+        }
+      }
+    });
+    
+    prevBtn.addEventListener('click', function() {
+      if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    });
+    
+    // Save progress functionality
+    saveProgressBtn.addEventListener('click', function() {
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+      
+      // Handle checkboxes
+      const insuranceTypes = Array.from(document.querySelectorAll('input[name="insurance-types"]:checked')).map(cb => cb.value);
+      data['insurance-types'] = insuranceTypes;
+      data['current-step'] = currentStep;
+      
+      localStorage.setItem('personalLinesQuoteProgress', JSON.stringify(data));
+      
+      // Show confirmation
+      const originalText = this.textContent;
+      this.textContent = 'Saved!';
+      this.classList.add('bg-green-100', 'text-green-700');
+      setTimeout(() => {
+        this.textContent = originalText;
+        this.classList.remove('bg-green-100', 'text-green-700');
+      }, 2000);
+    });
+    
+    // Clear form functionality
+    clearFormBtn.addEventListener('click', function() {
+      if (confirm('Are you sure you want to clear all form data?')) {
+        form.reset();
+        localStorage.removeItem('personalLinesQuoteProgress');
+        currentStep = 1;
+        showStep(currentStep);
+        
+        // Uncheck all insurance type cards
+        document.querySelectorAll('input[name="insurance-types"]').forEach(cb => cb.checked = false);
+      }
+    });
+    
+    // Form submission
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      if (validateStep(currentStep)) {
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        // Handle insurance types
+        const insuranceTypes = Array.from(document.querySelectorAll('input[name="insurance-types"]:checked')).map(cb => cb.value);
+        data['insurance-types'] = insuranceTypes;
+        
+        // Dispatch custom event
+        const event = new CustomEvent('personalLinesQuoteSubmit', { detail: data });
+        document.dispatchEvent(event);
+      }
+    });
+    
+    // Load saved progress
+    const savedProgress = localStorage.getItem('personalLinesQuoteProgress');
+    if (savedProgress) {
+      try {
+        const data = JSON.parse(savedProgress);
+        
+        // Restore form fields
+        Object.keys(data).forEach(key => {
+          if (key === 'insurance-types' && Array.isArray(data[key])) {
+            data[key].forEach(value => {
+              const checkbox = document.querySelector(`input[name="insurance-types"][value="${value}"]`);
+              if (checkbox) checkbox.checked = true;
+            });
+          } else if (key === 'current-step') {
+            currentStep = parseInt(data[key]) || 1;
+          } else {
+            const field = form.querySelector(`[name="${key}"]`);
+            if (field) {
+              if (field.type === 'radio') {
+                if (field.value === data[key]) field.checked = true;
+          if (field instanceof HTMLInputElement) {
+            if (field.type === 'radio') {
+              if (field.value === data[key]) field.checked = true;
+            } else {
+              field.value = data[key];
+            }
+          } else if (field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement) {
+            field.value = data[key];
+          }
+        });
+        
+        showStep(currentStep);
+      } catch (e) {
+        console.error('Error loading saved progress:', e);
+      }
+    } else {
+      showStep(1);
+    }
+  });
+</script>
