@@ -758,17 +758,15 @@
             currentStep = parseInt(data[key]) || 1;
           } else {
             const field = form.querySelector(`[name="${key}"]`);
-            if (field) {
+            if (field instanceof HTMLInputElement) {
               if (field.type === 'radio') {
                 if (field.value === data[key]) field.checked = true;
-          if (field instanceof HTMLInputElement) {
-            if (field.type === 'radio') {
-              if (field.value === data[key]) field.checked = true;
-            } else {
+              } else {
+                field.value = data[key];
+              }
+            } else if (field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement) {
               field.value = data[key];
             }
-          } else if (field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement) {
-            field.value = data[key];
           }
         });
         
