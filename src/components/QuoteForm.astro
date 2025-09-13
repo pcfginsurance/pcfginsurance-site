@@ -109,6 +109,8 @@
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
+        console.log('Form submission started');
+        
         // Show loading state
         const submitButton = form.querySelector('button[type="submit"]');
         const originalButtonText = submitButton.textContent;
@@ -121,36 +123,18 @@
         console.log('Submitting quote form data:', data);
         
         try {
-          // Import Supabase client directly
-          const { supabase } = await import('/src/utils/supabase.js');
-          
-          if (!supabase) {
-            console.warn('Supabase not configured, skipping database submission');
-          } else {
-            // Submit to Supabase quote_forms table
-            const supabaseData = {
-              name: data['name'],
-              email: data['email'], 
-              phone: data['phone'],
-              business_name: data['business-name'],
-              insurance_type: data['insurance-type'],
-              message: data['message'],
-              tag: 'quick-quote'
-            };
-            
-            console.log('Submitting to Supabase quote_forms table:', supabaseData);
-            
-            const { data: result, error } = await supabase
-              .from('quote_forms')
-              .insert([supabaseData]);
-            
-            if (error) {
-              console.error('Supabase submission error:', error);
-              throw error;
-            }
-            
-            console.log('Supabase submission successful:', result);
+          // Check if Supabase utilities are available
+          if (!window.submitToSupabase) {
+            console.error('Supabase utilities not loaded');
+            throw new Error('Database connection not available');
           }
+          
+          console.log('Submitting to Supabase...');
+          
+          // Submit to Supabase using the utility function
+          await window.submitToSupabase(data, 'quick_quote_form');
+          
+          console.log('Supabase submission successful');
           
           // Show success feedback
           submitButton.textContent = 'Success!';
@@ -172,6 +156,7 @@
               'phone': data['phone'],
               'insurance-type': data['insurance-type']
             });
+            console.log('Redirecting to commercial quote with params:', params.toString());
             window.location.href = `/commercial-quote?${params.toString()}`;
             return;
           } else if (personalTypes.includes(data['insurance-type'])) {
@@ -183,6 +168,7 @@
               'phone': data['phone'],
               'insurance-type': data['insurance-type']
             });
+            console.log('Redirecting to personal lines quote with params:', params.toString());
             window.location.href = `/personal-lines-quote?${params.toString()}`;
             return;
           }
@@ -196,6 +182,7 @@
         } catch (error) {
           console.error('Form submission failed:', error);
           console.error('Error details:', error.message);
+          console.error('Error stack:', error.stack);
           alert('There was an error submitting your form. Please try again or contact us directly at (877) 717-7234.');
         } finally {
           // Reset button state
