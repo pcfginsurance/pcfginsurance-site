@@ -673,11 +673,6 @@
     showStep(1);
     
     // Load saved progress after initialization
-    // Initialize the form - always start at step 1
-    currentStep = 1;
-    showStep(1);
-    
-    // Load saved progress after initialization
     const savedProgress = localStorage.getItem('commercialQuoteProgress');
     if (savedProgress) {
       try {
