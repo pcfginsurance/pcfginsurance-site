@@ -107,8 +107,7 @@
     
     if (form) {
       form.addEventListener('submit', async function(e) {
-        // Don't prevent default for Netlify forms - let them submit naturally
-        // We'll submit to Supabase as backup/analytics
+        e.preventDefault();
         
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
@@ -120,12 +119,43 @@
           if (window.submitToSupabase) {
             await window.submitToSupabase(data, 'quick_quote_form');
             console.log('Supabase submission successful');
-          } else {
-            console.warn('submitToSupabase function not available');
           }
+          
+          // Show success toast if available
+          if (window.showToast) {
+            window.showToast('Quote request submitted successfully!', 'success');
+          }
+          
+          // Check if this is a business insurance request
+          const businessTypes = ['workers-comp', 'commercial-auto', 'general-liability', 'bop', 'cyber-liability', 'professional-liability'];
+          const personalTypes = ['auto-insurance', 'home-insurance', 'renters-insurance', 'condo-insurance', 'life-insurance', 'umbrella-insurance', 'motorcycle-insurance', 'boat-insurance', 'rv-insurance'];
+          
+          if (businessTypes.includes(data['insurance-type'])) {
+            // Redirect to detailed commercial quote form
+            const params = new URLSearchParams(data);
+            window.location.href = `/commercial-quote?${params.toString()}`;
+            return;
+          } else if (personalTypes.includes(data['insurance-type'])) {
+            // Redirect to personal lines quote form
+            const params = new URLSearchParams(data);
+            window.location.href = `/personal-lines-quote?${params.toString()}`;
+            return;
+          }
+          
+          // For other types, show success message
+          alert('Thank you for your interest! We will contact you within 24 hours with your free quote.');
+          
+          // Reset form
+          form.reset();
         } catch (error) {
           console.error('Form submission failed:', error);
-          console.warn('Supabase submission failed, but Netlify will handle the form:', error);
+          
+          // Show error toast if available
+          if (window.showToast) {
+            window.showToast('There was an error submitting your form.', 'error');
+          }
+          
+          alert('There was an error submitting your form. Please try again or contact us directly at (877) 717-7234.');
         }
       });
     }
