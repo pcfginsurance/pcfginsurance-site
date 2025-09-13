@@ -500,7 +500,6 @@
     });
 
     form.addEventListener('submit', async (e) => {
-      e.preventDefault();
       if (!validateStep(currentStep)) return;
 
       const formData = new FormData(form);
@@ -510,16 +509,12 @@
       try {
         if (window.submitToSupabase) {
           await window.submitToSupabase(data, 'commercial_quote');
+        } else {
+          console.warn('submitToSupabase function not available');
         }
-        alert('Thank you for your quote request. We will contact you within 24 hours.');
-        localStorage.removeItem('commercialQuoteProgress');
-        form.reset();
-        document.querySelectorAll('input[name="insurance-types"]').forEach(cb => cb.checked = false);
-        currentStep = 1;
-        showStep(currentStep);
       } catch (err) {
         console.error('Submission failed:', err);
-        alert('Error submitting your request. Please try again or call (877) 717-7234.');
+        console.warn('Supabase submission failed, but Netlify will handle the form:', err);
       }
     });
 

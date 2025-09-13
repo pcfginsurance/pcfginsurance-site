@@ -316,7 +316,8 @@ import Footer from '../components/Footer.astro';
     
     if (form) {
       form.addEventListener('submit', async function(e) {
-        e.preventDefault();
+        // Don't prevent default for Netlify forms - let them submit naturally
+        // We'll submit to Supabase as backup/analytics
         
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
@@ -329,16 +330,9 @@ import Footer from '../components/Footer.astro';
             await window.submitToSupabase(data, 'contact_form');
             console.log('Supabase submission successful');
           }
-          
-          // Show success message
-          alert('Thank you for your interest! We will contact you within 24 hours with your free quote.');
-          
-          // Reset form
-          form.reset();
         } catch (error) {
           console.error('Form submission failed:', error);
-          console.error('Error details:', error.message);
-          alert('There was an error submitting your form. Please try again or contact us directly at (877) 717-7234.');
+          console.warn('Supabase submission failed, but Netlify will handle the form:', error);
         }
       });
     }

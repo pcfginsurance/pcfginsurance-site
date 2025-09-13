@@ -626,7 +626,8 @@ import Footer from '../components/Footer.astro';
     
     if (form) {
       form.addEventListener('submit', async function(e) {
-        e.preventDefault();
+        // Don't prevent default for Netlify forms - let them submit naturally
+        // We'll submit to Supabase as backup/analytics
         
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
@@ -638,25 +639,12 @@ import Footer from '../components/Footer.astro';
           if (window.submitToSupabase) {
             await window.submitToSupabase(data, 'general_liability_lead');
             console.log('Supabase submission successful');
+          } else {
+            console.warn('submitToSupabase function not available');
           }
-          
-          // Show success message
-          alert('Thank you for your interest! We will contact you within 24 hours with your general liability insurance quote.');
-          
-          // Pre-populate commercial quote form with general liability data
-          const params = new URLSearchParams({
-            'name': `${data['first-name']} ${data['last-name']}`,
-            'business-name': data['business-name'],
-            'email': data['email'],
-            'phone': data['phone'],
-            'insurance-type': 'general-liability'
-          });
-          
-          // Redirect to commercial quote form with pre-populated data
-          window.location.href = `/commercial-quote?${params.toString()}`;
         } catch (error) {
           console.error('Form submission failed:', error);
-          alert('There was an error submitting your form. Please try again or contact us directly at (877) 717-7234.');
+          console.warn('Supabase submission failed, but Netlify will handle the form:', error);
         }
       });
     }

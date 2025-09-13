@@ -331,7 +331,8 @@ import Footer from '../components/Footer.astro';
     const claimForm = document.getElementById('claim-report-form');
     if (claimForm) {
       claimForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
+        // Don't prevent default for Netlify forms - let them submit naturally
+        // We'll submit to Supabase as backup/analytics
         
         const formData = new FormData(claimForm);
         const data = Object.fromEntries(formData);
@@ -342,13 +343,12 @@ import Footer from '../components/Footer.astro';
           if (window.submitToSupabase) {
             await window.submitToSupabase(data, 'claim_report');
             console.log('Claim report submitted successfully');
+          } else {
+            console.warn('submitToSupabase function not available');
           }
-          
-          alert('Claim report submitted successfully! We will assign an adjuster and contact you within 24 hours to begin processing your claim.');
-          claimForm.reset();
         } catch (error) {
           console.error('Claim report submission failed:', error);
-          alert('There was an error submitting your claim report. Please try again or contact us directly at (877) 717-7234.');
+          console.warn('Supabase submission failed, but Netlify will handle the form:', error);
         }
       });
     }
