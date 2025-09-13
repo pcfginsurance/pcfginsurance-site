@@ -376,8 +376,14 @@
       document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
       document.getElementById(`step-${step}`).classList.add('active');
       prevBtn.classList.toggle('hidden', step === 1);
-      nextBtn.classList.toggle('hidden', step === totalSteps);
-      submitBtn.classList.toggle('hidden', step !== totalSteps);
+if (step < totalSteps) {
+  nextBtn.classList.remove('hidden');
+  submitBtn.classList.add('hidden');
+} else {
+  nextBtn.classList.add('hidden');
+  submitBtn.classList.remove('hidden');
+}
+
       updateProgress();
       if (step === 4) populateReviewContent();
     }
