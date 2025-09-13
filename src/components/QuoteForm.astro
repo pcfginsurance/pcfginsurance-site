@@ -109,53 +109,89 @@
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
+        // Show loading state
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting...';
+        
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
         
         console.log('Submitting quote form data:', data);
         
         try {
-          // Send data to Supabase
-          if (window.submitToSupabase) {
-            await window.submitToSupabase(data, 'quick_quote_form');
-            console.log('Supabase submission successful');
+          // Ensure submitToSupabase is available
+          if (typeof window.submitToSupabase !== 'function') {
+            throw new Error('Supabase client not available');
           }
           
-          // Show success toast if available
-          if (window.showToast) {
-            window.showToast('Quote request submitted successfully!', 'success');
-          }
+          // Submit to Supabase quote_forms table
+          const supabaseData = {
+            name: data['name'],
+            email: data['email'], 
+            phone: data['phone'],
+            business_name: data['business-name'],
+            insurance_type: data['insurance-type'],
+            message: data['message'],
+            tag: 'quick-quote'
+          };
           
-          // Check if this is a business insurance request
+          console.log('Submitting to Supabase quote_forms table:', supabaseData);
+          
+          const result = await window.submitToSupabase(supabaseData, 'quick_quote_form');
+          console.log('Supabase submission successful:', result);
+          
+          // Show success feedback
+          submitButton.textContent = 'Success!';
+          submitButton.className = submitButton.className.replace('bg-primary', 'bg-green-600');
+          
+          // Wait a moment to show success state
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          
+          // Check if this is a business insurance request for smart routing
           const businessTypes = ['workers-comp', 'commercial-auto', 'general-liability', 'bop', 'cyber-liability', 'professional-liability'];
           const personalTypes = ['auto-insurance', 'home-insurance', 'renters-insurance', 'condo-insurance', 'life-insurance', 'umbrella-insurance', 'motorcycle-insurance', 'boat-insurance', 'rv-insurance'];
           
           if (businessTypes.includes(data['insurance-type'])) {
-            // Redirect to detailed commercial quote form
-            const params = new URLSearchParams(data);
+            // Redirect to detailed commercial quote form with pre-filled data
+            const params = new URLSearchParams({
+              'name': data['name'],
+              'business-name': data['business-name'],
+              'email': data['email'],
+              'phone': data['phone'],
+              'insurance-type': data['insurance-type']
+            });
             window.location.href = `/commercial-quote?${params.toString()}`;
             return;
           } else if (personalTypes.includes(data['insurance-type'])) {
-            // Redirect to personal lines quote form
-            const params = new URLSearchParams(data);
+            // Redirect to personal lines quote form with pre-filled data
+            const params = new URLSearchParams({
+              'first-name': data['name'].split(' ')[0] || data['name'],
+              'last-name': data['name'].split(' ').slice(1).join(' ') || '',
+              'email': data['email'],
+              'phone': data['phone'],
+              'insurance-type': data['insurance-type']
+            });
             window.location.href = `/personal-lines-quote?${params.toString()}`;
             return;
           }
           
-          // For other types, show success message
+          // For other types or employee benefits, show success message and stay on page
           alert('Thank you for your interest! We will contact you within 24 hours with your free quote.');
           
           // Reset form
           form.reset();
+          
         } catch (error) {
           console.error('Form submission failed:', error);
-          
-          // Show error toast if available
-          if (window.showToast) {
-            window.showToast('There was an error submitting your form.', 'error');
-          }
-          
+          console.error('Error details:', error.message);
           alert('There was an error submitting your form. Please try again or contact us directly at (877) 717-7234.');
+        } finally {
+          // Reset button state
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+          submitButton.className = submitButton.className.replace('bg-green-600', 'bg-primary');
         }
       });
     }
