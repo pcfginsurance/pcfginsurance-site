@@ -121,26 +121,36 @@
         console.log('Submitting quote form data:', data);
         
         try {
-          // Ensure submitToSupabase is available
-          if (typeof window.submitToSupabase !== 'function') {
-            throw new Error('Supabase client not available');
+          // Import Supabase client directly
+          const { supabase } = await import('/src/utils/supabase.js');
+          
+          if (!supabase) {
+            console.warn('Supabase not configured, skipping database submission');
+          } else {
+            // Submit to Supabase quote_forms table
+            const supabaseData = {
+              name: data['name'],
+              email: data['email'], 
+              phone: data['phone'],
+              business_name: data['business-name'],
+              insurance_type: data['insurance-type'],
+              message: data['message'],
+              tag: 'quick-quote'
+            };
+            
+            console.log('Submitting to Supabase quote_forms table:', supabaseData);
+            
+            const { data: result, error } = await supabase
+              .from('quote_forms')
+              .insert([supabaseData]);
+            
+            if (error) {
+              console.error('Supabase submission error:', error);
+              throw error;
+            }
+            
+            console.log('Supabase submission successful:', result);
           }
-          
-          // Submit to Supabase quote_forms table
-          const supabaseData = {
-            name: data['name'],
-            email: data['email'], 
-            phone: data['phone'],
-            business_name: data['business-name'],
-            insurance_type: data['insurance-type'],
-            message: data['message'],
-            tag: 'quick-quote'
-          };
-          
-          console.log('Submitting to Supabase quote_forms table:', supabaseData);
-          
-          const result = await window.submitToSupabase(supabaseData, 'quick_quote_form');
-          console.log('Supabase submission successful:', result);
           
           // Show success feedback
           submitButton.textContent = 'Success!';
