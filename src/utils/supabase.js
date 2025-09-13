@@ -1,15 +1,17 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Initialize the Supabase client
-const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL || import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY || import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || import.meta.env.PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
 
 // Check if Supabase credentials are configured
-if (!supabaseUrl || !supabaseAnonKey || supabaseUrl.includes('your-project-url') || supabaseAnonKey.includes('your-anon-key')) {
+if (!supabaseUrl || !supabaseAnonKey) {
   console.warn('Supabase credentials not configured. Forms will use webhook only.');
+} else {
+  console.log('Supabase credentials found:', { url: supabaseUrl.substring(0, 20) + '...', key: supabaseAnonKey.substring(0, 20) + '...' });
 }
 
-export const supabase = (supabaseUrl && supabaseAnonKey && !supabaseUrl.includes('your-project-url')) 
+export const supabase = (supabaseUrl && supabaseAnonKey) 
   ? createClient(supabaseUrl, supabaseAnonKey) 
   : null;
 

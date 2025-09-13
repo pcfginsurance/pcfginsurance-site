@@ -109,7 +109,7 @@
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        console.log('Form submission started');
+        console.log('=== QUOTE FORM SUBMISSION STARTED ===');
         
         // Show loading state
         const submitButton = form.querySelector('button[type="submit"]');
@@ -120,21 +120,38 @@
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
         
-        console.log('Submitting quote form data:', data);
+        console.log('Form data collected:', data);
+        
+        // Check if Supabase utilities are available
+        console.log('Checking Supabase utilities...');
+        console.log('window.submitToSupabase exists:', typeof window.submitToSupabase);
+        
+        // Import Supabase utilities directly if not available globally
+        if (!window.submitToSupabase) {
+          console.log('Loading Supabase utilities...');
+          try {
+            const supabaseModule = await import('/src/utils/supabase.js');
+            console.log('Supabase module loaded:', supabaseModule);
+            
+            if (supabaseModule.submitToSupabase) {
+              window.submitToSupabase = supabaseModule.submitToSupabase;
+              console.log('submitToSupabase function assigned to window');
+            } else {
+              console.error('submitToSupabase function not found in module');
+            }
+          } catch (importError) {
+            console.error('Failed to import Supabase utilities:', importError);
+          }
+        }
         
         try {
-          // Check if Supabase utilities are available
-          if (!window.submitToSupabase) {
-            console.error('Supabase utilities not loaded');
-            throw new Error('Database connection not available');
+          if (window.submitToSupabase) {
+            console.log('Submitting to Supabase...');
+            const result = await window.submitToSupabase(data, 'quick_quote_form');
+            console.log('Supabase submission result:', result);
+          } else {
+            console.warn('Supabase utilities not available, skipping database submission');
           }
-          
-          console.log('Submitting to Supabase...');
-          
-          // Submit to Supabase using the utility function
-          await window.submitToSupabase(data, 'quick_quote_form');
-          
-          console.log('Supabase submission successful');
           
           // Show success feedback
           submitButton.textContent = 'Success!';
@@ -142,6 +159,8 @@
           
           // Wait a moment to show success state
           await new Promise(resolve => setTimeout(resolve, 1000));
+          
+          console.log('Determining redirect based on insurance type:', data['insurance-type']);
           
           // Check if this is a business insurance request for smart routing
           const businessTypes = ['workers-comp', 'commercial-auto', 'general-liability', 'bop', 'cyber-liability', 'professional-liability'];
@@ -174,18 +193,21 @@
           }
           
           // For other types or employee benefits, show success message and stay on page
+          console.log('No specific redirect, showing success message');
           alert('Thank you for your interest! We will contact you within 24 hours with your free quote.');
           
           // Reset form
           form.reset();
           
         } catch (error) {
-          console.error('Form submission failed:', error);
-          console.error('Error details:', error.message);
+          console.error('=== FORM SUBMISSION ERROR ===');
+          console.error('Error:', error);
+          console.error('Error message:', error.message);
           console.error('Error stack:', error.stack);
           alert('There was an error submitting your form. Please try again or contact us directly at (877) 717-7234.');
         } finally {
           // Reset button state
+          console.log('Resetting button state');
           submitButton.disabled = false;
           submitButton.textContent = originalButtonText;
           submitButton.className = submitButton.className.replace('bg-green-600', 'bg-primary');
