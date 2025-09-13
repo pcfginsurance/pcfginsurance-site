@@ -102,8 +102,6 @@
 </div>
 
 <script>
-  import { submitToSupabase } from '../utils/supabase.js';
-
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('quote-form');
     
@@ -118,8 +116,10 @@
         
         try {
           // Send data to Supabase
-          await submitToSupabase(data, 'quick_quote_form');
-          console.log('Supabase submission successful');
+          if (window.submitToSupabase) {
+            await window.submitToSupabase(data, 'quick_quote_form');
+            console.log('Supabase submission successful');
+          }
           
           // Show success toast if available
           if (window.showToast) {

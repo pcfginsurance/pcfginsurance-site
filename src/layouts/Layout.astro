@@ -190,6 +190,23 @@ const { title, description = "PCFG Insurance Services - Protecting what matters 
 </style>
 
 <script>
-  // Basic functionality only
-  console.log('PCFG Insurance Services website loaded');
+  // Load Supabase utilities
+  import('/src/utils/supabase.js').then(module => {
+    window.submitToSupabase = module.submitToSupabase;
+    window.checkExistingLead = module.checkExistingLead;
+    window.linkQuoteToLead = module.linkQuoteToLead;
+    console.log('Supabase utilities loaded');
+  }).catch(error => {
+    console.error('Error loading Supabase utilities:', error);
+  });
+  
+  // Load form handlers
+  import('/src/utils/form-handler.js').then(module => {
+    if (module.initializeForms) {
+      module.initializeForms();
+    }
+    console.log('Form handlers loaded');
+  }).catch(error => {
+    console.error('Error loading form handlers:', error);
+  });
 </script>

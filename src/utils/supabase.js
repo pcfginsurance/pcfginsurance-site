@@ -148,6 +148,11 @@ export async function submitToSupabase(data, formType) {
  * @returns {Promise<Object|null>} - The existing lead or null if not found
  */
 export async function checkExistingLead(email, businessName, leadType) {
+  if (!supabase) {
+    console.log('Supabase not configured, skipping lead check');
+    return null;
+  }
+  
   let tableName;
   
   switch (leadType) {
@@ -209,6 +214,11 @@ export async function checkExistingLead(email, businessName, leadType) {
  * @returns {Promise} - The Supabase update promise
  */
 export async function linkQuoteToLead(quoteId, leadId, leadSource, quoteType) {
+  if (!supabase) {
+    console.log('Supabase not configured, skipping lead linking');
+    return null;
+  }
+  
   let tableName;
   
   switch (quoteType) {
@@ -245,4 +255,11 @@ export async function linkQuoteToLead(quoteId, leadId, leadSource, quoteType) {
     console.error('Error linking quote to lead:', error);
     throw error;
   }
+}
+
+// Make functions available globally for form scripts
+if (typeof window !== 'undefined') {
+  window.submitToSupabase = submitToSupabase;
+  window.checkExistingLead = checkExistingLead;
+  window.linkQuoteToLead = linkQuoteToLead;
 }

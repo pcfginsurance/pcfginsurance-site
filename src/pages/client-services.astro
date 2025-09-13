@@ -319,7 +319,6 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <script>
-  import { submitToSupabase } from '../utils/supabase.js';
 
   document.addEventListener('DOMContentLoaded', function() {
     // Certificate Request Form
@@ -340,8 +339,10 @@ import Footer from '../components/Footer.astro';
         console.log('Submitting claim report:', data);
         
         try {
-          await submitToSupabase(data, 'claim_report');
-          console.log('Claim report submitted successfully');
+          if (window.submitToSupabase) {
+            await window.submitToSupabase(data, 'claim_report');
+            console.log('Claim report submitted successfully');
+          }
           
           alert('Claim report submitted successfully! We will assign an adjuster and contact you within 24 hours to begin processing your claim.');
           claimForm.reset();

@@ -643,7 +643,6 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <script>
-  import { submitToSupabase } from '../utils/supabase.js';
 
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('commercial-auto-form');
@@ -659,8 +658,10 @@ import Footer from '../components/Footer.astro';
         
         try {
           // Send data to Supabase
-          await submitToSupabase(data, 'commercial_auto_lead');
-          console.log('Supabase submission successful');
+          if (window.submitToSupabase) {
+            await window.submitToSupabase(data, 'commercial_auto_lead');
+            console.log('Supabase submission successful');
+          }
           
           // Show success message
           alert('Thank you for your interest! We will contact you within 24 hours with your commercial auto insurance quote.');

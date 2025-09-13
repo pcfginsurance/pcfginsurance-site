@@ -93,12 +93,6 @@ import CommercialQuoteForm from '../components/CommercialQuoteForm.astro';
 </Layout>
 
 <script>
-  import { submitToSupabase, checkExistingLead } from '../utils/supabase.js';
-  
-  // Make submitToSupabase available to the window object for the form component
-  window.submitToSupabase = submitToSupabase;
-  window.checkExistingLead = checkExistingLead;
-  
   document.addEventListener('DOMContentLoaded', function() {
     // Check for URL parameters from lead forms
     const urlParams = new URLSearchParams(window.location.search);
