@@ -2,18 +2,21 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import LocalSEO from '../components/LocalSEO.astro';
+import LocalServiceAreas from '../components/LocalServiceAreas.astro';
 ---
 
-<Layout title="About PCFG Insurance Services - Veteran-Owned Insurance Agency" description="Learn about PCFG Insurance Services, a veteran-owned insurance agency with over 5 years of experience serving businesses and families across 15 states.">
+<Layout title="About PCFG Insurance Services - Veteran-Owned Agency in Parish, NY" description="Learn about PCFG Insurance Services, a veteran-owned insurance agency based in Parish, NY with over 5 years of experience serving businesses and families across 15 states. Founded in 2018 by Army veteran Liam O'Brien.">
+  <LocalSEO pageName="About Us" pageDescription="Learn about our veteran-owned insurance agency based in Parish, NY" />
   <Header />
   
   <!-- Hero Section -->
   <section class="py-20 bg-gradient-to-br from-navy-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About PCFG Insurance Services</h1>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About PCFG Insurance Services - Parish, NY</h1>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          A veteran-owned insurance agency dedicated to protecting what matters most to your business and family across 15 states.
+          A veteran-owned insurance agency based in Parish, New York, dedicated to protecting what matters most to your business and family across 15 states since 2018.
         </p>
       </div>
     </div>
@@ -26,13 +29,13 @@ import Footer from '../components/Footer.astro';
         <div>
           <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
           <p class="text-lg text-gray-600 mb-6">
-            Founded with the principles of service, integrity, and excellence learned through military service, PCFG Insurance Services has been protecting businesses and families across multiple states since late 2018.
+            Founded in Parish, New York with the principles of service, integrity, and excellence learned through military service, PCFG Insurance Services has been protecting businesses and families across 15 states since December 2018.
           </p>
           <p class="text-lg text-gray-600 mb-6">
-            As a veteran-owned agency, we understand the importance of reliability, attention to detail, and going above and beyond for those we serve. These values guide everything we do, from providing personalized insurance solutions to delivering exceptional customer service.
+            As a veteran-owned agency headquartered in Central New York, we understand the importance of reliability, attention to detail, and going above and beyond for those we serve. These values guide everything we do, from providing personalized insurance solutions to delivering exceptional customer service across all our licensed states.
           </p>
           <p class="text-lg text-gray-600">
-            Our mission is simple: to provide comprehensive insurance protection that gives our clients peace of mind, allowing them to focus on what they do best – running their businesses and caring for their families.
+            Our mission is simple: to provide comprehensive insurance protection from our Parish, NY headquarters that gives our clients peace of mind across 15 states, allowing them to focus on what they do best – running their businesses and caring for their families.
           </p>
         </div>
         <div class="bg-gray-100 p-8 rounded-lg">
@@ -55,79 +58,18 @@ import Footer from '../components/Footer.astro';
   <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">Licensed Across 15 States</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Licensed Across 15 States from Our Parish, NY Headquarters</h2>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          PCFG Insurance Services is licensed to serve businesses and families across multiple states, bringing our expertise and personalized service to communities nationwide.
+          From our base in Parish, New York (Oswego County), PCFG Insurance Services is licensed to serve businesses and families across 15 states, bringing our expertise and personalized service to communities nationwide.
         </p>
       </div>
       
       <div class="bg-white rounded-lg shadow-lg p-8">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          <div class="text-center p-4 bg-navy-50 rounded-lg hover:bg-navy-100 transition-colors duration-200">
-            <div class="text-2xl font-bold text-navy-600 mb-2">AL</div>
-            <div class="text-sm text-gray-700">Alabama</div>
-          </div>
-          <div class="text-center p-4 bg-navy-50 rounded-lg hover:bg-navy-100 transition-colors duration-200">
-            <div class="text-2xl font-bold text-navy-600 mb-2">AZ</div>
-            <div class="text-sm text-gray-700">Arizona</div>
-          </div>
-          <div class="text-center p-4 bg-navy-50 rounded-lg hover:bg-navy-100 transition-colors duration-200">
-            <div class="text-2xl font-bold text-navy-600 mb-2">FL</div>
-            <div class="text-sm text-gray-700">Florida</div>
-          </div>
-          <div class="text-center p-4 bg-navy-50 rounded-lg hover:bg-navy-100 transition-colors duration-200">
-            <div class="text-2xl font-bold text-navy-600 mb-2">GA</div>
-            <div class="text-sm text-gray-700">Georgia</div>
-          </div>
-          <div class="text-center p-4 bg-navy-50 rounded-lg hover:bg-navy-100 transition-colors duration-200">
-            <div class="text-2xl font-bold text-navy-600 mb-2">IN</div>
-            <div class="text-sm text-gray-700">Indiana</div>
-          </div>
-          <div class="text-center p-4 bg-navy-50 rounded-lg hover:bg-navy-100 transition-colors duration-200">
-            <div class="text-2xl font-bold text-navy-600 mb-2">MD</div>
-            <div class="text-sm text-gray-700">Maryland</div>
-          </div>
-          <div class="text-center p-4 bg-navy-50 rounded-lg hover:bg-navy-100 transition-colors duration-200">
-            <div class="text-2xl font-bold text-navy-600 mb-2">ME</div>
-            <div class="text-sm text-gray-700">Maine</div>
-          </div>
-          <div class="text-center p-4 bg-navy-50 rounded-lg hover:bg-navy-100 transition-colors duration-200">
-            <div class="text-2xl font-bold text-navy-600 mb-2">NJ</div>
-            <div class="text-sm text-gray-700">New Jersey</div>
-          </div>
-          <div class="text-center p-4 bg-navy-50 rounded-lg hover:bg-navy-100 transition-colors duration-200">
-            <div class="text-2xl font-bold text-navy-600 mb-2">NY</div>
-            <div class="text-sm text-gray-700">New York</div>
-          </div>
-          <div class="text-center p-4 bg-navy-50 rounded-lg hover:bg-navy-100 transition-colors duration-200">
-            <div class="text-2xl font-bold text-navy-600 mb-2">NC</div>
-            <div class="text-sm text-gray-700">North Carolina</div>
-          </div>
-          <div class="text-center p-4 bg-navy-50 rounded-lg hover:bg-navy-100 transition-colors duration-200">
-            <div class="text-2xl font-bold text-navy-600 mb-2">OH</div>
-            <div class="text-sm text-gray-700">Ohio</div>
-          </div>
-          <div class="text-center p-4 bg-navy-50 rounded-lg hover:bg-navy-100 transition-colors duration-200">
-            <div class="text-2xl font-bold text-navy-600 mb-2">PA</div>
-            <div class="text-sm text-gray-700">Pennsylvania</div>
-          </div>
-          <div class="text-center p-4 bg-navy-50 rounded-lg hover:bg-navy-100 transition-colors duration-200">
-            <div class="text-2xl font-bold text-navy-600 mb-2">TN</div>
-            <div class="text-sm text-gray-700">Tennessee</div>
-          </div>
-          <div class="text-center p-4 bg-navy-50 rounded-lg hover:bg-navy-100 transition-colors duration-200">
-            <div class="text-2xl font-bold text-navy-600 mb-2">TX</div>
-            <div class="text-sm text-gray-700">Texas</div>
-          </div>
-          <div class="text-center p-4 bg-navy-50 rounded-lg hover:bg-navy-100 transition-colors duration-200">
-            <div class="text-2xl font-bold text-navy-600 mb-2">VA</div>
-            <div class="text-sm text-gray-700">Virginia</div>
-          </div>
-        </div>
+        <LocalServiceAreas variant="grid" />
         
         <div class="mt-8 text-center">
           <p class="text-gray-600 mb-4">
-            Whether you're a small business owner, large corporation, or individual looking for personal insurance, we're here to serve you with the same level of excellence across all our licensed states.
+            Whether you're a small business owner, large corporation, or individual looking for personal insurance, we're here to serve you with the same level of excellence from our Parish, NY office across all our licensed states.
           </p>
           <a href="/contact" class="bg-navy-600 hover:bg-navy-700 text-white px-6 py-3 rounded-md font-semibold transition-colors duration-200">
             Get Your Free Quote Today

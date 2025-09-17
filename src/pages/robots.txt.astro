@@ -1,0 +1,42 @@
+---
+// Generate robots.txt with sitemap reference
+export async function GET() {
+  const robotsTxt = `User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://pcfginsurance.com/sitemap.xml
+Sitemap: https://pcfginsurance.com/local-seo-sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /node_modules/
+
+# Allow important pages
+Allow: /contact
+Allow: /about
+Allow: /services
+Allow: /commercial-quote
+Allow: /personal-lines-quote
+
+# Local SEO specific
+Allow: /*insurance*
+Allow: /*quote*
+Allow: /*parish*
+Allow: /*ny*
+Allow: /*new-york*
+`;
+
+  return new Response(robotsTxt, {
+    headers: {
+      'Content-Type': 'text/plain',
+      'Cache-Control': 'public, max-age=86400'
+    }
+  });
+}
+---

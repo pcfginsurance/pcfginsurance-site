@@ -1,0 +1,119 @@
+---
+// Local Service Areas Component for SEO
+interface Props {
+  currentState?: string;
+  showAllStates?: boolean;
+  variant?: 'grid' | 'list' | 'inline' | 'banner';
+  className?: string;
+}
+
+const { 
+  currentState,
+  showAllStates = true,
+  variant = 'grid',
+  className = ''
+} = Astro.props;
+
+const serviceAreas = [
+  { state: "Alabama", abbr: "AL", major_cities: ["Birmingham", "Montgomery", "Mobile", "Huntsville"] },
+  { state: "Arizona", abbr: "AZ", major_cities: ["Phoenix", "Tucson", "Mesa", "Chandler"] },
+  { state: "Florida", abbr: "FL", major_cities: ["Jacksonville", "Miami", "Tampa", "Orlando"] },
+  { state: "Georgia", abbr: "GA", major_cities: ["Atlanta", "Augusta", "Columbus", "Savannah"] },
+  { state: "Indiana", abbr: "IN", major_cities: ["Indianapolis", "Fort Wayne", "Evansville", "South Bend"] },
+  { state: "Maryland", abbr: "MD", major_cities: ["Baltimore", "Frederick", "Rockville", "Gaithersburg"] },
+  { state: "Maine", abbr: "ME", major_cities: ["Portland", "Lewiston", "Bangor", "South Portland"] },
+  { state: "New Jersey", abbr: "NJ", major_cities: ["Newark", "Jersey City", "Paterson", "Elizabeth"] },
+  { state: "New York", abbr: "NY", major_cities: ["New York City", "Buffalo", "Rochester", "Yonkers", "Syracuse", "Albany", "Parish"] },
+  { state: "North Carolina", abbr: "NC", major_cities: ["Charlotte", "Raleigh", "Greensboro", "Durham"] },
+  { state: "Ohio", abbr: "OH", major_cities: ["Columbus", "Cleveland", "Cincinnati", "Toledo"] },
+  { state: "Pennsylvania", abbr: "PA", major_cities: ["Philadelphia", "Pittsburgh", "Allentown", "Erie"] },
+  { state: "Tennessee", abbr: "TN", major_cities: ["Nashville", "Memphis", "Knoxville", "Chattanooga"] },
+  { state: "Texas", abbr: "TX", major_cities: ["Houston", "San Antonio", "Dallas", "Austin"] },
+  { state: "Virginia", abbr: "VA", major_cities: ["Virginia Beach", "Norfolk", "Chesapeake", "Richmond"] }
+];
+
+const displayStates = showAllStates ? serviceAreas : serviceAreas.filter(area => area.state === currentState);
+---
+
+{variant === 'grid' && (
+  <div class={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 ${className}`}>
+    {displayStates.map(area => (
+      <div class="text-center p-4 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
+        <div class="text-2xl font-bold text-primary mb-2">{area.abbr}</div>
+        <div class="text-sm text-neutral-dark">{area.state}</div>
+      </div>
+    ))}
+  </div>
+)}
+
+{variant === 'list' && (
+  <div class={`space-y-3 ${className}`}>
+    {displayStates.map(area => (
+      <div class="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm border">
+        <div>
+          <h4 class="font-semibold text-gray-900">{area.state} ({area.abbr})</h4>
+          <p class="text-sm text-gray-600">Serving: {area.major_cities.slice(0, 3).join(', ')}</p>
+        </div>
+        <div class="text-primary font-semibold">Licensed</div>
+      </div>
+    ))}
+  </div>
+)}
+
+{variant === 'inline' && (
+  <div class={`flex flex-wrap gap-2 ${className}`}>
+    {displayStates.map(area => (
+      <span class="bg-white text-primary-dark px-3 py-1 rounded-full text-sm font-medium border border-primary-200">
+        {area.state}
+      </span>
+    ))}
+  </div>
+)}
+
+{variant === 'banner' && (
+  <div class={`text-center ${className}`}>
+    <h3 class="text-xl font-bold text-white mb-4">Licensed to Serve You In:</h3>
+    <div class="flex flex-wrap justify-center gap-3">
+      {displayStates.map(area => (
+        <span class="bg-white text-primary-dark px-3 py-1 rounded-full text-sm font-medium">
+          {area.state}
+        </span>
+      ))}
+    </div>
+  </div>
+)}
+
+<!-- Structured Data for Service Areas -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Insurance Services",
+  "provider": {
+    "@type": "InsuranceAgency",
+    "name": "PCFG Insurance Services"
+  },
+  "areaServed": [
+    {displayStates.map(area => `{
+      "@type": "State",
+      "name": "${area.state}",
+      "identifier": "${area.abbr}",
+      "containsPlace": [
+        ${area.major_cities.map(city => `{
+          "@type": "City",
+          "name": "${city}",
+          "containedInPlace": {
+            "@type": "State", 
+            "name": "${area.state}"
+          }
+        }`).join(', ')}
+      ]
+    }`).join(', ')}
+  ]
+}
+</script>
+
+<!-- Local SEO Keywords for each state -->
+{displayStates.map(area => (
+  <meta name={`geo.${area.abbr.toLowerCase()}`} content={`${area.state} insurance, ${area.major_cities.join(' insurance, ')} insurance`} />
+))}

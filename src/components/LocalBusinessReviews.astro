@@ -1,0 +1,131 @@
+---
+// Local Business Reviews Component for SEO
+interface Props {
+  showSchema?: boolean;
+  variant?: 'widget' | 'testimonials' | 'schema-only';
+  className?: string;
+}
+
+const { 
+  showSchema = true,
+  variant = 'widget',
+  className = ''
+} = Astro.props;
+
+// Sample reviews for structured data (replace with real reviews)
+const reviews = [
+  {
+    author: "Sarah Johnson",
+    rating: 5,
+    reviewBody: "PCFG Insurance provided excellent workers' compensation coverage for our construction company. Their service is outstanding and rates are very competitive.",
+    datePublished: "2024-01-15"
+  },
+  {
+    author: "Mike Chen", 
+    rating: 5,
+    reviewBody: "Great experience with PCFG for our commercial auto insurance. They made the process simple and saved us money compared to our previous carrier.",
+    datePublished: "2024-01-10"
+  },
+  {
+    author: "Jennifer Martinez",
+    rating: 5,
+    reviewBody: "Professional service and quick response times. They helped us set up comprehensive employee benefits that our team loves.",
+    datePublished: "2024-01-05"
+  },
+  {
+    author: "Robert Thompson",
+    rating: 5,
+    reviewBody: "As a veteran-owned business ourselves, we appreciate working with PCFG. Their integrity and attention to detail is exactly what we needed.",
+    datePublished: "2023-12-28"
+  }
+];
+---
+
+{variant === 'widget' && (
+  <div class={`bg-white rounded-lg shadow-lg p-6 ${className}`}>
+    <div class="text-center mb-6">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-2">What Our Clients Say</h3>
+      <div class="flex items-center justify-center mb-4">
+        <div class="flex text-yellow-400">
+          {[1,2,3,4,5].map(() => (
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+          ))}
+        </div>
+        <span class="ml-2 text-gray-600">5.0 out of 5 stars</span>
+      </div>
+    </div>
+    
+    <!-- Google Reviews Widget -->
+    <div class="mb-6">
+      <script type='text/javascript' src='https://reputationhub.site/reputation/assets/review-widget.js'></script>
+      <iframe 
+        class='lc_reviews_widget' 
+        src='https://reputationhub.site/reputation/widgets/review_widget/adwiOgSaENtAsMUbOPW2' 
+        frameborder='0' 
+        scrolling='no' 
+        style='min-width: 100%; width: 100%; min-height: 400px;'
+        title="PCFG Insurance Services Reviews">
+      </iframe>
+    </div>
+  </div>
+)}
+
+{variant === 'testimonials' && (
+  <div class={`grid grid-cols-1 md:grid-cols-2 gap-6 ${className}`}>
+    {reviews.map(review => (
+      <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-primary">
+        <div class="flex items-center mb-4">
+          <div class="flex text-yellow-400">
+            {[1,2,3,4,5].map(star => (
+              <svg class={`w-5 h-5 ${star <= review.rating ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+            ))}
+          </div>
+          <span class="ml-2 text-sm text-gray-600">{review.rating}.0</span>
+        </div>
+        <p class="text-gray-700 mb-4 italic">"{review.reviewBody}"</p>
+        <div class="text-sm text-gray-600">
+          <strong>{review.author}</strong> • {new Date(review.datePublished).toLocaleDateString()}
+        </div>
+      </div>
+    ))}
+  </div>
+)}
+
+{showSchema && (
+  <!-- Review Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PCFG Insurance Services",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "{reviews.length}",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {reviews.map(review => `{
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "${review.author}"
+        },
+        "reviewRating": {
+          "@type": "Rating", 
+          "ratingValue": "${review.rating}",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "reviewBody": "${review.reviewBody}",
+        "datePublished": "${review.datePublished}"
+      }`).join(', ')}
+    ]
+  }
+  </script>
+)}

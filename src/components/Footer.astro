@@ -1,4 +1,5 @@
 ---
+import NAPConsistency from './NAPConsistency.astro';
 ---
 
 <footer class="bg-neutral-dark text-white">
@@ -8,8 +9,9 @@
       <div class="col-span-1 md:col-span-2">
         <img src="/assets/PCFG-Insurance-Logo-Main.png" alt="PCFG Insurance Services" class="h-12 w-auto mb-4 brightness-0 invert">
         <p class="text-gray-300 mb-4">
-          Protecting what matters most to your business and family. Full-service insurance agency with personalized solutions.
+          Veteran-owned insurance agency based in Parish, NY, protecting what matters most to your business and family across 15 states since 2018.
         </p>
+        <NAPConsistency variant="footer" showEmail={true} showHours={false} showAddress={true} />
         <div class="flex space-x-4">
           <a href="https://www.facebook.com/pcfginsurance" class="text-gray-300 hover:text-white transition-colors">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -46,12 +48,8 @@
       
       <!-- Contact Info -->
       <div>
-        <h3 class="text-lg font-semibold mb-4 font-heading">Contact Info</h3>
-        <div class="space-y-2 text-gray-300">
-          <p>PO Box 609<br>Parish, NY 13131</p>
-          <p>Phone: (877) 717-7234</p>
-          <p>Email: info@pcfginsurance.com</p>
-        </div>
+        <h3 class="text-lg font-semibold mb-4 font-heading">Parish, NY Office</h3>
+        <NAPConsistency variant="footer" showEmail={true} showHours={true} showAddress={true} />
         
         <!-- Client Services Quick Links -->
         <div class="mt-6">
@@ -69,7 +67,7 @@
     
     <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
       <p class="text-gray-300 text-sm">
-        © 2024 PCFG Insurance Services. All rights reserved.
+        © 2024 PCFG Insurance Services, Parish, NY. All rights reserved. Licensed in 15 states.
       </p>
       <div class="flex space-x-6 mt-4 md:mt-0">
         <a href="/privacy" class="text-gray-300 hover:text-primary-light text-sm transition-colors">Privacy Policy</a>

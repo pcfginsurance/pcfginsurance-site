@@ -6,9 +6,14 @@ import QuoteForm from '../components/QuoteForm.astro';
 import Card from '../components/Card.astro';
 import Button from '../components/Button.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import LocalSEO from '../components/LocalSEO.astro';
+import NAPConsistency from '../components/NAPConsistency.astro';
+import LocalServiceAreas from '../components/LocalServiceAreas.astro';
+import LocalBusinessReviews from '../components/LocalBusinessReviews.astro';
 ---
 
-<Layout title="PCFG Insurance Services - Protecting What Matters Most" description="Professional insurance services for businesses and families across 15 states. Workers' compensation, commercial auto, general liability, employee benefits, and more. Get your free quote today.">
+<Layout title="PCFG Insurance Services - Parish NY | Insurance Agency Serving 15 States" description="Veteran-owned insurance agency in Parish, NY serving businesses and families across 15 states. Workers' compensation, commercial auto, general liability, employee benefits. Licensed in NY, PA, FL, TX and more. Call (877) 717-7234.">
+  <LocalSEO pageName="Home" />
   <Header />
   
   <!-- Hero Section with Background Image -->
@@ -88,79 +93,18 @@ import ServiceCard from '../components/ServiceCard.astro';
   <section class="py-16 md:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8 md:mb-12">
-        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4 font-heading">Licensed to Serve You Across 15 States</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4 font-heading">Licensed Insurance Agency Serving 15 States from Parish, NY</h2>
         <p class="text-lg md:text-xl text-neutral-dark max-w-3xl mx-auto">
-          From coast to coast, we bring our expertise and personalized service to businesses and families nationwide.
+          From our headquarters in Parish, New York, we bring our expertise and personalized service to businesses and families across 15 states.
         </p>
       </div>
       
       <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
-        <div class="grid grid-cols-3 md:grid-cols-5 gap-3">
-          <div class="text-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-            <div class="text-lg font-bold text-primary mb-1">AL</div>
-            <div class="text-xs text-neutral-dark">Alabama</div>
-          </div>
-          <div class="text-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-            <div class="text-lg font-bold text-primary mb-1">AZ</div>
-            <div class="text-xs text-neutral-dark">Arizona</div>
-          </div>
-          <div class="text-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-            <div class="text-lg font-bold text-primary mb-1">FL</div>
-            <div class="text-xs text-neutral-dark">Florida</div>
-          </div>
-          <div class="text-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-            <div class="text-lg font-bold text-primary mb-1">GA</div>
-            <div class="text-xs text-neutral-dark">Georgia</div>
-          </div>
-          <div class="text-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-            <div class="text-lg font-bold text-primary mb-1">IN</div>
-            <div class="text-xs text-neutral-dark">Indiana</div>
-          </div>
-          <div class="text-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-            <div class="text-lg font-bold text-primary mb-1">MD</div>
-            <div class="text-xs text-neutral-dark">Maryland</div>
-          </div>
-          <div class="text-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-            <div class="text-lg font-bold text-primary mb-1">ME</div>
-            <div class="text-xs text-neutral-dark">Maine</div>
-          </div>
-          <div class="text-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-            <div class="text-lg font-bold text-primary mb-1">NJ</div>
-            <div class="text-xs text-neutral-dark">New Jersey</div>
-          </div>
-          <div class="text-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-            <div class="text-lg font-bold text-primary mb-1">NY</div>
-            <div class="text-xs text-neutral-dark">New York</div>
-          </div>
-          <div class="text-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-            <div class="text-lg font-bold text-primary mb-1">NC</div>
-            <div class="text-xs text-neutral-dark">North Carolina</div>
-          </div>
-          <div class="text-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-            <div class="text-lg font-bold text-primary mb-1">OH</div>
-            <div class="text-xs text-neutral-dark">Ohio</div>
-          </div>
-          <div class="text-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-            <div class="text-lg font-bold text-primary mb-1">PA</div>
-            <div class="text-xs text-neutral-dark">Pennsylvania</div>
-          </div>
-          <div class="text-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-            <div class="text-lg font-bold text-primary mb-1">TN</div>
-            <div class="text-xs text-neutral-dark">Tennessee</div>
-          </div>
-          <div class="text-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-            <div class="text-lg font-bold text-primary mb-1">TX</div>
-            <div class="text-xs text-neutral-dark">Texas</div>
-          </div>
-          <div class="text-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-            <div class="text-lg font-bold text-primary mb-1">VA</div>
-            <div class="text-xs text-neutral-dark">Virginia</div>
-          </div>
-        </div>
+        <LocalServiceAreas variant="grid" />
         
         <div class="mt-6 text-center">
           <p class="text-neutral-dark">
-            No matter where your business is located, we're here to provide the same level of excellence and personalized service.
+            No matter where your business is located in our licensed states, we're here to provide the same level of excellence and personalized service from our Parish, NY headquarters.
           </p>
         </div>
       </div>
@@ -170,18 +114,7 @@ import ServiceCard from '../components/ServiceCard.astro';
   <!-- Google Reviews Section -->
   <section class="py-16 md:py-20 bg-neutral-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-8 md:mb-12">
-        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4 font-heading">What Our Clients Say</h2>
-        <p class="text-lg md:text-xl text-neutral-dark max-w-3xl mx-auto">
-          Don't just take our word for it - see what our satisfied clients have to say about our service.
-        </p>
-      </div>
-      
-      <!-- Google Reviews Widget -->
-      <div class="bg-white rounded-lg shadow-lg p-6">
-        <script type='text/javascript' src='https://reputationhub.site/reputation/assets/review-widget.js'></script>
-        <iframe class='lc_reviews_widget' src='https://reputationhub.site/reputation/widgets/review_widget/adwiOgSaENtAsMUbOPW2' frameborder='0' scrolling='no' style='min-width: 100%; width: 100%; min-height: 400px;'></iframe>
-      </div>
+      <LocalBusinessReviews variant="widget" />
     </div>
   </section>
   
