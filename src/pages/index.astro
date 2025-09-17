@@ -22,15 +22,19 @@ import LocalBusinessReviews from '../components/LocalBusinessReviews.astro';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div class="relative z-10">
-          <h1 class="text-3xl md:text-5xl font-bold text-neutral-dark mb-6 font-heading">
-            PCFG Insurance Services - Parish NY Insurance Agency Serving 15 States
+          <h1 id="hero-title" class="text-3xl md:text-5xl font-bold text-neutral-dark mb-6 font-heading">
+            PCFG Insurance Services - Parish NY | Insurance Agency Serving 15 States
           </h1>
-          <h2 class="text-xl md:text-2xl text-neutral-dark mb-8 font-normal">
+          <h2 id="hero-subtitle" class="text-xl md:text-2xl text-neutral-dark mb-8 font-normal">
             Protecting What Matters Most to Your Business and Family - Comprehensive Insurance Solutions Across 15 States
           </h2>
+          <p id="local-message" class="text-lg text-neutral-dark mb-6 opacity-90">
+            Serving businesses and families across 15 states from our Central New York location.
+          </p>
           <div class="flex flex-col sm:flex-row gap-4">
             <Button 
-              text="Get Free Quote" 
+              text="Get Free Quote"
+              id="hero-cta-button"
               href="/contact" 
               variant="primary" 
               size="lg" 
@@ -43,6 +47,17 @@ import LocalBusinessReviews from '../components/LocalBusinessReviews.astro';
               size="lg" 
               fullWidth={true}
             />
+          </div>
+          
+          <!-- Location Detection Status -->
+          <div id="location-status" class="mt-4 text-sm text-gray-600 hidden">
+            <div class="flex items-center">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span id="location-text">Detecting your location for personalized content...</span>
+            </div>
           </div>
         </div>
         <div class="lg:pl-8 relative z-10">
@@ -234,8 +249,19 @@ import LocalBusinessReviews from '../components/LocalBusinessReviews.astro';
 </Layout>
 
 <script>
+  // Import location detection utilities
+  import('/src/utils/location-detection.js').then(module => {
+    window.locationUtils = module;
+    console.log('Location detection utilities loaded');
+  }).catch(error => {
+    console.error('Error loading location detection utilities:', error);
+  });
+
   // Add swipe gesture support for mobile
   document.addEventListener('DOMContentLoaded', function() {
+    // Initialize dynamic location content
+    initializeLocationContent();
+    
     let touchStartX = 0;
     let touchEndX = 0;
     
@@ -259,4 +285,115 @@ import LocalBusinessReviews from '../components/LocalBusinessReviews.astro';
       handleSwipe();
     });
   });
+  
+  /**
+   * Initialize dynamic location-based content
+   */
+  async function initializeLocationContent() {
+    const heroTitle = document.getElementById('hero-title');
+    const heroSubtitle = document.getElementById('hero-subtitle');
+    const localMessage = document.getElementById('local-message');
+    const locationStatus = document.getElementById('location-status');
+    const locationText = document.getElementById('location-text');
+    const ctaButton = document.getElementById('hero-cta-button');
+    
+    if (!heroTitle || !heroSubtitle || !localMessage) {
+      console.warn('Hero elements not found for location personalization');
+      return;
+    }
+    
+    try {
+      // Show loading status
+      if (locationStatus && locationText) {
+        locationStatus.classList.remove('hidden');
+        locationText.textContent = 'Detecting your location for personalized content...';
+      }
+      
+      // Check for cached location first
+      let locationContent = null;
+      if (window.locationUtils && window.locationUtils.getCachedLocationData) {
+        const cached = window.locationUtils.getCachedLocationData();
+        if (cached) {
+          locationContent = cached;
+          console.log('Using cached location data:', cached);
+        }
+      }
+      
+      // If no cache, get fresh location data
+      if (!locationContent && window.locationUtils && window.locationUtils.getUserLocationContent) {
+        locationContent = await window.locationUtils.getUserLocationContent();
+        
+        // Cache the result
+        if (window.locationUtils.cacheLocationData) {
+          window.locationUtils.cacheLocationData(locationContent);
+        }
+      }
+      
+      if (locationContent) {
+        // Update hero content with smooth transitions
+        updateHeroContent(heroTitle, heroSubtitle, localMessage, ctaButton, locationContent);
+        
+        // Update location status
+        if (locationStatus && locationText) {
+          if (locationContent.isLicensedState) {
+            locationText.innerHTML = `<span class="text-green-600">✓ We're licensed to serve you in ${locationContent.state}</span>`;
+          } else {
+            locationText.innerHTML = `<span class="text-yellow-600">⚠ We're not currently licensed in ${locationContent.state}</span>`;
+          }
+        }
+        
+        console.log('Location content updated:', locationContent);
+      }
+    } catch (error) {
+      console.error('Location content initialization failed:', error);
+      
+      // Hide loading status on error
+      if (locationStatus) {
+        locationStatus.classList.add('hidden');
+      }
+    }
+  }
+  
+  /**
+   * Update hero content with smooth animations
+   */
+  function updateHeroContent(titleEl, subtitleEl, messageEl, ctaEl, content) {
+    // Add fade-out class
+    const elements = [titleEl, subtitleEl, messageEl];
+    elements.forEach(el => {
+      el.style.opacity = '0.7';
+      el.style.transition = 'opacity 0.3s ease-in-out';
+    });
+    
+    // Update content after brief delay
+    setTimeout(() => {
+      titleEl.textContent = content.heroTitle;
+      subtitleEl.textContent = content.heroSubtitle;
+      messageEl.textContent = content.localMessage;
+      
+      // Update CTA button text if available
+      if (ctaEl && content.ctaText) {
+        const buttonText = ctaEl.querySelector('span') || ctaEl;
+        if (buttonText) {
+          buttonText.textContent = content.ctaText;
+        }
+      }
+      
+      // Fade back in
+      elements.forEach(el => {
+        el.style.opacity = '1';
+      });
+      
+      // Update page title for SEO
+      if (content.heroTitle) {
+        document.title = content.heroTitle + ' | PCFG Insurance Services';
+      }
+      
+      // Update meta description
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription && content.heroSubtitle) {
+        metaDescription.setAttribute('content', content.heroSubtitle + ' Call (877) 717-7234 for your free quote.');
+      }
+    }, 150);
+  }
 </script>

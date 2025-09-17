@@ -72,7 +72,7 @@ const displayStates = showAllStates ? serviceAreas : serviceAreas.filter(area =>
 
 {variant === 'banner' && (
   <div class={`text-center ${className}`}>
-    <h3 class="text-xl font-bold text-white mb-4">Licensed to Serve You In:</h3>
+    <h3 id="service-areas-title" class="text-xl font-bold text-white mb-4">Licensed to Serve You In:</h3>
     <div class="flex flex-wrap justify-center gap-3">
       {displayStates.map(area => (
         <span class="bg-white text-primary-dark px-3 py-1 rounded-full text-sm font-medium">

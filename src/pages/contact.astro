@@ -16,8 +16,8 @@ import LocalServiceAreas from '../components/LocalServiceAreas.astro';
   <section class="py-20 bg-gradient-to-br from-primary-50 to-white" role="banner">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h1 class="text-4xl md:text-5xl font-bold text-neutral-dark mb-6 font-heading">Contact PCFG Insurance Services - Free Insurance Quotes</h1>
-        <p class="text-xl text-neutral-dark max-w-3xl mx-auto max-w-none">
+        <h1 id="contact-hero-title" class="text-4xl md:text-5xl font-bold text-neutral-dark mb-6 font-heading">Contact PCFG Insurance Services - Free Insurance Quotes</h1>
+        <p id="contact-hero-subtitle" class="text-xl text-neutral-dark max-w-3xl mx-auto max-w-none">
           Ready to protect what matters most? Get your free quote today or speak with one of our insurance experts. We're licensed to serve you across 15 states.
         </p>
       </div>
@@ -41,6 +41,8 @@ import LocalServiceAreas from '../components/LocalServiceAreas.astro';
           <h2 id="contact-form-heading" class="text-2xl font-bold text-neutral-dark mb-6 font-heading">Get Your Free Insurance Quote - All Coverage Types</h2>
           <form id="contact-form" class="space-y-6" name="contact" data-netlify="true" data-netlify-recaptcha="true">
             <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" id="contact-user-location-state" name="user-location-state" value="" />
+            <input type="hidden" id="contact-user-location-city" name="user-location-city" value="" />
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label for="first-name" class="block text-sm font-medium text-neutral-dark mb-1">First Name *</label>
@@ -276,6 +278,9 @@ import LocalServiceAreas from '../components/LocalServiceAreas.astro';
 <script>
 
   document.addEventListener('DOMContentLoaded', function() {
+    // Initialize location-aware contact page
+    initializeLocationAwareContact();
+    
     const form = document.getElementById('contact-form');
     
     if (form) {
@@ -307,4 +312,73 @@ import LocalServiceAreas from '../components/LocalServiceAreas.astro';
       });
     }
   });
+  
+  /**
+   * Initialize location-aware contact page content
+   */
+  async function initializeLocationAwareContact() {
+    try {
+      // Import location utilities if not already available
+      if (!window.locationUtils) {
+        const module = await import('/src/utils/location-detection.js');
+        window.locationUtils = module;
+      }
+      
+      // Get user location content
+      const locationContent = await window.locationUtils.getUserLocationContent();
+      
+      if (locationContent && locationContent.state !== 'Multiple States') {
+        // Update contact page hero content
+        const heroTitle = document.getElementById('contact-hero-title');
+        const heroSubtitle = document.getElementById('contact-hero-subtitle');
+        const formHeading = document.getElementById('contact-form-heading');
+        
+        if (heroTitle) {
+          heroTitle.textContent = `Contact PCFG Insurance - ${locationContent.state} Insurance Services`;
+        }
+        
+        if (heroSubtitle) {
+          heroSubtitle.textContent = `Ready to protect what matters most in ${locationContent.city || locationContent.state}? Get your free quote today from our licensed insurance experts.`;
+        }
+        
+        if (formHeading) {
+          formHeading.textContent = `Get Your Free ${locationContent.state} Insurance Quote`;
+        }
+        
+        // Store location data in hidden fields
+        const stateField = document.getElementById('contact-user-location-state');
+        const cityField = document.getElementById('contact-user-location-city');
+        
+        if (stateField) stateField.value = locationContent.state;
+        if (cityField) cityField.value = locationContent.city || '';
+        
+        // Pre-select state in dropdown if it matches
+        const stateSelect = document.getElementById('state');
+        if (stateSelect && locationContent.state) {
+          const stateCode = getStateCodeFromName(locationContent.state);
+          if (stateCode) {
+            stateSelect.value = stateCode;
+          }
+        }
+        
+        console.log('Contact page personalized for:', locationContent);
+      }
+    } catch (error) {
+      console.error('Failed to initialize location-aware contact page:', error);
+    }
+  }
+  
+  /**
+   * Convert state name to state code for form pre-selection
+   */
+  function getStateCodeFromName(stateName) {
+    const stateMap = {
+      'Alabama': 'AL', 'Arizona': 'AZ', 'Florida': 'FL', 'Georgia': 'GA',
+      'Indiana': 'IN', 'Maryland': 'MD', 'Maine': 'ME', 'New Jersey': 'NJ',
+      'New York': 'NY', 'North Carolina': 'NC', 'Ohio': 'OH', 'Pennsylvania': 'PA',
+      'Tennessee': 'TN', 'Texas': 'TX', 'Virginia': 'VA'
+    };
+    
+    return stateMap[stateName] || '';
+  }
 </script>
