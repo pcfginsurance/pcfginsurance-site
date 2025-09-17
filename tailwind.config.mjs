@@ -42,6 +42,32 @@ export default {
       fontFamily: {
         sans: ['Open Sans', 'system-ui', 'sans-serif'],
         heading: ['Poppins', 'system-ui', 'sans-serif']
+      },
+      fontSize: {
+        'xs': ['0.75rem', { lineHeight: '1.6' }],
+        'sm': ['0.875rem', { lineHeight: '1.6' }],
+        'base': ['1rem', { lineHeight: '1.6' }],
+        'lg': ['1.125rem', { lineHeight: '1.6' }],
+        'xl': ['1.25rem', { lineHeight: '1.6' }],
+        '2xl': ['1.5rem', { lineHeight: '1.3' }],
+        '3xl': ['1.875rem', { lineHeight: '1.3' }],
+        '4xl': ['2.25rem', { lineHeight: '1.3' }],
+        '5xl': ['3rem', { lineHeight: '1.2' }],
+        '6xl': ['3.75rem', { lineHeight: '1.2' }],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
+      },
+      letterSpacing: {
+        'reading': '0.02em',
+        'heading': '-0.025em',
+      },
+      lineHeight: {
+        'reading': '1.6',
+        'heading': '1.3',
+        'relaxed': '1.8',
       }
     },
   },

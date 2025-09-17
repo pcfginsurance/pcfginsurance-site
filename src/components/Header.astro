@@ -1,18 +1,18 @@
 ---
 ---
 
-<header class="bg-white shadow-sm sticky top-0 z-50">
+<header class="bg-white shadow-sm sticky top-0 z-50" role="banner">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
       <div class="flex-shrink-0">
         <a href="/" class="flex items-center">
-          <img src="/assets/PCFG-Insurance-Logo-Main.png" alt="PCFG Insurance Services" class="h-10 w-auto">
+          <img src="/assets/PCFG-Insurance-Logo-Main.png" alt="PCFG Insurance Services - Home" class="h-10 w-auto">
         </a>
       </div>
       
       <!-- Desktop Navigation -->
-      <div class="hidden md:block">
+      <nav class="hidden md:block" role="navigation" aria-label="Main navigation">
         <div class="ml-10 flex items-center space-x-8">
           <a href="/" class="text-neutral-dark hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Home</a>
           <div class="relative group">
@@ -73,7 +73,7 @@
       
       <!-- Mobile menu button -->
       <div class="md:hidden">
-        <button type="button" class="mobile-menu-button bg-neutral-light inline-flex items-center justify-center p-2 rounded-md text-neutral-dark hover:text-primary hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
+        <button type="button" class="mobile-menu-button bg-neutral-light inline-flex items-center justify-center p-2 rounded-md text-neutral-dark hover:text-primary hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open main menu">
           <span class="sr-only">Open main menu</span>
           <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -83,7 +83,7 @@
     </div>
     
     <!-- Mobile Navigation -->
-    <div class="mobile-menu hidden md:hidden">
+    <div id="mobile-menu" class="mobile-menu hidden md:hidden" role="navigation" aria-label="Mobile navigation">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
         <a href="/" class="text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Home</a>
         <a href="/about" class="text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">About</a>
@@ -116,6 +116,8 @@
     if (mobileMenuButton && mobileMenu) {
       mobileMenuButton.addEventListener('click', function() {
         mobileMenu.classList.toggle('hidden');
+        const isExpanded = !mobileMenu.classList.contains('hidden');
+        mobileMenuButton.setAttribute('aria-expanded', isExpanded.toString());
       });
     }
     

@@ -1,23 +1,26 @@
 ---
 ---
 
-<div class="bg-white p-6 rounded-lg shadow-lg">
+<div class="bg-white p-6 rounded-lg shadow-lg" role="complementary" aria-labelledby="quote-form-heading">
   <h3 class="text-xl font-semibold text-neutral-dark mb-4 font-heading">Get Your Free Quote</h3>
   <form id="quote-form" class="space-y-4" name="quick-quote" data-netlify="true" data-netlify-recaptcha="true">
     <input type="hidden" name="form-name" value="quick-quote" />
     <div>
       <label for="name" class="block text-sm font-medium text-neutral-dark mb-1">Full Name *</label>
-      <input type="text" id="name" name="name" required class="w-full px-3 py-3 border border-neutral-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+      <input type="text" id="name" name="name" required aria-describedby="name-help" class="w-full px-3 py-3 border border-neutral-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+      <div id="name-help" class="sr-only">Enter your full name for the quote</div>
     </div>
     
     <div>
       <label for="email" class="block text-sm font-medium text-neutral-dark mb-1">Email Address *</label>
-      <input type="email" id="email" name="email" required class="w-full px-3 py-3 border border-neutral-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+      <input type="email" id="email" name="email" required aria-describedby="email-help" class="w-full px-3 py-3 border border-neutral-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+      <div id="email-help" class="sr-only">Enter your email address to receive your quote</div>
     </div>
     
     <div>
       <label for="phone" class="block text-sm font-medium text-neutral-dark mb-1">Phone Number *</label>
-      <input type="tel" id="phone" name="phone" required class="w-full px-3 py-3 border border-neutral-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+      <input type="tel" id="phone" name="phone" required aria-describedby="phone-help" class="w-full px-3 py-3 border border-neutral-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+      <div id="phone-help" class="sr-only">Enter your phone number for contact</div>
     </div>
     
     <div>
@@ -63,14 +66,16 @@
     
     <div>
       <label for="message" class="block text-sm font-medium text-neutral-dark mb-1">Additional Details</label>
-      <textarea id="message" name="message" rows="3" class="w-full px-3 py-3 border border-neutral-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Tell us about your insurance needs..."></textarea>
+      <textarea id="message" name="message" rows="3" aria-describedby="message-help" class="w-full px-3 py-3 border border-neutral-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Tell us about your insurance needs..."></textarea>
+      <div id="message-help" class="sr-only">Provide additional details about your insurance needs</div>
     </div>
     
     <div data-netlify-recaptcha="true"></div>
     
-    <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-4 px-4 rounded-lg transition-colors duration-200 text-lg shadow-md">
+    <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-4 px-4 rounded-lg transition-colors duration-200 text-lg shadow-md" aria-describedby="submit-help">
       Get Free Quote
     </button>
+    <div id="submit-help" class="sr-only">Submit form to receive your free insurance quote</div>
     
     <!-- Quote Form CTAs -->
     <div class="mt-4 space-y-3">
