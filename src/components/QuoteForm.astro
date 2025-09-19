@@ -2,9 +2,11 @@
 ---
 
 <div class="bg-white p-6 rounded-lg shadow-lg" role="complementary" aria-labelledby="quote-form-heading">
-  <h3 class="text-xl font-semibold text-neutral-dark mb-4 font-heading">Get Your Free Quote</h3>
+  <h3 id="quote-form-title" class="text-xl font-semibold text-neutral-dark mb-4 font-heading">Get Your Free Quote</h3>
   <form id="quote-form" class="space-y-4" name="quick-quote" data-netlify="true" data-netlify-recaptcha="true">
     <input type="hidden" name="form-name" value="quick-quote" />
+    <input type="hidden" id="user-location-state" name="user-location-state" value="" />
+    <input type="hidden" id="user-location-city" name="user-location-city" value="" />
     <div>
       <label for="name" class="block text-sm font-medium text-neutral-dark mb-1">Full Name *</label>
       <input type="text" id="name" name="name" required aria-describedby="name-help" class="w-full px-3 py-3 border border-neutral-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
@@ -73,7 +75,7 @@
     <div data-netlify-recaptcha="true"></div>
     
     <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-4 px-4 rounded-lg transition-colors duration-200 text-lg shadow-md" aria-describedby="submit-help">
-      Get Free Quote
+      <span id="quote-cta-text">Get Free Quote</span>
     </button>
     <div id="submit-help" class="sr-only">Submit form to receive your free insurance quote</div>
     
@@ -108,6 +110,9 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Initialize location-aware quote form
+    initializeLocationAwareForm();
+    
     const form = document.getElementById('quote-form');
     
     if (form) {
@@ -220,4 +225,56 @@
       });
     }
   });
+  
+  /**
+   * Initialize location-aware form content
+   */
+  async function initializeLocationAwareForm() {
+    try {
+      // Wait for location utilities to load
+      let attempts = 0;
+      while (!window.locationUtils && attempts < 50) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+        attempts++;
+      }
+      
+      if (!window.locationUtils) {
+        console.warn('Location utilities not available for form personalization');
+        return;
+      }
+      
+      // Get user location content
+      const locationContent = await window.locationUtils.getUserLocationContent();
+      
+      if (locationContent) {
+        // Update form title
+        const formTitle = document.getElementById('quote-form-title');
+        if (formTitle && locationContent.state && locationContent.state !== 'Multiple States') {
+          formTitle.textContent = `Get Your Free ${locationContent.state} Insurance Quote`;
+        }
+        
+        // Update CTA button text
+        const ctaText = document.getElementById('quote-cta-text');
+        if (ctaText && locationContent.ctaText) {
+          ctaText.textContent = locationContent.ctaText;
+        }
+        
+        // Store location data in hidden fields for form submission
+        const stateField = document.getElementById('user-location-state');
+        const cityField = document.getElementById('user-location-city');
+        
+        if (stateField && locationContent.state) {
+          stateField.value = locationContent.state;
+        }
+        
+        if (cityField && locationContent.city) {
+          cityField.value = locationContent.city;
+        }
+        
+        console.log('Quote form personalized for:', locationContent);
+      }
+    } catch (error) {
+      console.error('Failed to initialize location-aware form:', error);
+    }
+  }
 </script>
