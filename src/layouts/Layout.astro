@@ -192,26 +192,14 @@ const { title, description = "PCFG Insurance Services - Protecting what matters 
 
     <!-- Google Tag Manager -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB7T9QNC21"></script>
-    <script is:inline>
-      // Type-safe declarations for TypeScript
-      declare global {
-        interface Window {
-          dataLayer: any[];
-          gtag: (...args: any[]) => void;
-        }
-      }
-
+    <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(...args: any[]) {
-        window.dataLayer.push(args);
-      }
+      function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-
-      // Init GA
       gtag('js', new Date());
       gtag('config', 'G-DB7T9QNC21');
-
-      // Conversion event
+      
+      // Event snippet for PCFGinsurance.com - Lead Form Submission conversion page
       gtag('event', 'conversion', {
         'send_to': 'AW-16706905838/PyfqCMOzwtQZEO7NvJ4-',
         'value': 1.0,
@@ -219,7 +207,6 @@ const { title, description = "PCFG Insurance Services - Protecting what matters 
       });
     </script>
     <!-- End Google Tag Manager -->
-
   </head>
   <body class="font-sans antialiased">
     <slot />
