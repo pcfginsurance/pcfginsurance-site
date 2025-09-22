@@ -71,20 +71,20 @@ const { showToolbar = true } = Astro.props;
     increaseTextBtn?.addEventListener('click', () => {
       fontSize = Math.min(fontSize + 10, 150);
       document.documentElement.style.fontSize = fontSize + '%';
-      localStorage.setItem('accessibility-font-size', fontSize);
+      localStorage.setItem('accessibility-font-size', String(fontSize));
     });
     
     decreaseTextBtn?.addEventListener('click', () => {
       fontSize = Math.max(fontSize - 10, 80);
       document.documentElement.style.fontSize = fontSize + '%';
-      localStorage.setItem('accessibility-font-size', fontSize);
+      localStorage.setItem('accessibility-font-size', String(fontSize));
     });
     
     // High contrast mode
     highContrastBtn?.addEventListener('click', () => {
       isHighContrast = !isHighContrast;
       document.body.classList.toggle('high-contrast', isHighContrast);
-      localStorage.setItem('accessibility-high-contrast', isHighContrast);
+      localStorage.setItem('accessibility-high-contrast', String(isHighContrast));
       
       if (isHighContrast) {
         document.documentElement.style.setProperty('--text-color', '#000000');
@@ -101,14 +101,14 @@ const { showToolbar = true } = Astro.props;
     dyslexiaFontBtn?.addEventListener('click', () => {
       isDyslexiaFont = !isDyslexiaFont;
       document.body.classList.toggle('dyslexia-friendly', isDyslexiaFont);
-      localStorage.setItem('accessibility-dyslexia-font', isDyslexiaFont);
+      localStorage.setItem('accessibility-dyslexia-font', String(isDyslexiaFont));
     });
     
     // Reading guide
     readingGuideBtn?.addEventListener('click', () => {
       isReadingGuide = !isReadingGuide;
       readingGuide?.classList.toggle('hidden', !isReadingGuide);
-      localStorage.setItem('accessibility-reading-guide', isReadingGuide);
+      localStorage.setItem('accessibility-reading-guide', String(isReadingGuide));
     });
     
     // Reading guide mouse tracking
