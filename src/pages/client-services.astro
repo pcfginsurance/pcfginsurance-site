@@ -166,98 +166,20 @@ import Footer from '../components/Footer.astro';
         </div>
         
         <div class="bg-white p-8 rounded-lg shadow-lg">
-          <form id="claim-report-form" class="space-y-6" name="claim-report" data-netlify="true" data-netlify-recaptcha="true">
-            <input type="hidden" name="form-name" value="claim-report" />
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label for="claim-policy-number" class="block text-sm font-medium text-gray-700 mb-1">Policy Number *</label>
-                <input type="text" id="claim-policy-number" name="policy-number" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent">
-              </div>
-              <div>
-                <label for="claim-insured-name" class="block text-sm font-medium text-gray-700 mb-1">Insured Name *</label>
-                <input type="text" id="claim-insured-name" name="insured-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent">
-              </div>
+          <div class="text-center py-12">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Report Your Claim</h3>
+            <p class="text-gray-600 mb-6">
+              For claim reporting, please contact us directly for immediate assistance.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="tel:877-717-7234" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-md font-semibold transition-colors duration-200">
+                Call (877) 717-7234
+              </a>
+              <a href="mailto:claims@pcfginsurance.com" class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-6 py-3 rounded-md font-semibold transition-colors duration-200">
+                Email Claims Department
+              </a>
             </div>
-            
-            <div>
-              <label for="claim-type" class="block text-sm font-medium text-gray-700 mb-1">Type of Claim *</label>
-              <select id="claim-type" name="claim-type" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent">
-                <option value="">Select Claim Type</option>
-                <option value="auto-accident">Auto Accident</option>
-                <option value="property-damage">Property Damage</option>
-                <option value="theft">Theft</option>
-                <option value="fire">Fire</option>
-                <option value="water-damage">Water Damage</option>
-                <option value="vandalism">Vandalism</option>
-                <option value="liability">Liability Claim</option>
-                <option value="workers-comp">Workers' Compensation</option>
-                <option value="cyber-incident">Cyber Incident</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label for="loss-date" class="block text-sm font-medium text-gray-700 mb-1">Date of Loss *</label>
-                <input type="date" id="loss-date" name="loss-date" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent">
-              </div>
-              <div>
-                <label for="loss-time" class="block text-sm font-medium text-gray-700 mb-1">Time of Loss</label>
-                <input type="time" id="loss-time" name="loss-time" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent">
-              </div>
-            </div>
-            
-            <div>
-              <label for="loss-location" class="block text-sm font-medium text-gray-700 mb-1">Location of Loss *</label>
-              <input type="text" id="loss-location" name="loss-location" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent" placeholder="Address where the loss occurred">
-            </div>
-            
-            <div>
-              <label for="loss-description" class="block text-sm font-medium text-gray-700 mb-1">Description of Loss *</label>
-              <textarea id="loss-description" name="loss-description" required rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent" placeholder="Please provide a detailed description of what happened..."></textarea>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Were there any injuries?</label>
-                <div class="flex space-x-4">
-                  <label class="flex items-center">
-                    <input type="radio" name="injuries" value="true" class="text-navy-600 focus:ring-navy-500">
-                    <span class="ml-2 text-sm text-gray-700">Yes</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="radio" name="injuries" value="false" checked class="text-navy-600 focus:ring-navy-500">
-                    <span class="ml-2 text-sm text-gray-700">No</span>
-                  </label>
-                </div>
-              </div>
-              
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Police report filed?</label>
-                <div class="flex space-x-4">
-                  <label class="flex items-center">
-                    <input type="radio" name="police-report" value="true" class="text-navy-600 focus:ring-navy-500">
-                    <span class="ml-2 text-sm text-gray-700">Yes</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="radio" name="police-report" value="false" checked class="text-navy-600 focus:ring-navy-500">
-                    <span class="ml-2 text-sm text-gray-700">No</span>
-                  </label>
-                </div>
-              </div>
-              
-              <div>
-                <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-1">Contact Phone *</label>
-                <input type="tel" id="contact-phone" name="contact-phone" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent">
-              </div>
-            </div>
-            
-            <div data-netlify-recaptcha="true"></div>
-            
-            <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded-md transition-colors duration-200">
-              Submit Claim Report
-            </button>
-          </form>
+          </div>
         </div>
       </div>
     </div>

@@ -29,44 +29,19 @@ import Footer from '../components/Footer.astro';
         <!-- Simplified Lead Form -->
         <div id="quote-form" class="bg-white p-8 rounded-lg shadow-xl">
           <h3 class="text-2xl font-semibold text-gray-900 mb-6">Get Your General Liability Quote</h3>
-          <form id="general-liability-form" class="space-y-4" name="general-liability-quote" data-netlify="true" data-netlify-recaptcha="true">
-            <input type="hidden" name="form-name" value="general-liability-quote" />
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
-                <input type="text" id="first-name" name="first-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent">
-              </div>
-              <div>
-                <label for="last-name" class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
-                <input type="text" id="last-name" name="last-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent">
-              </div>
-            </div>
-            
-            <div>
-              <label for="business-name" class="block text-sm font-medium text-gray-700 mb-1">Business Name *</label>
-              <input type="text" id="business-name" name="business-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent">
-            </div>
-            
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-              <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent">
-            </div>
-            
-            <div>
-              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent">
-            </div>
-            
-            <div data-netlify-recaptcha="true"></div>
-            
-            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-4 rounded-md transition-colors duration-200">
-              Get My General Liability Quote
-            </button>
-            
-            <p class="text-xs text-gray-500 text-center">
-              By submitting this form, you agree to be contacted by PCFG Insurance Services regarding your general liability insurance needs.
+          <div class="text-center py-8">
+            <p class="text-gray-600 mb-6">
+              Contact us directly for a personalized general liability insurance quote.
             </p>
-          </form>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="tel:877-717-7234" class="bg-navy-600 hover:bg-navy-700 text-white px-6 py-3 rounded-md font-semibold transition-colors duration-200">
+                Call (877) 717-7234
+              </a>
+              <a href="mailto:info@pcfginsurance.com" class="border-2 border-navy-600 text-navy-600 hover:bg-navy-600 hover:text-white px-6 py-3 rounded-md font-semibold transition-colors duration-200">
+                Email Us
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
