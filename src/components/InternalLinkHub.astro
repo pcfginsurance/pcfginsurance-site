@@ -1,14 +1,22 @@
 ---
 interface Props {
   currentPage?: string;
-  variant?: 'sidebar' | 'footer' | 'inline' | 'related';
+  className?: string;
   title?: string;
   maxLinks?: number;
 }
 
+// Link type definition
+type Link = { 
+  text: string; 
+  href: string; 
+  keywords: string[]; 
+  external?: boolean; 
+};
+
 const { 
   currentPage = '',
-  variant = 'sidebar',
+  className = "",
   title = 'Related Services',
   maxLinks = 6
 } = Astro.props;
