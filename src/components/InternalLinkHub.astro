@@ -4,6 +4,7 @@ interface Props {
   className?: string;
   title?: string;
   maxLinks?: number;
+  variant?: 'sidebar' | 'footer' | 'inline' | 'related';
 }
 
 // Link type definition
@@ -16,7 +17,8 @@ type Link = {
 
 const { 
   currentPage = '',
-  className = "",
+  className = '',
+  variant = 'sidebar',
   title = 'Related Services',
   maxLinks = 6
 } = Astro.props;
