@@ -889,7 +889,7 @@ import Footer from '../components/Footer.astro';
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     // Quick quote form handler
-    const quickQuoteForm = document.getElementById('quick-quote-form');
+    const quickQuoteForm = document.getElementById('quick-quote-form') as HTMLFormElement;
     
     if (quickQuoteForm) {
       quickQuoteForm.addEventListener('submit', function(e) {
@@ -908,8 +908,8 @@ import Footer from '../components/Footer.astro';
   });
 
   function calculateLifeInsurance() {
-    const annualIncome = parseFloat(document.getElementById('annual-income').value) || 0;
-    const coverageYears = parseInt(document.getElementById('coverage-years').value) || 20;
+    const annualIncome = parseFloat((document.getElementById('annual-income') as HTMLInputElement)?.value || "0");
+    const coverageYears = parseInt((document.getElementById('coverage-years') as HTMLInputElement)?.value || "10");
     
     if (annualIncome > 0) {
       // Rule of thumb: 10-12 times annual income, adjusted for years of coverage needed
