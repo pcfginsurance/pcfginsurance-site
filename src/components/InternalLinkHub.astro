@@ -163,7 +163,7 @@ const relevantLinks = getRelevantLinks(currentPage, maxLinks);
               <a 
                 href={link.href} 
                 class="text-gray-300 hover:text-primary-light transition-colors"
-                {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                href={link.href}
               >
                 {link.text}
               </a>
