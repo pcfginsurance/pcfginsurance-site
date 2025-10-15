@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Initialize the Supabase client
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || import.meta.env.PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
 
 // Check if Supabase credentials are configured
 if (!supabaseUrl || !supabaseAnonKey) {
@@ -11,8 +11,8 @@ if (!supabaseUrl || !supabaseAnonKey) {
   console.log('Supabase credentials found:', { url: supabaseUrl.substring(0, 20) + '...', key: supabaseAnonKey.substring(0, 20) + '...' });
 }
 
-export const supabase = (supabaseUrl && supabaseAnonKey) 
-  ? createClient(supabaseUrl, supabaseAnonKey) 
+export const supabase = (supabaseUrl && supabaseAnonKey)
+  ? createClient(supabaseUrl, supabaseAnonKey)
   : null;
 
 /**
