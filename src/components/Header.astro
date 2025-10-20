@@ -36,9 +36,24 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
               <div class="py-1">
-                <a href="/services" class="no-underline text-neutral-dark hover:text-primary px-4 py-2 text-sm font-medium transition-colors">Business Insurance</a>
+                <div class="relative group/business">
+                  <a href="/services" class="no-underline text-neutral-dark hover:text-primary px-4 py-2 text-sm font-medium transition-colors flex items-center justify-between">
+                    Business Insurance
+                    <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                  <div class="absolute left-full top-0 ml-1 w-56 bg-white rounded-md shadow-lg border opacity-0 invisible group-hover/business:opacity-100 group-hover/business:visible transition-all duration-200 z-50">
+                    <div class="py-1">
+                      <a href="/workers-compensation" class="no-underline block px-4 py-2 text-sm text-neutral-dark hover:bg-primary-50 hover:text-primary">Workers' Compensation</a>
+                      <a href="/commercial-auto" class="no-underline block px-4 py-2 text-sm text-neutral-dark hover:bg-primary-50 hover:text-primary">Commercial Auto</a>
+                      <a href="/general-liability" class="no-underline block px-4 py-2 text-sm text-neutral-dark hover:bg-primary-50 hover:text-primary">General Liability</a>
+                      <a href="/business-owners-policy" class="no-underline block px-4 py-2 text-sm text-neutral-dark hover:bg-primary-50 hover:text-primary">Business Owners Policy</a>
+                    </div>
+                  </div>
+                </div>
                 <a href="/personal-insurance" class="no-underline text-neutral-dark hover:text-primary px-4 py-2 text-sm font-medium transition-colors">Personal Insurance</a>
                 <a href="/employee-benefits" class="no-underline text-neutral-dark hover:text-primary px-4 py-2 text-sm font-medium transition-colors">Employee Benefits</a>
                 <a href="/vitaledge" class="no-underline text-neutral-dark hover:text-primary px-4 py-2 text-sm font-medium transition-colors">VitalEdge Program</a>
