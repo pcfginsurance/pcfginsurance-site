@@ -210,7 +210,77 @@ const { title, description = "PCFG Insurance Services - Protecting what matters 
   </head>
   <body class="font-sans antialiased">
     <slot />
-    
+
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('Service Worker registered:', registration);
+            })
+            .catch((error) => {
+              console.log('Service Worker registration failed:', error);
+            });
+        });
+      }
+
+      let deferredPrompt;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+
+        const installBanner = document.createElement('div');
+        installBanner.id = 'install-banner';
+        installBanner.className = 'fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t-2 border-primary p-4 z-50 transform translate-y-0 transition-transform duration-300';
+        installBanner.innerHTML = `
+          <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <div class="flex items-center">
+              <img src="/icons/icon-192x192.png" alt="PCFG Insurance" class="w-12 h-12 mr-4 rounded-lg">
+              <div>
+                <p class="font-semibold text-gray-900">Install PCFG Insurance App</p>
+                <p class="text-sm text-gray-600">Quick access from your home screen</p>
+              </div>
+            </div>
+            <div class="flex gap-2">
+              <button id="install-button" class="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg font-semibold transition-colors">
+                Install
+              </button>
+              <button id="dismiss-button" class="text-gray-600 hover:text-gray-900 px-4 py-2">
+                Later
+              </button>
+            </div>
+          </div>
+        `;
+
+        if (!localStorage.getItem('installPromptDismissed')) {
+          document.body.appendChild(installBanner);
+
+          document.getElementById('install-button').addEventListener('click', async () => {
+            if (deferredPrompt) {
+              deferredPrompt.prompt();
+              const { outcome } = await deferredPrompt.userChoice;
+              console.log(`User response: ${outcome}`);
+              deferredPrompt = null;
+              installBanner.remove();
+            }
+          });
+
+          document.getElementById('dismiss-button').addEventListener('click', () => {
+            installBanner.remove();
+            localStorage.setItem('installPromptDismissed', 'true');
+            setTimeout(() => {
+              localStorage.removeItem('installPromptDismissed');
+            }, 7 * 24 * 60 * 60 * 1000);
+          });
+        }
+      });
+
+      window.addEventListener('appinstalled', () => {
+        console.log('PWA installed successfully');
+        const banner = document.getElementById('install-banner');
+        if (banner) banner.remove();
+      });
+    </script>
   </body>
 </html>
 
