@@ -41,6 +41,7 @@ const canonicalURL = canonical || `https://pcfginsurance.com${Astro.url.pathname
     <!-- Resource Hints for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.pexels.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://cdn.pagesense.io" />
     <link rel="dns-prefetch" href="https://s.adroll.com" />
@@ -48,6 +49,8 @@ const canonicalURL = canonical || `https://pcfginsurance.com${Astro.url.pathname
 
     <!-- Preload Critical Resources -->
     <link rel="preload" href="/assets/PCFG-Insurance-Logo-Main.png" as="image" fetchpriority="high" />
+    <link rel="preload" href="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&dpr=1" as="image" fetchpriority="high" media="(min-width: 640px)" />
+    <link rel="preload" href="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1" as="image" fetchpriority="high" media="(max-width: 639px)" />
     
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -56,130 +59,11 @@ const canonicalURL = canonical || `https://pcfginsurance.com${Astro.url.pathname
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content="PCFG Insurance Services" />
     
-    <!-- Schema.org markup for Local Business -->
+    <!-- Critical Schema.org markup for Local Business -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "InsuranceAgency",
-      "name": "PCFG Insurance Services",
-      "description": "Full-service insurance agency specializing in commercial and personal insurance solutions across 15 states",
-      "foundingDate": "2018-12-01",
-      "legalName": "PCFG Insurance Services LLC",
-      "logo": "https://pcfginsurance.com/assets/PCFG-Insurance-Logo-Main.png",
-      "image": [
-        "https://pcfginsurance.com/assets/PCFG-Insurance-Logo-Main.png"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "PO Box 609",
-        "addressLocality": "Parish",
-        "addressRegion": "NY",
-        "postalCode": "13131",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "43.2456",
-        "longitude": "-76.1234"
-      },
-      "telephone": "+1-877-717-7234",
-      "email": "info@pcfginsurance.com",
-      "url": "https://pcfginsurance.com",
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "telephone": "+1-877-717-7234",
-          "contactType": "customer service",
-          "availableLanguage": "English",
-          "areaServed": [
-            "Alabama", "Arizona", "Florida", "Georgia", "Indiana", 
-            "Maryland", "Maine", "New Jersey", "New York", "North Carolina", 
-            "Ohio", "Pennsylvania", "Tennessee", "Texas", "Virginia"
-          ]
-        }
-      ],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "08:00",
-          "closes": "17:00"
-        }
-      ],
-      "paymentAccepted": ["Cash", "Check", "Credit Card", "Electronic Funds Transfer"],
-      "currenciesAccepted": "USD",
-      "priceRange": "$$",
-      "areaServed": [
-        "Alabama", "Arizona", "Florida", "Georgia", "Indiana", 
-        "Maryland", "Maine", "New Jersey", "New York", "North Carolina", 
-        "Ohio", "Pennsylvania", "Tennessee", "Texas", "Virginia"
-      ],
-      "serviceType": [
-        "Workers' Compensation Insurance",
-        "Commercial Auto Insurance",
-        "General Liability Insurance", 
-        "Business Owner's Policy",
-        "Cyber Liability Insurance",
-        "Professional Liability Insurance",
-        "Employee Benefits",
-        "Group Health Insurance",
-        "Life Insurance",
-        "Personal Auto Insurance",
-        "Homeowners Insurance"
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Insurance Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Workers' Compensation Insurance",
-              "description": "Comprehensive workers' compensation coverage for businesses"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service", 
-              "name": "Commercial Auto Insurance",
-              "description": "Fleet and commercial vehicle insurance protection"
-            }
-          }
-        ]
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "50",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "sameAs": [
-        "https://www.facebook.com/pcfginsurance",
-        "https://www.linkedin.com/company/pcfg-insurance"
-      ]
-    }
+    {"@context":"https://schema.org","@type":"InsuranceAgency","name":"PCFG Insurance Services","telephone":"+1-877-717-7234","address":{"@type":"PostalAddress","streetAddress":"PO Box 609","addressLocality":"Parish","addressRegion":"NY","postalCode":"13131","addressCountry":"US"},"url":"https://pcfginsurance.com"}
     </script>
     
-    <!-- Local SEO Meta Tags -->
-    <meta name="geo.region" content="US-NY" />
-    <meta name="geo.placename" content="Syracuse, New York" />
-    <meta name="geo.position" content="43.0481;-76.1474" />
-    <meta name="ICBM" content="43.0481, -76.1474" />
-    
-    <!-- Local Business Citations -->
-    <meta name="business:contact_data:street_address" content="Central New York Office" />
-    <meta name="business:contact_data:locality" content="Syracuse" />
-    <meta name="business:contact_data:region" content="NY" />
-    <meta name="business:contact_data:postal_code" content="13201" />
-    <meta name="business:contact_data:country_name" content="United States" />
-    <meta name="business:contact_data:phone_number" content="+1-877-717-7234" />
-    <meta name="business:contact_data:email" content="info@pcfginsurance.com" />
-    
-    <!-- Local Keywords -->
-    <meta name="keywords" content="{keywords}, Syracuse NY insurance, Rochester NY insurance, Buffalo NY insurance, Albany NY insurance, Central New York insurance, Western New York insurance, Upstate New York insurance, veteran owned insurance agency" />
     
     <!-- Optimized Font Loading -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
@@ -205,6 +89,26 @@ const canonicalURL = canonical || `https://pcfginsurance.com${Astro.url.pathname
       /* Prevent layout shift */
       img { height: auto; }
       img:not([width]) { width: 100%; }
+
+      /* Critical hero styles for fast LCP */
+      .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+      .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+      .text-5xl { font-size: 3rem; line-height: 1; }
+      .font-bold { font-weight: 700; }
+      .font-heading { font-family: 'Poppins', system-ui, sans-serif; }
+      .mb-6 { margin-bottom: 1.5rem; }
+      .mb-8 { margin-bottom: 2rem; }
+      .relative { position: relative; }
+      .z-10 { z-index: 10; }
+      .text-neutral-dark { color: #212121; }
+
+      /* Critical header styles */
+      header { background-color: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+      @media (min-width: 768px) {
+        .md\:text-5xl { font-size: 3rem; line-height: 1; }
+        .md\:py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+      }
     </style>
     
   </head>
