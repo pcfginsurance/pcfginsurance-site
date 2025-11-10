@@ -152,45 +152,41 @@
 </header>
 
 <script>
-  // Defer header JavaScript to idle time
+  // Essential header interactivity - runs immediately
+  (function() {
+    // Mobile menu toggle - critical for mobile users
+    var btn = document.querySelector('.mobile-menu-button');
+    var menu = document.querySelector('.mobile-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', function() {
+        menu.classList.toggle('hidden');
+        btn.setAttribute('aria-expanded', String(!menu.classList.contains('hidden')));
+      });
+    }
+  })();
+
+  // Defer scroll behavior to idle time (non-critical)
   var idleCallback = window.requestIdleCallback || function(cb) { setTimeout(cb, 1); };
   idleCallback(function() {
-    const mobileMenuButton = document.querySelector('.mobile-menu-button');
-    const mobileMenu = document.querySelector('.mobile-menu');
-
-    if (mobileMenuButton && mobileMenu) {
-      mobileMenuButton.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-        const isExpanded = !mobileMenu.classList.contains('hidden');
-        mobileMenuButton.setAttribute('aria-expanded', isExpanded.toString());
-      }, { passive: true });
-    }
-
-    // Hide header on scroll - optimized with passive listener and throttling
-    let lastScrollTop = 0;
-    const header = document.querySelector('header');
-    let ticking = false;
+    var lastScrollTop = 0;
+    var header = document.querySelector('header');
+    var ticking = false;
 
     window.addEventListener('scroll', function() {
       if (!ticking) {
         window.requestAnimationFrame(function() {
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
           if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scrolling down
             header.style.transform = 'translateY(-100%)';
-            header.style.transition = 'transform 0.3s ease-in-out';
           } else {
-            // Scrolling up
             header.style.transform = 'translateY(0)';
-            header.style.transition = 'transform 0.3s ease-in-out';
           }
-
+          header.style.transition = 'transform 0.3s ease-in-out';
           lastScrollTop = scrollTop;
           ticking = false;
         });
         ticking = true;
       }
     }, { passive: true });
-  }, { timeout: 1000 });
+  }, { timeout: 3000 });
 </script>

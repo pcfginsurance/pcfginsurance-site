@@ -183,14 +183,6 @@ const canonicalURL = canonical || `https://pcfginsurance.com${Astro.url.pathname
       h1,h2,h3,h4,h5,h6,p,a,button,span,div{visibility:visible!important}
     </style>
 
-    <!-- Load full Tailwind CSS async -->
-    <link rel="preload" href="/_astro/" as="style" onload="this.rel='stylesheet'" />
-    <style>
-      @import "tailwindcss/base";
-      @import "tailwindcss/components";
-      @import "tailwindcss/utilities";
-    </style>
-    
   </head>
   <body class="font-sans antialiased">
     <!-- Instant visual feedback -->
@@ -199,7 +191,6 @@ const canonicalURL = canonical || `https://pcfginsurance.com${Astro.url.pathname
       body.loaded::before{opacity:0;pointer-events:none}
       @keyframes progress{0%{background-position:200% 0}100%{background-position:-200% 0}}
     </style>
-    <script>window.addEventListener('load',function(){document.body.classList.add('loaded')})</script>
     <slot />
 
     <!-- Deferred Tracking and Analytics Scripts -->
@@ -225,16 +216,7 @@ const canonicalURL = canonical || `https://pcfginsurance.com${Astro.url.pathname
         // Stagger script loading to avoid blocking
         var idleCallback = window.requestIdleCallback || function(cb) { setTimeout(cb, 1); };
 
-        // Load PageSense (lowest priority)
-        idleCallback(function() {
-          loadScriptWhenIdle('https://cdn.pagesense.io/js/pcfg/d7d8013d765d436c9a20c289b58751b2.js');
-        }, { timeout: 3000 });
-
-        idleCallback(function() {
-          loadScriptWhenIdle('https://cdn.pagesense.io/js/pcfg/d8415ea51283443b8a47f1fdd453f67a.js');
-        }, { timeout: 3500 });
-
-        // Load Google Tag Manager (medium priority)
+        // Load Google Tag Manager (highest priority for conversion tracking)
         idleCallback(function() {
           loadScriptWhenIdle('https://www.googletagmanager.com/gtag/js?id=G-DB7T9QNC21', function() {
             window.dataLayer = window.dataLayer || [];
@@ -248,9 +230,9 @@ const canonicalURL = canonical || `https://pcfginsurance.com${Astro.url.pathname
               'currency': 'USD'
             });
           });
-        }, { timeout: 2000 });
+        }, { timeout: 6000 });
 
-        // Load AdRoll (medium priority)
+        // Load AdRoll (medium priority) - staggered
         idleCallback(function() {
           window.adroll_adv_id = "M3YLYYCHGFFMFELHT2EUAW";
           window.adroll_pix_id = "CBZLROHJ7BEF7FMWOUWQTR";
@@ -267,22 +249,31 @@ const canonicalURL = canonical || `https://pcfginsurance.com${Astro.url.pathname
           loadScriptWhenIdle(roundtripUrl, function() {
             if (window.adroll && window.adroll.track) window.adroll.track("pageView");
           });
-        }, { timeout: 2500 });
+        }, { timeout: 7000 });
+
+        // Load PageSense (low priority) - heavily staggered
+        idleCallback(function() {
+          loadScriptWhenIdle('https://cdn.pagesense.io/js/pcfg/d7d8013d765d436c9a20c289b58751b2.js');
+        }, { timeout: 8000 });
+
+        idleCallback(function() {
+          loadScriptWhenIdle('https://cdn.pagesense.io/js/pcfg/d8415ea51283443b8a47f1fdd453f67a.js');
+        }, { timeout: 9000 });
 
         // Load Netlify Identity (lowest priority)
         idleCallback(function() {
           loadScriptWhenIdle('https://identity.netlify.com/v1/netlify-identity-widget.js');
-        }, { timeout: 4000 });
+        }, { timeout: 10000 });
       }
 
-      // Trigger script loading on user interaction OR after 3 seconds
+      // Trigger script loading on user interaction OR after 5 seconds
       var events = ['mousedown', 'keydown', 'touchstart', 'scroll'];
       events.forEach(function(event) {
         window.addEventListener(event, loadThirdPartyScripts, { once: true, passive: true });
       });
 
-      // Fallback: load after 3 seconds if no interaction
-      setTimeout(loadThirdPartyScripts, 3000);
+      // Fallback: load after 5 seconds if no interaction (allows TTI to complete)
+      setTimeout(loadThirdPartyScripts, 5000);
     </script>
 
     <script is:inline>
@@ -343,6 +334,13 @@ const canonicalURL = canonical || `https://pcfginsurance.com${Astro.url.pathname
         console.log('PWA installed successfully');
         var banner = document.getElementById('install-banner');
         if (banner) banner.remove();
+      });
+
+      // Remove progress bar after everything loads
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          document.body.classList.add('loaded');
+        }, 100);
       });
     </script>
   </body>
