@@ -53,10 +53,11 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "DENY"
+    X-Frame-Options = "SAMEORIGIN"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "frame-src 'self' https://link.spartan-crm.com https://*.spartan-crm.com; frame-ancestors 'self';"
 
 [[headers]]
   for = "/*.js"

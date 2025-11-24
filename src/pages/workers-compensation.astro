@@ -26,11 +26,10 @@ import Footer from '../components/Footer.astro';
       <div id="quote-form">
         <div class="bg-white p-6 md:p-8 rounded-lg shadow-xl">
           <h3 class="text-2xl font-semibold text-gray-900 mb-6">Get Your Workers' Comp Quote</h3>
-          <div class="w-full overflow-hidden">
+          <div class="w-full" style="min-height: 900px;">
             <iframe
               src="https://link.spartan-crm.com/widget/form/M0PWOXapIeQLm41fmLc1"
-              class="w-full rounded-md"
-              style="border:none;min-height:900px;height:900px;"
+              style="width: 100%; border: none; overflow: hidden; height: 900px; min-height: 900px;"
               id="inline-M0PWOXapIeQLm41fmLc1"
               data-layout="{'id':'INLINE'}"
               data-trigger-type="alwaysShow"
@@ -39,10 +38,11 @@ import Footer from '../components/Footer.astro';
               data-layout-iframe-id="inline-M0PWOXapIeQLm41fmLc1"
               data-form-id="M0PWOXapIeQLm41fmLc1"
               title="Workers Comp - Website"
-              loading="eager">
+              scrolling="no"
+              allow="payment">
             </iframe>
+            <script src="https://link.spartan-crm.com/js/form_embed.js" type="text/javascript"></script>
           </div>
-          <script src="https://link.spartan-crm.com/js/form_embed.js"></script>
         </div>
       </div>
     </div>
