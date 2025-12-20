@@ -46,6 +46,7 @@ These provide both backlinks AND local citations for SEO:
 2. **Trusted Choice**
    - https://www.trustedchoice.com
    - National independent agent network
+   - **Note:** Now requires paid membership
 
 3. **InsuranceAgents.com**
    - Agent directory with state listings
@@ -320,8 +321,8 @@ Reviews = trust signals that indirectly boost DA
 #### Insurance Organizations
 - [ ] Big I New York (Independent Insurance Agents & Brokers of NY)
 - [ ] Professional Insurance Agents of NY
-- [ ] Trusted Choice network application
-- [ ] InsuranceAgents.com listing
+- [ ] InsuranceAgents.com listing (free)
+- [ ] Trusted Choice network (paid - evaluate ROI first)
 
 #### Business Directories
 - [ ] Better Business Bureau accreditation
@@ -406,6 +407,7 @@ Next Month Goals:
 
 ### Paid Opportunities
 - BBB Accreditation: $400-800/year (high DA link + trust badge)
+- Trusted Choice membership: $500-1500/year (agent network + directory)
 - Industry association memberships: $200-500/year each
 - Local media advertising: $500-2000/month (includes online presence)
 - Professional PR service: $1000-3000/month (optional)
