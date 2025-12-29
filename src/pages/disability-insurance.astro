@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import InsuranceQuoteForm from '../components/InsuranceQuoteForm.astro';
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
@@ -29,29 +30,12 @@ const breadcrumbs = [
       </div>
 
       <!-- Quick Contact CTA -->
-      <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-xl">
-        <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">
-          Get Your Disability Insurance Quote
-        </h2>
-
-        <div class="relative w-full" style="min-height: 850px;">
-          <iframe
-            src="https://link.spartan-crm.com/widget/form/DMAGakxXVmmVuyzaB6mw"
-            id="inline-disability-quote"
-            title="Disability Insurance Quote"
-            style="width: 100%; min-height: 850px; border: none; border-radius: 8px; overflow: visible;"
-            allowtransparency="true"
-            loading="lazy"
-            data-layout='{"id":"INLINE"}'
-            data-trigger-type="alwaysShow"
-            data-activation-type="alwaysActivated"
-            data-deactivation-type="neverDeactivate"
-            data-form-name="Disability Insurance - Website"
-            data-layout-iframe-id="inline-disability-quote"
-            data-form-id="DMAGakxXVmmVuyzaB6mw"
-          ></iframe>
-          <script src="https://link.spartan-crm.com/js/form_embed.js" async></script>
-        </div>
+      <div class="max-w-2xl mx-auto">
+        <InsuranceQuoteForm
+          insuranceType="Disability Insurance"
+          title="Get Your Disability Insurance Quote"
+          showMessage={true}
+        />
       </div>
     </div>
   </section>

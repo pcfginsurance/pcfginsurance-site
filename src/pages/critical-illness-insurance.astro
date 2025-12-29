@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import InsuranceQuoteForm from '../components/InsuranceQuoteForm.astro';
 ---
 
 <Layout title="Critical Illness Insurance - PCFG Insurance Services" description="Protect yourself and your family with critical illness insurance. Get a lump-sum cash benefit upon diagnosis of heart attack, stroke, cancer, kidney failure, and other covered conditions.">
@@ -19,29 +20,12 @@ import Footer from '../components/Footer.astro';
 
      <!-- Quick Contact CTA -->
 <section class="py-20 bg-pink-50">
-  <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-xl">
-    <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">
-      Get Your Critical Illness Insurance Quote
-    </h2>
-
-    <div class="relative w-full" style="min-height: 850px;">
-      <iframe
-        src="https://link.spartan-crm.com/widget/form/DMAGakxXVmmVuyzaB6mw"
-        id="inline-DMAGakxXVmmVuyzaB6mw"
-        title="Critical Illness - Website"
-        style="width: 100%; min-height: 850px; border: none; border-radius: 8px; overflow: visible;"
-        allowtransparency="true"
-        loading="lazy"
-        data-layout='{"id":"INLINE"}'
-        data-trigger-type="alwaysShow"
-        data-activation-type="alwaysActivated"
-        data-deactivation-type="neverDeactivate"
-        data-form-name="Critical Illness - Website"
-        data-layout-iframe-id="inline-DMAGakxXVmmVuyzaB6mw"
-        data-form-id="DMAGakxXVmmVuyzaB6mw"
-      ></iframe>
-      <script src="https://link.spartan-crm.com/js/form_embed.js" async></script>
-    </div>
+  <div class="max-w-2xl mx-auto">
+    <InsuranceQuoteForm
+      insuranceType="Critical Illness Insurance"
+      title="Get Your Critical Illness Insurance Quote"
+      showMessage={true}
+    />
   </div>
 </section>
 
@@ -526,21 +510,3 @@ import Footer from '../components/Footer.astro';
   <Footer />
 </Layout>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const quoteForm = document.getElementById('critical-illness-quote-form') as HTMLFormElement;
-
-    if (quoteForm) {
-      quoteForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const formData = new FormData(quoteForm);
-        const data = Object.fromEntries(formData);
-
-        localStorage.setItem('criticalIllnessQuote', JSON.stringify(data));
-
-        window.location.href = '/contact';
-      });
-    }
-  });
-</script>
