@@ -1,23 +1,11 @@
+---
+import InsuranceQuoteForm from './InsuranceQuoteForm.astro';
+---
+
 <div class="lg:pl-8 relative z-10">
-  <div class="bg-white shadow-lg rounded-lg p-6">
-    <iframe
-    src="https://link.spartan-crm.com/widget/form/UV1qTHSIBceltbbTZ7nP"
-    style="width:100%;height:850px;border:none;border-radius:3px"
-    id="inline-UV1qTHSIBceltbbTZ7nP" 
-    data-layout="{'id':'INLINE'}"
-    data-trigger-type="alwaysShow"
-    data-trigger-value=""
-    data-activation-type="alwaysActivated"
-    data-activation-value=""
-    data-deactivation-type="neverDeactivate"
-    data-deactivation-value=""
-    data-form-name="Quote Request - Website"
-    data-height="1084"
-    data-layout-iframe-id="inline-UV1qTHSIBceltbbTZ7nP"
-    data-form-id="UV1qTHSIBceltbbTZ7nP"
-    title="Quote Request - Website"
-        >
-</iframe>
-<script src="https://link.spartan-crm.com/js/form_embed.js"></script>
-  </div>
+  <InsuranceQuoteForm
+    insuranceType="General Quote"
+    title="Get Your Free Quote"
+    showMessage={true}
+  />
 </div>
