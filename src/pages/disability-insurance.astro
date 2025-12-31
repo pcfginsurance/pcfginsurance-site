@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import InsuranceQuoteForm from '../components/InsuranceQuoteForm.astro';
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
@@ -31,11 +30,28 @@ const breadcrumbs = [
 
       <!-- Quick Contact CTA -->
       <div class="max-w-2xl mx-auto">
-        <InsuranceQuoteForm
-          insuranceType="Disability Insurance"
-          title="Get Your Disability Insurance Quote"
-          showMessage={true}
-        />
+        <div class="quote-form-container bg-white p-8 rounded-lg shadow-xl">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Get Your Disability Insurance Quote</h2>
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/dxElyHUDNGCyBnvMHF5t"
+            style="width:100%;height:100%;border:none;border-radius:3px"
+            id="inline-dxElyHUDNGCyBnvMHF5t"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Disability Insurance - Website"
+            data-height="673"
+            data-layout-iframe-id="inline-dxElyHUDNGCyBnvMHF5t"
+            data-form-id="dxElyHUDNGCyBnvMHF5t"
+            title="Disability Insurance - Website"
+          >
+          </iframe>
+          <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+        </div>
       </div>
     </div>
   </section>
