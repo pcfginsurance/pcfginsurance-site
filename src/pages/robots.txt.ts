@@ -1,5 +1,3 @@
----
-// Generate robots.txt with sitemap reference
 export async function GET() {
   const robotsTxt = `User-agent: *
 Allow: /
@@ -39,4 +37,3 @@ Allow: /*new-york*
     }
   });
 }
----
