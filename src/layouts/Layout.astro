@@ -42,8 +42,6 @@ const ogImageURL = ogImage.startsWith('http') ? ogImage : `https://pcfginsurance
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
     
     <!-- Resource Hints for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://images.pexels.com" />
     <link rel="preconnect" href="https://link.spartan-crm.com" />
     <link rel="preconnect" href="https://api.leadconnectorhq.com" />
@@ -85,9 +83,9 @@ const ogImageURL = ogImage.startsWith('http') ? ogImage : `https://pcfginsurance
     </script>
     
     
-    <!-- Font Loading - Deferred -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap&text=PCFGInsuranceServicesProtectingWhatMattersBusinessFamily0123456789" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" /></noscript>
+    <!-- Self-Hosted Fonts - Optimized & Minified -->
+    <link rel="preload" href="/fonts.css" as="style" />
+    <link rel="stylesheet" href="/fonts.css" />
     
     <!-- Critical CSS Inline - Above the fold only -->
     <style>
