@@ -1,0 +1,470 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  "name": "PCFG Insurance Services",
+  "image": "https://pcfginsurance.com/logo.png",
+  "description": "Workers' compensation insurance for businesses in Albany, NY and throughout Albany County. Veteran-owned agency serving Capital Region since 2018.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Parish",
+    "addressRegion": "NY",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Albany",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Albany",
+      "addressRegion": "NY"
+    }
+  },
+  "telephone": "877-717-7234",
+  "priceRange": "$$"
+};
+---
+
+<Layout 
+  title="Workers' Compensation Insurance Albany NY | PCFG Insurance" 
+  description="Get competitive workers' compensation insurance quotes for your Albany, NY business. Expert coverage for Capital Region employers in government, tech, healthcare, and more. Licensed in Albany County. Free quote from veteran-owned agency." 
+  ogImage="https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630" 
+  ogType="article"
+>
+  <Header />
+  
+  <!-- JSON-LD Schema for Local Business -->
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-navy-50 to-white">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <!-- Text -->
+        <div>
+          <div class="inline-block bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            Albany & Capital Region
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Workers' Compensation Insurance in Albany, NY
+          </h1>
+          <p class="text-xl text-gray-600 mb-4">
+            Protect your Albany employees and business with comprehensive workers' compensation coverage. PCFG Insurance specializes in <strong>Capital Region employers</strong> across government contractors, technology, healthcare, professional services, and more.
+          </p>
+          <p class="text-lg text-gray-600 mb-6">
+            Serving New York's capital, we understand the unique needs of Albany County businesses—from state contract requirements to the diverse Capital Region economy. Get competitive rates from a <a href="/the-team" class="text-navy-600 hover:underline">veteran-owned agency</a> that knows Upstate NY.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+            <p class="text-sm text-gray-700">
+              <strong>Albany Fast Fact:</strong> New York requires workers' compensation insurance for businesses with 1 or more employees. Penalties for non-compliance include fines up to $2,000 per 10-day period plus stop-work orders.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#quote-form" class="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-md font-semibold text-center transition-colors duration-200">Get Albany Quote</a>
+            <a href="tel:877-717-7234" class="border-2 border-navy-600 text-navy-600 hover:bg-navy-600 hover:text-white px-8 py-3 rounded-md font-semibold text-center transition-colors duration-200">Call (877) 717-7234</a>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div id="quote-form">
+          <div class="bg-white p-6 md:p-8 rounded-lg shadow-xl">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Get Your Albany Workers' Comp Quote</h3>
+            <p class="text-gray-600 mb-6">Fast quotes for Capital Region businesses</p>
+            <div class="w-full" style="min-height: 900px;">
+              <iframe
+      src="https://api.leadconnectorhq.com/widget/form/M0PWOXapIeQLm41fmLc1"
+      style="width:100%;height:900px;border:none;border-radius:4px"
+      id="inline-M0PWOXapIeQLm41fmLc1" 
+      data-layout="{'id':'INLINE'}"
+      data-trigger-type="alwaysShow"
+      data-trigger-value=""
+      data-activation-type="alwaysActivated"
+      data-activation-value=""
+      data-deactivation-type="neverDeactivate"
+      data-deactivation-value=""
+      data-form-name="Workers Comp - Website"
+      data-height="935"
+      data-layout-iframe-id="inline-M0PWOXapIeQLm41fmLc1"
+      data-form-id="M0PWOXapIeQLm41fmLc1"
+      title="Workers Comp - Albany NY"
+          >
+  </iframe>
+  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Albany Businesses Choose PCFG -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Albany Businesses Trust PCFG Insurance</h2>
+        <p class="text-xl text-gray-600">
+          Local expertise for Capital Region employers
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+          <div class="w-16 h-16 bg-navy-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Capital Region Based</h3>
+          <p class="text-gray-600">Serving Albany, we understand state contracting requirements and diverse industries in New York's capital</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+          <div class="w-16 h-16 bg-navy-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Fast Response</h3>
+          <p class="text-gray-600">Quick quotes and same-day certificates of insurance for Albany contractors and businesses</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+          <div class="w-16 h-16 bg-navy-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Competitive Rates</h3>
+          <p class="text-gray-600">Access to multiple NY-licensed carriers means better rates for Albany County employers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries We Serve in Albany -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Albany Industries We Serve</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Workers' compensation coverage tailored to the Capital Region's government and professional economy
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Government Contractors -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Government Contractors</h3>
+          <p class="text-gray-600 mb-4">
+            Coverage for businesses working with New York State agencies, municipalities, and the Albany County government. We understand state contract requirements.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• IT and software contractors</li>
+            <li>• Consulting firms</li>
+            <li>• Construction contractors</li>
+            <li>• Facility maintenance</li>
+            <li>• Professional services</li>
+          </ul>
+        </div>
+        
+        <!-- Healthcare -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Healthcare & Medical</h3>
+          <p class="text-gray-600 mb-4">
+            Coverage for Albany's healthcare sector, including Albany Med, St. Peter's, private practices, and home healthcare agencies throughout the Capital Region.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Medical practices</li>
+            <li>• Dental clinics</li>
+            <li>• Home healthcare agencies</li>
+            <li>• Senior living facilities</li>
+            <li>• Physical therapy practices</li>
+          </ul>
+        </div>
+        
+        <!-- Technology -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Technology & Innovation</h3>
+          <p class="text-gray-600 mb-4">
+            From Tech Valley startups to established software firms—affordable coverage for Albany's growing technology sector and research institutions.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Software companies</li>
+            <li>• Tech startups</li>
+            <li>• IT services</li>
+            <li>• Cybersecurity firms</li>
+            <li>• Research facilities</li>
+          </ul>
+        </div>
+        
+        <!-- Professional Services -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Professional Services</h3>
+          <p class="text-gray-600 mb-4">
+            Albany's professional sector thrives with law firms, accounting practices, consulting agencies, and more. We serve Capital Region's knowledge economy.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Law firms</li>
+            <li>• Accounting firms</li>
+            <li>• Consulting agencies</li>
+            <li>• Marketing agencies</li>
+            <li>• Engineering firms</li>
+          </ul>
+        </div>
+        
+        <!-- Construction -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Construction & Trades</h3>
+          <p class="text-gray-600 mb-4">
+            From downtown Albany projects to suburban builds—we cover Capital Region contractors, roofers, electricians, and HVAC specialists.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• General contractors</li>
+            <li>• Roofing contractors</li>
+            <li>• Snow removal operations</li>
+            <li>• Home improvement contractors</li>
+            <li>• HVAC technicians</li>
+          </ul>
+        </div>
+        
+        <!-- Retail & Hospitality -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Retail & Hospitality</h3>
+          <p class="text-gray-600 mb-4">
+            From Lark Street shops to downtown hotels—affordable coverage for Albany's retail and hospitality employers.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Restaurants and bars</li>
+            <li>• Retail stores</li>
+            <li>• Hotels</li>
+            <li>• Event venues</li>
+            <li>• Entertainment facilities</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-gray-600 mb-4">
+          See our complete <a href="/workers-compensation" class="text-navy-600 hover:underline">Workers' Compensation Insurance</a> page for detailed coverage information.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NY Workers' Comp Requirements -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">New York Workers' Compensation Requirements</h2>
+        <p class="text-xl text-gray-600">
+          What Albany employers need to know
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+          <h3 class="text-2xl font-semibold text-gray-900 mb-4">When It's Required</h3>
+          <ul class="space-y-3 text-gray-600">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-navy-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span><strong>1 or more employees</strong> in NY (including part-time)</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-navy-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>Sole proprietors and partners must carry coverage if they employ others</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-navy-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>Required for state contractors and Albany construction contractors</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-navy-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>Coverage required from day one—before the first employee starts work</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+          <h3 class="text-2xl font-semibold text-gray-900 mb-4">Penalties for Non-Compliance</h3>
+          <ul class="space-y-3 text-gray-600">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-red-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+              <span><strong>Fines up to $2,000</strong> per 10-day period without coverage</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-red-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+              <span>Immediate <strong>stop-work orders</strong></span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-red-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+              <span>Personal liability for all medical costs and lost wages</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-red-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+              <span>Potential <strong>criminal charges</strong> for willful non-compliance</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 bg-blue-50 border-l-4 border-blue-400 p-6 max-w-3xl mx-auto">
+        <p class="text-gray-700">
+          <strong>Albany Business Tip:</strong> The NY Workers' Compensation Board, based in Albany, actively monitors compliance statewide. Don't risk your business—get covered today. We can provide same-day certificates for urgent state contract needs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local FAQ -->
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Albany Workers' Comp Questions</h2>
+        <p class="text-xl text-gray-600">
+          Common questions from Capital Region employers
+        </p>
+      </div>
+      
+      <div class="space-y-6">
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            How much does workers' comp cost for Albany businesses?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            For Albany employers, workers' comp costs typically range from <strong>$1-$2 per $100 of payroll</strong> for low-risk businesses (offices, professional services) to <strong>$5-$15 per $100</strong> for high-risk industries (construction, manufacturing). Your exact rate depends on your industry classification, payroll, and claims history.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            Do government contractors need special coverage?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            New York State contracts typically require proof of workers' compensation coverage <strong>before contract execution</strong>. Many state agencies also require specific certificate language. We understand these requirements and can provide compliant certificates quickly for Albany-area government contractors.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            Do I need workers' comp for interns or co-op students?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            If interns or co-op students (including from UAlbany, RPI, or other local colleges) receive <strong>any form of compensation</strong> as W-2 employees, they must be covered. Unpaid interns may not require coverage, but consult with us to ensure compliance with NY requirements.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            Are remote employees covered?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            Yes. Your NY workers' compensation policy covers <strong>remote employees</strong> working from home in New York State for injuries that occur during work activities. This is important for Albany's growing tech and professional sectors with hybrid/remote workers.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            How quickly can I get a certificate of insurance?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            PCFG Insurance can often provide <strong>same-day certificates of insurance</strong> for Albany businesses. This is critical when you need proof of coverage for state contracts, construction permits, or vendor requirements. Contact us by 2 PM for same-day issuance with proper state contract language if needed.
+          </p>
+        </details>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-gray-600 mb-4">Ready to protect your Albany business?</p>
+        <a href="#quote-form" class="inline-block bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-md font-semibold transition-colors duration-200">
+          Get Your Free Albany Quote
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nearby Areas -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Serving All of the Capital Region</h2>
+        <p class="text-xl text-gray-600">
+          Workers' compensation insurance throughout Albany County and beyond
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Troy</p>
+        </div>
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Schenectady</p>
+        </div>
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Saratoga Springs</p>
+        </div>
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Colonie</p>
+        </div>
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Clifton Park</p>
+        </div>
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Guilderland</p>
+        </div>
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Latham</p>
+        </div>
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Delmar</p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <p class="text-gray-600 mb-4">
+          Also serving businesses in <a href="/workers-compensation" class="text-navy-600 hover:underline">Syracuse, Rochester, and Buffalo</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-navy-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Protect Your Albany Employees Today</h2>
+      <p class="text-xl text-navy-100 mb-8 max-w-2xl mx-auto">
+        Get a competitive workers' compensation quote from the Capital Region's trusted insurance partner. Fast quotes, expert service, and same-day certificates available for state contracts.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#quote-form" class="bg-white text-navy-600 hover:bg-gray-100 px-8 py-3 rounded-md font-semibold transition-colors duration-200">
+          Get Albany Quote
+        </a>
+        <a href="tel:877-717-7234" class="border-2 border-white text-white hover:bg-white hover:text-navy-600 px-8 py-3 rounded-md font-semibold transition-colors duration-200">
+          Call (877) 717-7234
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <Footer />
+</Layout>

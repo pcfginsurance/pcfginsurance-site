@@ -1,0 +1,470 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  "name": "PCFG Insurance Services",
+  "image": "https://pcfginsurance.com/logo.png",
+  "description": "Workers' compensation insurance for businesses in Rochester, NY and throughout Monroe County. Veteran-owned agency serving Western New York since 2018.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Parish",
+    "addressRegion": "NY",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Rochester",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rochester",
+      "addressRegion": "NY"
+    }
+  },
+  "telephone": "877-717-7234",
+  "priceRange": "$$"
+};
+---
+
+<Layout 
+  title="Workers' Compensation Insurance Rochester NY | PCFG Insurance" 
+  description="Get competitive workers' compensation insurance quotes for your Rochester, NY business. Expert coverage for Western New York employers in manufacturing, healthcare, technology, and more. Licensed in Monroe County. Free quote from veteran-owned agency." 
+  ogImage="https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630" 
+  ogType="article"
+>
+  <Header />
+  
+  <!-- JSON-LD Schema for Local Business -->
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-navy-50 to-white">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <!-- Text -->
+        <div>
+          <div class="inline-block bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            Rochester & Monroe County
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Workers' Compensation Insurance in Rochester, NY
+          </h1>
+          <p class="text-xl text-gray-600 mb-4">
+            Protect your Rochester employees and business with comprehensive workers' compensation coverage. PCFG Insurance specializes in <strong>Western New York employers</strong> across optics, imaging, manufacturing, healthcare, and more.
+          </p>
+          <p class="text-lg text-gray-600 mb-6">
+            Serving the Flower City, we understand the unique needs of Monroe County businesses—from optics innovation to healthcare excellence. Get competitive rates from a <a href="/the-team" class="text-navy-600 hover:underline">veteran-owned agency</a> that knows Western NY.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+            <p class="text-sm text-gray-700">
+              <strong>Rochester Fast Fact:</strong> New York requires workers' compensation insurance for businesses with 1 or more employees. Penalties for non-compliance include fines up to $2,000 per 10-day period plus stop-work orders.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#quote-form" class="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-md font-semibold text-center transition-colors duration-200">Get Rochester Quote</a>
+            <a href="tel:877-717-7234" class="border-2 border-navy-600 text-navy-600 hover:bg-navy-600 hover:text-white px-8 py-3 rounded-md font-semibold text-center transition-colors duration-200">Call (877) 717-7234</a>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div id="quote-form">
+          <div class="bg-white p-6 md:p-8 rounded-lg shadow-xl">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Get Your Rochester Workers' Comp Quote</h3>
+            <p class="text-gray-600 mb-6">Fast quotes for Western New York businesses</p>
+            <div class="w-full" style="min-height: 900px;">
+              <iframe
+      src="https://api.leadconnectorhq.com/widget/form/M0PWOXapIeQLm41fmLc1"
+      style="width:100%;height:900px;border:none;border-radius:4px"
+      id="inline-M0PWOXapIeQLm41fmLc1" 
+      data-layout="{'id':'INLINE'}"
+      data-trigger-type="alwaysShow"
+      data-trigger-value=""
+      data-activation-type="alwaysActivated"
+      data-activation-value=""
+      data-deactivation-type="neverDeactivate"
+      data-deactivation-value=""
+      data-form-name="Workers Comp - Website"
+      data-height="935"
+      data-layout-iframe-id="inline-M0PWOXapIeQLm41fmLc1"
+      data-form-id="M0PWOXapIeQLm41fmLc1"
+      title="Workers Comp - Rochester NY"
+          >
+  </iframe>
+  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Rochester Businesses Choose PCFG -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Rochester Businesses Trust PCFG Insurance</h2>
+        <p class="text-xl text-gray-600">
+          Local expertise for Western New York employers
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+          <div class="w-16 h-16 bg-navy-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Western NY Based</h3>
+          <p class="text-gray-600">Serving Rochester, we understand local business challenges including lake-effect weather and diverse industries</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+          <div class="w-16 h-16 bg-navy-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Fast Response</h3>
+          <p class="text-gray-600">Quick quotes and same-day certificates of insurance for Rochester contractors and businesses</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+          <div class="w-16 h-16 bg-navy-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Competitive Rates</h3>
+          <p class="text-gray-600">Access to multiple NY-licensed carriers means better rates for Monroe County employers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries We Serve in Rochester -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Rochester Industries We Serve</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Workers' compensation coverage tailored to Western New York's innovation economy
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Optics & Imaging -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Optics & Imaging</h3>
+          <p class="text-gray-600 mb-4">
+            Rochester's imaging heritage lives on. We cover precision manufacturing, clean room operations, and tech startups building on Kodak's legacy.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Optics manufacturers</li>
+            <li>• Precision instrument makers</li>
+            <li>• Clean room assembly</li>
+            <li>• Imaging technology firms</li>
+            <li>• Research & development labs</li>
+          </ul>
+        </div>
+        
+        <!-- Healthcare -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Healthcare & Medical</h3>
+          <p class="text-gray-600 mb-4">
+            Coverage for Rochester's world-class healthcare sector, including Strong Memorial, UR Medicine staff, private practices, and home health agencies.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Medical practices</li>
+            <li>• Dental clinics</li>
+            <li>• Home healthcare agencies</li>
+            <li>• Senior living facilities</li>
+            <li>• Physical therapy practices</li>
+          </ul>
+        </div>
+        
+        <!-- Manufacturing -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Manufacturing</h3>
+          <p class="text-gray-600 mb-4">
+            Rochester's strong manufacturing base needs solid coverage. We insure food processing, precision machining, and advanced manufacturing operations.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Food and beverage processing</li>
+            <li>• Precision machining</li>
+            <li>• Electronics assembly</li>
+            <li>• Packaging operations</li>
+            <li>• Equipment manufacturing</li>
+          </ul>
+        </div>
+        
+        <!-- Technology -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Technology & Innovation</h3>
+          <p class="text-gray-600 mb-4">
+            From Eastman Business Park startups to High Tech Rochester members—affordable coverage for the Flower City's tech sector.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Software companies</li>
+            <li>• Tech startups</li>
+            <li>• IT services</li>
+            <li>• Engineering firms</li>
+            <li>• Research facilities</li>
+          </ul>
+        </div>
+        
+        <!-- Construction -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Construction & Trades</h3>
+          <p class="text-gray-600 mb-4">
+            From Inner Loop redevelopment to suburban builds—we cover Rochester contractors, roofers, electricians, and HVAC specialists.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• General contractors</li>
+            <li>• Roofing contractors</li>
+            <li>• Snow removal operations</li>
+            <li>• Home improvement contractors</li>
+            <li>• HVAC technicians</li>
+          </ul>
+        </div>
+        
+        <!-- Retail & Hospitality -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Retail & Hospitality</h3>
+          <p class="text-gray-600 mb-4">
+            From Park Avenue boutiques to restaurants citywide—affordable coverage for Rochester's service industry employers.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Restaurants and bars</li>
+            <li>• Retail stores</li>
+            <li>• Hotels</li>
+            <li>• Entertainment venues</li>
+            <li>• Grocery stores</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-gray-600 mb-4">
+          See our complete <a href="/workers-compensation" class="text-navy-600 hover:underline">Workers' Compensation Insurance</a> page for detailed coverage information.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NY Workers' Comp Requirements -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">New York Workers' Compensation Requirements</h2>
+        <p class="text-xl text-gray-600">
+          What Rochester employers need to know
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+          <h3 class="text-2xl font-semibold text-gray-900 mb-4">When It's Required</h3>
+          <ul class="space-y-3 text-gray-600">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-navy-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span><strong>1 or more employees</strong> in NY (including part-time)</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-navy-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>Sole proprietors and partners must carry coverage if they employ others</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-navy-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>Required for Rochester construction contractors, even with just one employee</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-navy-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>Coverage required from day one—before the first employee starts work</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+          <h3 class="text-2xl font-semibold text-gray-900 mb-4">Penalties for Non-Compliance</h3>
+          <ul class="space-y-3 text-gray-600">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-red-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+              <span><strong>Fines up to $2,000</strong> per 10-day period without coverage</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-red-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+              <span>Immediate <strong>stop-work orders</strong></span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-red-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+              <span>Personal liability for all medical costs and lost wages</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-red-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+              <span>Potential <strong>criminal charges</strong> for willful non-compliance</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 bg-blue-50 border-l-4 border-blue-400 p-6 max-w-3xl mx-auto">
+        <p class="text-gray-700">
+          <strong>Rochester Business Tip:</strong> The NY Workers' Compensation Board actively monitors compliance. Don't risk your business—get covered today. We can provide same-day certificates for urgent needs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local FAQ -->
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Rochester Workers' Comp Questions</h2>
+        <p class="text-xl text-gray-600">
+          Common questions from Western New York employers
+        </p>
+      </div>
+      
+      <div class="space-y-6">
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            How much does workers' comp cost for Rochester businesses?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            For Rochester employers, workers' comp costs typically range from <strong>$1-$2 per $100 of payroll</strong> for low-risk businesses (offices, tech companies) to <strong>$5-$15 per $100</strong> for high-risk industries (construction, manufacturing). Your exact rate depends on your industry classification, payroll, and claims history. Rochester-specific factors like winter weather-related claims can also impact rates for outdoor workers.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            Do I need workers' comp for seasonal employees in Rochester?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            Yes. In New York, <strong>all employees must be covered</strong> from their first day of work, including seasonal, part-time, and temporary workers. This is especially important for Rochester businesses that hire seasonal staff for winter operations (snow removal, holiday retail) or summer work (construction, festivals).
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            Are lake-effect weather injuries covered?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            Yes. Workers' compensation covers injuries from <strong>slips on ice, snow removal accidents, and weather-related incidents</strong> during work. Given Rochester's lake-effect snow (averaging 100+ inches), it's crucial your policy properly classifies outdoor workers and snow removal operations to ensure adequate coverage.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            Can University of Rochester students be covered as employees?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            If UR students work for your business as <strong>W-2 employees</strong> (not independent study or unpaid internships), they must be covered under your workers' compensation policy. This applies to part-time student workers, co-op students, and any other employees, regardless of their student status.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            How quickly can I get a certificate of insurance?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            PCFG Insurance can often provide <strong>same-day certificates of insurance</strong> for Rochester businesses. This is critical when you need proof of coverage for contracts, construction permits, or vendor requirements. We understand Western NY businesses need fast service—contact us by 2 PM for same-day issuance.
+          </p>
+        </details>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-gray-600 mb-4">Ready to protect your Rochester business?</p>
+        <a href="#quote-form" class="inline-block bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-md font-semibold transition-colors duration-200">
+          Get Your Free Rochester Quote
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nearby Areas -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Serving All of Western New York</h2>
+        <p class="text-xl text-gray-600">
+          Workers' compensation insurance throughout Monroe County and beyond
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Brighton</p>
+        </div>
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Henrietta</p>
+        </div>
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Greece</p>
+        </div>
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Irondequoit</p>
+        </div>
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Penfield</p>
+        </div>
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Webster</p>
+        </div>
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Pittsford</p>
+        </div>
+        <div class="text-center p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-gray-900">Fairport</p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <p class="text-gray-600 mb-4">
+          Also serving businesses in <a href="/workers-compensation" class="text-navy-600 hover:underline">Syracuse, Buffalo, and Albany</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-navy-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Protect Your Rochester Employees Today</h2>
+      <p class="text-xl text-navy-100 mb-8 max-w-2xl mx-auto">
+        Get a competitive workers' compensation quote from Western New York's trusted insurance partner. Fast quotes, expert service, and same-day certificates available.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#quote-form" class="bg-white text-navy-600 hover:bg-gray-100 px-8 py-3 rounded-md font-semibold transition-colors duration-200">
+          Get Rochester Quote
+        </a>
+        <a href="tel:877-717-7234" class="border-2 border-white text-white hover:bg-white hover:text-navy-600 px-8 py-3 rounded-md font-semibold transition-colors duration-200">
+          Call (877) 717-7234
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <Footer />
+</Layout>
