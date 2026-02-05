@@ -2,10 +2,60 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does workers' compensation insurance cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Workers' compensation costs vary based on your industry classification code, payroll amount, claims history (EMR), and state. On average, businesses pay $1 to $2 per $100 in payroll, but high-risk industries like construction can pay $5-$10 or more per $100. Contact PCFG Insurance for a customized quote based on your specific business needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is workers' compensation insurance required?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Workers' compensation requirements vary by state. Most states require coverage once you have 1 or more employees, though some states have higher thresholds (3-5 employees). Construction businesses often must have coverage with just 1 employee. Penalties for non-compliance include heavy fines, stop work orders, and personal liability for claims."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does workers' compensation insurance cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Workers' compensation covers medical expenses for work-related injuries and illnesses, wage replacement during recovery, disability benefits for permanent injuries, vocational rehabilitation services, and death benefits for surviving family members. It protects both employees and employers from the financial impact of workplace injuries."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I reduce my workers' comp insurance costs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can reduce costs by implementing safety training programs, maintaining a drug-free workplace, ensuring accurate job classifications, establishing return-to-work programs for injured employees, and maintaining a good claims history. Many states offer discounts for certified safety programs. PCFG Insurance can help you identify cost-saving opportunities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly do I need to report a workplace injury?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Employers should report workplace injuries to their insurance carrier within 24-48 hours. Employees should report injuries to their employer immediately. State filing requirements vary, but prompt reporting ensures faster claim processing and helps protect both the employee and employer. PCFG Insurance provides dedicated claims support to guide you through the process."
+      }
+    }
+  ]
+};
 ---
 
-<Layout title="Workers' Compensation Insurance - PCFG Insurance Services" description="Expert workers' compensation insurance for businesses across 15 states. Competitive rates, exceptional service, and specialized coverage for high-risk industries. Get your free quote today." ogImage="https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630" ogType="article">
+<Layout title="Workers' Compensation Insurance in NY, PA, FL & 12 More States | PCFG Insurance" description="Get competitive workers' compensation insurance quotes for your business in NY, PA, FL, and 12 more states. Expert coverage for high-risk industries including construction, manufacturing, and transportation. Veteran-owned agency with 5+ years of experience. Free quote today." ogImage="https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630" ogType="article">
   <Header />
+  
+  <!-- JSON-LD Schema for FAQ -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   
  <!-- Hero Section -->
 <section class="py-20 bg-gradient-to-br from-navy-50 to-white">
@@ -13,9 +63,12 @@ import Footer from '../components/Footer.astro';
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
       <!-- Text -->
       <div>
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Workers' Compensation Insurance</h1>
-        <p class="text-xl text-gray-600 mb-8">
-          Protect your employees and your business with comprehensive workers' compensation coverage. We specialize in high-risk industries and provide competitive rates across 15 states.
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Workers' Compensation Insurance for Businesses in New York, Pennsylvania, Florida & Beyond</h1>
+        <p class="text-xl text-gray-600 mb-4">
+          Protect your employees and your business with comprehensive workers' compensation coverage across 15 states. We specialize in high-risk industries and provide competitive rates in <strong>Syracuse, Rochester, Buffalo, Albany, Philadelphia, Tampa, and beyond</strong>.
+        </p>
+        <p class="text-lg text-gray-600 mb-8">
+          PCFG Insurance is a <a href="/the-team" class="text-navy-600 hover:underline">veteran-owned insurance agency</a> with proven expertise in workers' comp for construction, manufacturing, transportation, healthcare, and more.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="#quote-form" class="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-md font-semibold text-center transition-colors duration-200">Get Free Quote</a>
@@ -86,9 +139,9 @@ import Footer from '../components/Footer.astro';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="text-3xl font-bold text-gray-900 mb-6">What is Workers' Compensation?</h2>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">What is Workers' Compensation Insurance?</h2>
           <p class="text-lg text-gray-600 mb-6">
-            Workers' compensation insurance provides medical benefits and wage replacement to employees who are injured or become ill as a result of their job. It also protects employers from lawsuits related to workplace injuries.
+            Workers' compensation insurance provides medical benefits and wage replacement to employees who are injured or become ill as a result of their job. It also protects employers from lawsuits related to workplace injuries. In most states, including <strong>New York, Pennsylvania, and Florida</strong>, it's legally required once you have employees.
           </p>
           <div class="mb-6">
             <h3 class="text-xl font-semibold text-gray-900 mb-3">Key Benefits for Employees:</h3>
@@ -194,7 +247,7 @@ import Footer from '../components/Footer.astro';
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">Construction</h3>
           <p class="text-gray-600 mb-4">
-            Specialized coverage for general contractors, subcontractors, and specialty trades with competitive rates for high-risk work.
+            Specialized <a href="/industries#construction" class="text-navy-600 hover:underline">construction insurance coverage</a> for general contractors, subcontractors, and specialty trades with competitive rates for high-risk work.
           </p>
           <ul class="text-sm text-gray-600 space-y-1">
             <li>• General contractors</li>
@@ -235,7 +288,7 @@ import Footer from '../components/Footer.astro';
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">Transportation</h3>
           <p class="text-gray-600 mb-4">
-            Specialized workers' comp for trucking companies, delivery services, and logistics operations.
+            Specialized workers' comp for <a href="/truckers-insurance" class="text-navy-600 hover:underline">trucking companies</a>, delivery services, and logistics operations.
           </p>
           <ul class="text-sm text-gray-600 space-y-1">
             <li>• Long-haul trucking</li>
@@ -275,7 +328,7 @@ import Footer from '../components/Footer.astro';
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">Retail & Hospitality</h3>
           <p class="text-gray-600 mb-4">
-            Affordable coverage for retail stores, restaurants, and hospitality businesses with high employee turnover.
+            Affordable coverage for retail stores, <a href="/restaurant-bar-insurance" class="text-navy-600 hover:underline">restaurants and bars</a>, and hospitality businesses with high employee turnover.
           </p>
           <ul class="text-sm text-gray-600 space-y-1">
             <li>• Retail stores</li>
@@ -568,8 +621,83 @@ import Footer from '../components/Footer.astro';
     </div>
   </section>
   
-  <!-- Why Choose PCFG -->
+  <!-- FAQ Section -->
   <section class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions About Workers' Compensation</h2>
+        <p class="text-xl text-gray-600">
+          Get answers to common questions about workers' comp insurance for businesses in New York, Pennsylvania, Florida, and beyond.
+        </p>
+      </div>
+      
+      <div class="space-y-6">
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            How much does workers' compensation insurance cost?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            Workers' compensation costs vary based on your <strong>industry classification code</strong>, payroll amount, claims history (EMR), and state. On average, businesses pay $1 to $2 per $100 in payroll, but high-risk industries like construction can pay $5-$10 or more per $100. Contact PCFG Insurance for a customized quote based on your specific business needs.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            Is workers' compensation insurance required?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            Workers' compensation requirements vary by state. Most states require coverage once you have <strong>1 or more employees</strong>, though some states have higher thresholds (3-5 employees). Construction businesses often must have coverage with just 1 employee. Penalties for non-compliance include heavy fines, stop work orders, and personal liability for claims.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            What does workers' compensation insurance cover?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            Workers' compensation covers <strong>medical expenses</strong> for work-related injuries and illnesses, <strong>wage replacement</strong> during recovery, disability benefits for permanent injuries, vocational rehabilitation services, and death benefits for surviving family members. It protects both employees and employers from the financial impact of workplace injuries.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            Can I reduce my workers' comp insurance costs?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            Yes. You can reduce costs by implementing <strong>safety training programs</strong>, maintaining a drug-free workplace, ensuring accurate job classifications, establishing return-to-work programs for injured employees, and maintaining a good claims history. Many states offer discounts for certified safety programs. <a href="#quote-form" class="text-navy-600 hover:underline">PCFG Insurance</a> can help you identify cost-saving opportunities.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            How quickly do I need to report a workplace injury?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            Employers should report workplace injuries to their insurance carrier within <strong>24-48 hours</strong>. Employees should report injuries to their employer immediately. State filing requirements vary, but prompt reporting ensures faster claim processing and helps protect both the employee and employer. PCFG Insurance provides dedicated claims support to guide you through the process.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200">
+          <summary class="text-lg font-semibold text-gray-900 cursor-pointer">
+            What states does PCFG Insurance offer workers' comp coverage in?
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            PCFG Insurance provides workers' compensation coverage in <strong>15 states</strong>: Alabama, Arizona, Florida, Georgia, Indiana, Maryland, Maine, New Jersey, New York, North Carolina, Ohio, Pennsylvania, Tennessee, Texas, and Virginia. We serve businesses throughout major cities including Syracuse, Rochester, Buffalo, Albany, Philadelphia, Pittsburgh, Tampa, and beyond.
+          </p>
+        </details>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-gray-600 mb-4">Have more questions? We're here to help.</p>
+        <a href="#quote-form" class="inline-block bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-md font-semibold transition-colors duration-200">
+          Get Your Free Quote
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Why Choose PCFG -->
+  <section class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Choose PCFG Insurance for Workers' Compensation Coverage?</h2>
@@ -608,6 +736,12 @@ import Footer from '../components/Footer.astro';
           <h3 class="text-xl font-semibold text-gray-900 mb-2">Claims Support</h3>
           <p class="text-gray-600">Dedicated claims support to help you navigate the process and get employees back to work.</p>
         </div>
+      </div>
+      
+      <div class="mt-12 text-center">
+        <p class="text-gray-600 mb-4">
+          Learn more about our <a href="/the-team" class="text-navy-600 hover:underline">veteran-owned team</a> or explore our other <a href="/business-owners-policy" class="text-navy-600 hover:underline">business insurance solutions</a>.
+        </p>
       </div>
     </div>
   </section>
