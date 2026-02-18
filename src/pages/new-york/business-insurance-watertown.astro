@@ -1,0 +1,382 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  "name": "PCFG Insurance Services - Watertown",
+  "image": "https://pcfginsurance.com/logo.png",
+  "description": "Business insurance, employee benefits, life insurance and workers' compensation for Watertown, NY businesses. Veteran-owned agency serving Jefferson County and Northern New York.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1429 County Route 38",
+    "addressLocality": "Parish",
+    "addressRegion": "NY",
+    "postalCode": "13131",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "43.4045",
+    "longitude": "-76.1272"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Watertown",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "New York"
+    }
+  },
+  "telephone": "+1-877-717-7234",
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-17:00"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you provide business insurance for Watertown NY companies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! PCFG Insurance provides comprehensive business insurance for Watertown, NY companies including workers' compensation, commercial auto, general liability, and employee benefits. We're based in nearby Parish, NY and serve businesses throughout Jefferson County and Northern New York, including Fort Drum contractors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with Fort Drum contractors and military-related businesses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely! As a veteran-owned insurance agency, we specialize in serving Fort Drum contractors, subcontractors, and military-related businesses in the Watertown area. We understand the unique needs of defense contractors and offer specialized coverage for government contracts, security clearances, and military base operations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of businesses in Watertown do you insure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We insure all types of Watertown businesses including Fort Drum contractors, healthcare providers, retail stores, restaurants, manufacturers, logistics companies, professional services, and construction firms. Whether you're a small business on Arsenal Street or a large defense contractor, we have coverage solutions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can I get a business insurance quote in Watertown?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most Watertown businesses receive quotes within 24-48 hours. For workers' compensation and commercial auto, we can often provide same-day quotes. Our proximity to Watertown (just 30 miles south in Parish, NY) means we understand the unique risks Northern New York businesses face."
+      }
+    }
+  ]
+};
+---
+
+<Layout 
+  title="Business Insurance Watertown NY | Fort Drum Contractors | PCFG" 
+  description="Business insurance for Watertown, NY & Fort Drum contractors. Workers' comp, commercial auto, general liability & employee benefits. Veteran-owned agency serving Jefferson County. Free quotes! (877) 717-7234" 
+  ogImage="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630" 
+  ogType="article"
+  keywords="business insurance Watertown NY, Fort Drum contractors insurance, workers compensation Watertown, commercial auto insurance Watertown, veteran owned insurance Watertown, Jefferson County business insurance"
+>
+  <Header />
+  
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-navy-50 to-white">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <div class="inline-block bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            Serving Watertown & Jefferson County
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Business Insurance for Watertown, NY & Fort Drum Contractors
+          </h1>
+          <p class="text-xl text-gray-600 mb-4">
+            Comprehensive business insurance for Watertown employers and <strong>Fort Drum contractors</strong>. As a veteran-owned agency, we specialize in serving military-related businesses with workers' comp, commercial auto, liability coverage & employee benefits.
+          </p>
+          <p class="text-lg text-gray-600 mb-6">
+            Based just 30 miles south in Parish, NY, PCFG Insurance is your local veteran-owned agency serving Watertown, Fort Drum, Calcium, Evans Mills, and all of Jefferson County.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+            <p class="text-sm text-gray-700">
+              <strong>Watertown Business Facts:</strong> Home to Fort Drum (10th Mountain Division), Watertown is Northern New York's commercial hub. Major employers include military contractors, healthcare (Samaritan Medical Center), retail, and logistics companies serving the Canadian border.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#quote-form" class="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-md font-semibold text-center transition-colors duration-200">Get Watertown Quote</a>
+            <a href="tel:877-717-7234" class="border-2 border-navy-600 text-navy-600 hover:bg-navy-600 hover:text-white px-8 py-3 rounded-md font-semibold text-center transition-colors duration-200">Call (877) 717-7234</a>
+          </div>
+        </div>
+
+        <div id="quote-form">
+          <div class="bg-white p-6 md:p-8 rounded-lg shadow-xl">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Get Your Watertown Business Insurance Quote</h3>
+            <p class="text-gray-600 mb-6">Fast quotes for Jefferson County businesses</p>
+            <div class="w-full" style="min-height: 900px;">
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/form/M0PWOXapIeQLm41fmLc1"
+                style="width:100%;height:900px;border:none;border-radius:4px"
+                id="inline-M0PWOXapIeQLm41fmLc1" 
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Workers Comp - Website"
+                data-height="935"
+                data-layout-iframe-id="inline-M0PWOXapIeQLm41fmLc1"
+                data-form-id="M0PWOXapIeQLm41fmLc1"
+                title="Business Insurance - Watertown NY"
+              >
+              </iframe>
+              <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services for Watertown -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Business Insurance Services for Watertown Employers</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          From Arsenal Street to Fort Drum, we provide comprehensive coverage tailored to Northern New York businesses.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Workers' Compensation</h3>
+          <p class="text-gray-600 mb-4">
+            Required coverage for Watertown businesses with employees. Essential for Fort Drum contractors and construction firms.
+          </p>
+          <a href="/new-york/syracuse-workers-compensation" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a4 4 0 118 0v4m-4 8a2 2 0 11-4 0 2 2 0 014 0zm6 0a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Commercial Auto</h3>
+          <p class="text-gray-600 mb-4">
+            Coverage for business vehicles, delivery trucks, and company cars—critical for logistics firms serving Fort Drum and the border.
+          </p>
+          <a href="/commercial-auto" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">General Liability</h3>
+          <p class="text-gray-600 mb-4">
+            Protection against third-party claims for Watertown retail stores, restaurants, service businesses, and contractors.
+          </p>
+          <a href="/general-liability" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Employee Benefits</h3>
+          <p class="text-gray-600 mb-4">
+            Health, dental, vision, and retirement plans to help Watertown employers compete for talent in the Fort Drum community.
+          </p>
+          <a href="/employee-benefits" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Business Owner's Policy</h3>
+          <p class="text-gray-600 mb-4">
+            Bundled coverage for small businesses on Arsenal Street, in the Salmon Run Mall area, and throughout Watertown.
+          </p>
+          <a href="/business-owners-policy" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Cyber Liability</h3>
+          <p class="text-gray-600 mb-4">
+            Protection from data breaches—essential for defense contractors handling sensitive information and healthcare providers.
+          </p>
+          <a href="/cyberpartners" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries We Serve in Watertown -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Watertown & Fort Drum Industries We Insure</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          From defense contractors to local retailers, we understand Northern New York's unique business landscape.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Fort Drum Contractors</h3>
+          <p class="text-gray-600 text-sm">Defense contractors, military base services, security firms</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Healthcare</h3>
+          <p class="text-gray-600 text-sm">Samaritan Medical Center, private practices, home health</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Retail</h3>
+          <p class="text-gray-600 text-sm">Salmon Run Mall, Arsenal Street shops, local stores</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Construction</h3>
+          <p class="text-gray-600 text-sm">Military construction, residential, commercial contractors</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Logistics</h3>
+          <p class="text-gray-600 text-sm">Border commerce, trucking, warehousing, distribution</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Manufacturing</h3>
+          <p class="text-gray-600 text-sm">Industrial facilities, food processing, paper products</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Restaurants</h3>
+          <p class="text-gray-600 text-sm">Downtown dining, fast casual, catering services</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Professional Services</h3>
+          <p class="text-gray-600 text-sm">Legal, accounting, consulting, IT services</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fort Drum Section -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-navy-50 rounded-lg p-8 md:p-12">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Veteran-Owned: We Speak Your Language</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Founded by Army veteran Liam O'Brien, PCFG Insurance understands the unique needs of Fort Drum contractors and military-connected businesses.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-lg font-semibold text-navy-600 mb-2">Government Contracting</h3>
+            <p class="text-gray-600">Insurance requirements for federal contracts and DFARS compliance</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-lg font-semibold text-navy-600 mb-2">Security Clearances</h3>
+            <p class="text-gray-600">Coverage for employees with security clearances and sensitive work</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-lg font-semibold text-navy-600 mb-2">Base Access</h3>
+            <p class="text-gray-600">Insurance for vehicles and personnel requiring Fort Drum access</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nearby Areas -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">We Also Serve These Jefferson County Areas</h2>
+        <p class="text-xl text-gray-600">
+          PCFG Insurance provides coverage throughout Northern New York.
+        </p>
+      </div>
+      
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Calcium</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Evans Mills</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Carthage</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Adams</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Sackets Harbor</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Theresa</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Black River</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Great Bend</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">La Fargeville</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Champion</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose PCFG for Watertown -->
+  <section class="py-20 bg-navy-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Why Watertown Businesses Choose PCFG</h2>
+      <p class="text-xl text-navy-100 mb-8 max-w-2xl mx-auto">
+        Veteran-owned expertise for Fort Drum contractors and Northern New York employers.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-white mb-2">Military Understanding</h3>
+          <p class="text-navy-100">As veterans, we understand the unique challenges Fort Drum contractors face.</p>
+        </div>
+        <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-white mb-2">Local Presence</h3>
+          <p class="text-navy-100">Just 30 miles south in Parish, NY—we're part of the Northern New York community.</p>
+        </div>
+        <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-white mb-2">15-State Coverage</h3>
+          <p class="text-navy-100">Perfect for contractors working across state lines and Canadian border operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Locations -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-6">We Also Serve These NY Markets</h3>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/new-york/business-insurance-syracuse" class="bg-white px-6 py-3 rounded-lg shadow hover:shadow-md transition-shadow text-navy-600 font-semibold">Syracuse, NY</a>
+        <a href="/new-york/business-insurance-rochester" class="bg-white px-6 py-3 rounded-lg shadow hover:shadow-md transition-shadow text-navy-600 font-semibold">Rochester, NY</a>
+        <a href="/new-york/buffalo-workers-compensation" class="bg-white px-6 py-3 rounded-lg shadow hover:shadow-md transition-shadow text-navy-600 font-semibold">Buffalo, NY</a>
+        <a href="/new-york/albany-workers-compensation" class="bg-white px-6 py-3 rounded-lg shadow hover:shadow-md transition-shadow text-navy-600 font-semibold">Albany, NY</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
