@@ -294,6 +294,15 @@ const ogImageURL = ogImage.startsWith('http') ? ogImage : `https://pcfginsurance
     <!-- Jeeva Analytics -->
     <script is:inline>!function () {var jeeva = window.jeeva = window.jeeva || [];if (jeeva.invoked) return;jeeva.invoked = true;jeeva.methods = ['identify', 'collect'];jeeva.factory = function (method) {return function () {var args = Array.prototype.slice.call(arguments);args.unshift(method);jeeva.push(args);return jeeva;};};for (var i = 0; i < jeeva.methods.length; i++) {var key = jeeva.methods[i];jeeva[key] = jeeva.factory(key);}jeeva.load = function (key) {var script = document.createElement('script');script.type = 'text/javascript';script.async = true;script.src = 'https://r2d2-inbound-js-store-production.s3.us-east-1.amazonaws.com/' + key + '/jeeva.js';var first = document.getElementsByTagName('script')[0];first.parentNode.insertBefore(script, first);};jeeva.SNIPPET_VERSION = '1.0.';jeeva.load('bdd05c05-322c-4670-a2b8-b194bf75b286');}();</script>
 
+    <!-- Google Analytics 4 - Load Immediately (Critical for Tracking) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB7T9QNC21"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DB7T9QNC21');
+    </script>
+
   </head>
   <body class="font-sans antialiased">
     <!-- Instant visual feedback -->
@@ -327,20 +336,16 @@ const ogImageURL = ogImage.startsWith('http') ? ogImage : `https://pcfginsurance
         // Stagger script loading to avoid blocking
         var idleCallback = window.requestIdleCallback || function(cb) { setTimeout(cb, 1); };
 
-        // Load Google Tag Manager (highest priority for conversion tracking)
+        // Note: GA4 is now loaded synchronously in <head> for accurate tracking
+        // Google Ads Conversion tracking only (deferred)
         idleCallback(function() {
-          loadScriptWhenIdle('https://www.googletagmanager.com/gtag/js?id=G-DB7T9QNC21', function() {
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            window.gtag = gtag;
-            gtag('js', new Date());
-            gtag('config', 'G-DB7T9QNC21');
+          if (window.gtag) {
             gtag('event', 'conversion', {
               'send_to': 'AW-16706905838/PyfqCMOzwtQZEO7NvJ4-',
               'value': 1.0,
               'currency': 'USD'
             });
-          });
+          }
         }, { timeout: 6000 });
 
         // Load AdRoll (medium priority) - staggered
