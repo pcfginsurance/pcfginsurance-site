@@ -1,0 +1,382 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  "name": "PCFG Insurance Services - Rochester",
+  "image": "https://pcfginsurance.com/logo.png",
+  "description": "Business insurance, employee benefits, life insurance and workers' compensation for Rochester, NY businesses. Veteran-owned agency serving Monroe County and Western New York.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1429 County Route 38",
+    "addressLocality": "Parish",
+    "addressRegion": "NY",
+    "postalCode": "13131",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "43.4045",
+    "longitude": "-76.1272"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Rochester",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "New York"
+    }
+  },
+  "telephone": "+1-877-717-7234",
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-17:00"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you provide business insurance for Rochester NY companies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! PCFG Insurance provides comprehensive business insurance for Rochester, NY companies including workers' compensation, commercial auto, general liability, and employee benefits. We serve businesses throughout Monroe County and Western New York from our nearby Parish, NY location."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of businesses in Rochester do you insure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We insure all types of Rochester businesses including technology companies, healthcare providers, manufacturers, retail stores, restaurants, professional services, and educational institutions. Whether you're a startup in the High Tech Corridor or an established company in downtown Rochester, we have coverage solutions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can I get a business insurance quote in Rochester?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most Rochester businesses receive quotes within 24-48 hours. For workers' compensation and commercial auto, we can often provide same-day quotes. We understand Rochester's diverse economy—from optics and imaging to healthcare and education—and tailor coverage accordingly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer employee benefits for Rochester employers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! We specialize in employee benefits for Rochester employers including health insurance, dental, vision, life insurance, and retirement plans. Rochester's competitive job market requires strong benefits packages—we work with top carriers to help you attract and retain talent in Western New York."
+      }
+    }
+  ]
+};
+---
+
+<Layout 
+  title="Business Insurance Rochester NY | Workers Comp, Employee Benefits | PCFG" 
+  description="Business insurance for Rochester, NY companies. Workers' compensation, commercial auto, general liability & employee benefits. Veteran-owned agency serving Monroe County. Free quotes! (877) 717-7234" 
+  ogImage="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630" 
+  ogType="article"
+  keywords="business insurance Rochester NY, workers compensation Rochester, commercial auto insurance Rochester, employee benefits Rochester NY, insurance agency Rochester, Monroe County business insurance"
+>
+  <Header />
+  
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-navy-50 to-white">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <div class="inline-block bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            Serving Rochester & Monroe County
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Business Insurance for Rochester, NY Companies
+          </h1>
+          <p class="text-xl text-gray-600 mb-4">
+            Comprehensive business insurance solutions for Rochester employers. From <strong>High Tech Corridor</strong> startups to <strong>University of Rochester</strong> contractors, we protect Western New York businesses with workers' comp, commercial auto, liability coverage & employee benefits.
+          </p>
+          <p class="text-lg text-gray-600 mb-6">
+            Based 75 miles east in Parish, NY, PCFG Insurance is your veteran-owned agency serving Rochester, Brighton, Henrietta, Greece, Webster, and all of Monroe County.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+            <p class="text-sm text-gray-700">
+              <strong>Rochester Business Facts:</strong> Home to over 20,000 businesses, Rochester is Western New York's innovation hub. Major industries include optics/photonics, healthcare (Strong Memorial, Rochester Regional), education, advanced manufacturing, and food/beverage production.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#quote-form" class="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-md font-semibold text-center transition-colors duration-200">Get Rochester Quote</a>
+            <a href="tel:877-717-7234" class="border-2 border-navy-600 text-navy-600 hover:bg-navy-600 hover:text-white px-8 py-3 rounded-md font-semibold text-center transition-colors duration-200">Call (877) 717-7234</a>
+          </div>
+        </div>
+
+        <div id="quote-form">
+          <div class="bg-white p-6 md:p-8 rounded-lg shadow-xl">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Get Your Rochester Business Insurance Quote</h3>
+            <p class="text-gray-600 mb-6">Fast quotes for Monroe County businesses</p>
+            <div class="w-full" style="min-height: 900px;">
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/form/M0PWOXapIeQLm41fmLc1"
+                style="width:100%;height:900px;border:none;border-radius:4px"
+                id="inline-M0PWOXapIeQLm41fmLc1" 
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Workers Comp - Website"
+                data-height="935"
+                data-layout-iframe-id="inline-M0PWOXapIeQLm41fmLc1"
+                data-form-id="M0PWOXapIeQLm41fmLc1"
+                title="Business Insurance - Rochester NY"
+              >
+              </iframe>
+              <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services for Rochester -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Business Insurance Services for Rochester Employers</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          From downtown to the suburbs, we provide comprehensive coverage tailored to Western New York businesses.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Workers' Compensation</h3>
+          <p class="text-gray-600 mb-4">
+            Required coverage for Rochester businesses with employees. Essential for manufacturing, healthcare, and construction firms.
+          </p>
+          <a href="/new-york/rochester-workers-compensation" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a4 4 0 118 0v4m-4 8a2 2 0 11-4 0 2 2 0 014 0zm6 0a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Commercial Auto</h3>
+          <p class="text-gray-600 mb-4">
+            Coverage for business vehicles, service fleets, and company cars navigating Rochester's weather and road conditions.
+          </p>
+          <a href="/commercial-auto" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">General Liability</h3>
+          <p class="text-gray-600 mb-4">
+            Protection against third-party claims for Rochester retail stores, restaurants, service businesses, and manufacturers.
+          </p>
+          <a href="/general-liability" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Employee Benefits</h3>
+          <p class="text-gray-600 mb-4">
+            Health, dental, vision, and retirement plans to help Rochester employers compete for top talent in the Western NY job market.
+          </p>
+          <a href="/employee-benefits" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Business Owner's Policy</h3>
+          <p class="text-gray-600 mb-4">
+            Bundled coverage for small businesses in Park Avenue, South Wedge, Corn Hill, and throughout Rochester suburbs.
+          </p>
+          <a href="/business-owners-policy" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Cyber Liability</h3>
+          <p class="text-gray-600 mb-4">
+            Protection from data breaches—critical for Rochester's tech sector, healthcare providers, and financial services firms.
+          </p>
+          <a href="/cyberpartners" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries We Serve in Rochester -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Rochester Industries We Insure</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          From the High Tech Corridor to the medical campus, we understand Rochester's innovation economy.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Optics & Photonics</h3>
+          <p class="text-gray-600 text-sm">High tech companies, imaging firms, laser technology businesses</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Healthcare</h3>
+          <p class="text-gray-600 text-sm">Strong Memorial, Rochester Regional, private practices, biotech</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Education</h3>
+          <p class="text-gray-600 text-sm">University of Rochester, RIT, K-12 schools, educational services</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Manufacturing</h3>
+          <p class="text-gray-600 text-sm">Precision manufacturing, food production, industrial facilities</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Technology</h3>
+          <p class="text-gray-600 text-sm">Software companies, startups, IT services, data centers</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Food & Beverage</h3>
+          <p class="text-gray-600 text-sm">Eastman Business Park food companies, breweries, restaurants</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Retail</h3>
+          <p class="text-gray-600 text-sm">Eastview Mall, Marketplace Mall, local boutiques, shops</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Professional Services</h3>
+          <p class="text-gray-600 text-sm">Legal, accounting, consulting, engineering, architecture</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Innovation Section -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-navy-50 rounded-lg p-8 md:p-12">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Rochester's Innovation Economy</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            From Kodak's legacy to today's photonics revolution, Rochester businesses need insurance partners who understand innovation.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-lg font-semibold text-navy-600 mb-2">Tech & IP Protection</h3>
+            <p class="text-gray-600">Coverage for intellectual property, tech E&O, and cyber liability for innovative companies.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-lg font-semibold text-navy-600 mb-2">Startup-Friendly</h3>
+            <p class="text-gray-600">Scalable coverage options for growing companies from seed stage to expansion.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-lg font-semibold text-navy-600 mb-2">Research & Development</h3>
+            <p class="text-gray-600">Insurance for R&D facilities, labs, and experimental operations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nearby Areas -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">We Also Serve These Monroe County Areas</h2>
+        <p class="text-xl text-gray-600">
+          PCFG Insurance provides coverage throughout Western New York.
+        </p>
+      </div>
+      
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Brighton</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Henrietta</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Greece</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Irondequoit</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Webster</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Penfield</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Pittsford</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Gates</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Chili</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Victor</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose PCFG for Rochester -->
+  <section class="py-20 bg-navy-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Why Rochester Businesses Choose PCFG</h2>
+      <p class="text-xl text-navy-100 mb-8 max-w-2xl mx-auto">
+        Veteran-owned expertise meets innovation-friendly coverage for Western New York employers.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-white mb-2">Innovation Understanding</h3>
+          <p class="text-navy-100">We get Rochester's tech ecosystem—from photonics startups to established manufacturers.</p>
+        </div>
+        <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-white mb-2">15-State Coverage</h3>
+          <p class="text-navy-100">Perfect for Rochester companies with operations across the Northeast and beyond.</p>
+        </div>
+        <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-white mb-2">Growth Partnership</h3>
+          <p class="text-navy-100">We scale with you—from startup to expansion—ensuring you're never underinsured.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Locations -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-6">We Also Serve These NY Markets</h3>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/new-york/business-insurance-syracuse" class="bg-white px-6 py-3 rounded-lg shadow hover:shadow-md transition-shadow text-navy-600 font-semibold">Syracuse, NY</a>
+        <a href="/new-york/business-insurance-watertown" class="bg-white px-6 py-3 rounded-lg shadow hover:shadow-md transition-shadow text-navy-600 font-semibold">Watertown, NY</a>
+        <a href="/new-york/buffalo-workers-compensation" class="bg-white px-6 py-3 rounded-lg shadow hover:shadow-md transition-shadow text-navy-600 font-semibold">Buffalo, NY</a>
+        <a href="/new-york/albany-workers-compensation" class="bg-white px-6 py-3 rounded-lg shadow hover:shadow-md transition-shadow text-navy-600 font-semibold">Albany, NY</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

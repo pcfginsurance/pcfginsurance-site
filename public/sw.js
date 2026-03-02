@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pcfg-insurance-v1';
+const CACHE_NAME = 'pcfg-insurance-v2-20250221';
 const urlsToCache = [
   '/',
   '/offline.html',

@@ -1,0 +1,353 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  "name": "PCFG Insurance Services - Syracuse",
+  "image": "https://pcfginsurance.com/logo.png",
+  "description": "Business insurance, employee benefits, life insurance and workers' compensation for Syracuse, NY businesses. Veteran-owned agency serving Onondaga County and Central New York.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1429 County Route 38",
+    "addressLocality": "Parish",
+    "addressRegion": "NY",
+    "postalCode": "13131",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "43.4045",
+    "longitude": "-76.1272"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Syracuse",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "New York"
+    }
+  },
+  "telephone": "+1-877-717-7234",
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-17:00"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you provide business insurance for Syracuse companies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! PCFG Insurance provides comprehensive business insurance for Syracuse companies including workers' compensation, commercial auto, general liability, and employee benefits. We're based in nearby Parish, NY and serve businesses throughout Onondaga County and Central New York."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of businesses in Syracuse do you insure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We insure all types of Syracuse businesses including construction companies, manufacturers, healthcare providers, retail stores, professional services, restaurants, and technology firms. Whether you're a small business in Armory Square or a large employer in the Syracuse Tech Garden, we have coverage solutions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can I get a business insurance quote in Syracuse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most Syracuse businesses receive quotes within 24-48 hours. For workers' compensation and commercial auto, we can often provide same-day quotes. Our local presence in Central New York means we understand the unique risks Syracuse businesses face—from harsh winters to the local economy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer employee benefits for Syracuse employers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! We specialize in employee benefits for Syracuse employers including health insurance, dental, vision, life insurance, and retirement plans. We work with top carriers to provide competitive benefits packages that help Syracuse businesses attract and retain talent in the competitive Central New York job market."
+      }
+    }
+  ]
+};
+---
+
+<Layout 
+  title="Business Insurance Syracuse NY | Workers Comp, Employee Benefits | PCFG" 
+  description="Business insurance for Syracuse, NY companies. Workers' compensation, commercial auto, general liability & employee benefits. Veteran-owned agency serving Onondaga County. Free quotes! (877) 717-7234" 
+  ogImage="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630" 
+  ogType="article"
+  keywords="business insurance Syracuse NY, workers compensation Syracuse, commercial auto insurance Syracuse, employee benefits Syracuse NY, insurance agency Syracuse, Onondaga County business insurance"
+>
+  <Header />
+  
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-navy-50 to-white">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <div class="inline-block bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            Serving Syracuse & Onondaga County
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Business Insurance for Syracuse, NY Companies
+          </h1>
+          <p class="text-xl text-gray-600 mb-4">
+            Comprehensive business insurance solutions for Syracuse employers. From <strong>Destiny USA</strong> retailers to <strong>Syracuse University</strong> contractors, we protect Central New York businesses with workers' comp, commercial auto, liability coverage & employee benefits.
+          </p>
+          <p class="text-lg text-gray-600 mb-6">
+            Based just 25 miles north in Parish, NY, PCFG Insurance is your local veteran-owned agency serving Syracuse, Liverpool, Fayetteville, Manlius, and all of Onondaga County.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+            <p class="text-sm text-gray-700">
+              <strong>Syracuse Business Facts:</strong> Home to over 15,000 businesses, Syracuse is Central New York's economic hub. Major industries include healthcare (Upstate Medical), education, manufacturing, and technology.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#quote-form" class="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-md font-semibold text-center transition-colors duration-200">Get Syracuse Quote</a>
+            <a href="tel:877-717-7234" class="border-2 border-navy-600 text-navy-600 hover:bg-navy-600 hover:text-white px-8 py-3 rounded-md font-semibold text-center transition-colors duration-200">Call (877) 717-7234</a>
+          </div>
+        </div>
+
+        <div id="quote-form">
+          <div class="bg-white p-6 md:p-8 rounded-lg shadow-xl">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Get Your Syracuse Business Insurance Quote</h3>
+            <p class="text-gray-600 mb-6">Fast quotes for Onondaga County businesses</p>
+            <div class="w-full" style="min-height: 900px;">
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/form/M0PWOXapIeQLm41fmLc1"
+                style="width:100%;height:900px;border:none;border-radius:4px"
+                id="inline-M0PWOXapIeQLm41fmLc1" 
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Workers Comp - Website"
+                data-height="935"
+                data-layout-iframe-id="inline-M0PWOXapIeQLm41fmLc1"
+                data-form-id="M0PWOXapIeQLm41fmLc1"
+                title="Business Insurance - Syracuse NY"
+              >
+              </iframe>
+              <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services for Syracuse -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Business Insurance Services for Syracuse Employers</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          From Downtown Syracuse to the suburbs, we provide comprehensive coverage tailored to Central New York businesses.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Workers' Compensation</h3>
+          <p class="text-gray-600 mb-4">
+            Required coverage for Syracuse businesses with employees. Protect against workplace injuries and NY state penalties.
+          </p>
+          <a href="/new-york/syracuse-workers-compensation" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a4 4 0 118 0v4m-4 8a2 2 0 11-4 0 2 2 0 014 0zm6 0a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Commercial Auto</h3>
+          <p class="text-gray-600 mb-4">
+            Coverage for business vehicles, delivery trucks, and company cars navigating Syracuse winters and local roads.
+          </p>
+          <a href="/commercial-auto" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">General Liability</h3>
+          <p class="text-gray-600 mb-4">
+            Protection against third-party claims, lawsuits, and property damage for Syracuse retail, restaurants, and service businesses.
+          </p>
+          <a href="/general-liability" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Employee Benefits</h3>
+          <p class="text-gray-600 mb-4">
+            Health, dental, vision, and retirement plans to help Syracuse employers compete for talent in the Central NY job market.
+          </p>
+          <a href="/employee-benefits" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Business Owner's Policy</h3>
+          <p class="text-gray-600 mb-4">
+            Bundled coverage combining general liability and property insurance—perfect for small businesses in Armory Square and Eastwood.
+          </p>
+          <a href="/business-owners-policy" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="w-12 h-12 bg-navy-600 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Cyber Liability</h3>
+          <p class="text-gray-600 mb-4">
+            Protection from data breaches and cyber attacks—essential for Syracuse's growing tech sector and healthcare providers.
+          </p>
+          <a href="/cyberpartners" class="text-navy-600 font-semibold hover:underline">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries We Serve in Syracuse -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Syracuse Industries We Insure</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          From University Hill to the Inner Harbor, we understand Syracuse's diverse business landscape.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Healthcare</h3>
+          <p class="text-gray-600 text-sm">Upstate Medical, Crouse Hospital, private practices</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Education</h3>
+          <p class="text-gray-600 text-sm">Syracuse University contractors, private schools</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Retail</h3>
+          <p class="text-gray-600 text-sm">Destiny USA, Armory Square shops, local stores</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Construction</h3>
+          <p class="text-gray-600 text-sm">Residential, commercial, road work contractors</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Manufacturing</h3>
+          <p class="text-gray-600 text-sm">Industrial facilities, food processing, fabrication</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Technology</h3>
+          <p class="text-gray-600 text-sm">Tech startups, software companies, IT services</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Restaurants</h3>
+          <p class="text-gray-600 text-sm">Downtown dining, suburban eateries, food trucks</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Professional Services</h3>
+          <p class="text-gray-600 text-sm">Law firms, accountants, consultants, agencies</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nearby Areas -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">We Also Serve These Syracuse Areas</h2>
+        <p class="text-xl text-gray-600">
+          PCFG Insurance provides coverage throughout Onondaga County and Central New York.
+        </p>
+      </div>
+      
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Liverpool</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Fayetteville</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Manlius</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Cicero</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Clay</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Camillus</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">DeWitt</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">Onondaga Hill</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">East Syracuse</span>
+        <span class="bg-navy-100 text-navy-800 px-4 py-2 rounded-full">North Syracuse</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose PCFG for Syracuse -->
+  <section class="py-20 bg-navy-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Why Syracuse Businesses Choose PCFG</h2>
+      <p class="text-xl text-navy-100 mb-8 max-w-2xl mx-auto">
+        Local expertise meets comprehensive coverage for Central New York employers.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-white mb-2">Local Knowledge</h3>
+          <p class="text-navy-100">We understand Syracuse's unique risks—from lake effect snow to the local business climate.</p>
+        </div>
+        <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-white mb-2">Veteran-Owned</h3>
+          <p class="text-navy-100">Service, integrity, and excellence—values that resonate with Syracuse's hardworking business community.</p>
+        </div>
+        <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-white mb-2">15-State Coverage</h3>
+          <p class="text-navy-100">Perfect for Syracuse companies with operations across NY, PA, FL and beyond.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Locations -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-6">We Also Serve These NY Markets</h3>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/new-york/business-insurance-watertown" class="bg-white px-6 py-3 rounded-lg shadow hover:shadow-md transition-shadow text-navy-600 font-semibold">Watertown, NY</a>
+        <a href="/new-york/business-insurance-rochester" class="bg-white px-6 py-3 rounded-lg shadow hover:shadow-md transition-shadow text-navy-600 font-semibold">Rochester, NY</a>
+        <a href="/new-york/buffalo-workers-compensation" class="bg-white px-6 py-3 rounded-lg shadow hover:shadow-md transition-shadow text-navy-600 font-semibold">Buffalo, NY</a>
+        <a href="/new-york/albany-workers-compensation" class="bg-white px-6 py-3 rounded-lg shadow hover:shadow-md transition-shadow text-navy-600 font-semibold">Albany, NY</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
