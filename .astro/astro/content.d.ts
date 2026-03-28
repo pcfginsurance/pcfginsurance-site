@@ -183,6 +183,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"2026-03-28-farm-agricultural-insurance-ny.md": {
+	id: "2026-03-28-farm-agricultural-insurance-ny.md";
+  slug: "2026-03-28-farm-agricultural-insurance-ny";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "2026-03-28-farm-insurance-upstate-ny.md": {
 	id: "2026-03-28-farm-insurance-upstate-ny.md";
   slug: "2026-03-28-farm-insurance-upstate-ny";
@@ -197,9 +204,65 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"2026-03-28-insurance-claims-guide-ny.md": {
+	id: "2026-03-28-insurance-claims-guide-ny.md";
+  slug: "2026-03-28-insurance-claims-guide-ny";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"2026-03-28-insurance-industry-trends.md": {
+	id: "2026-03-28-insurance-industry-trends.md";
+  slug: "2026-03-28-insurance-industry-trends";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"2026-03-28-professional-services-insurance-ny.md": {
+	id: "2026-03-28-professional-services-insurance-ny.md";
+  slug: "2026-03-28-professional-services-insurance-ny";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "2026-03-28-small-business-insurance-checklist-ny.md": {
 	id: "2026-03-28-small-business-insurance-checklist-ny.md";
   slug: "2026-03-28-small-business-insurance-checklist-ny";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"2026-03-28-small-business-startup-insurance-ny.md": {
+	id: "2026-03-28-small-business-startup-insurance-ny.md";
+  slug: "2026-03-28-small-business-startup-insurance-ny";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"2026-03-28-umbrella-insurance-small-business-ny.md": {
+	id: "2026-03-28-umbrella-insurance-small-business-ny.md";
+  slug: "2026-03-28-umbrella-insurance-small-business-ny";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"2026-03-28-what-does-commercial-auto-insurance-cover.md": {
+	id: "2026-03-28-what-does-commercial-auto-insurance-cover.md";
+  slug: "2026-03-28-what-does-commercial-auto-insurance-cover";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"2026-03-28-why-work-independent-insurance-agent-ny.md": {
+	id: "2026-03-28-why-work-independent-insurance-agent-ny.md";
+  slug: "2026-03-28-why-work-independent-insurance-agent-ny";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"2026-03-28-workers-comp-contractors-ny.md": {
+	id: "2026-03-28-workers-comp-contractors-ny.md";
+  slug: "2026-03-28-workers-comp-contractors-ny";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
