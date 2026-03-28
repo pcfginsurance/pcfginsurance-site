@@ -4,7 +4,7 @@ metaDescription: "Secure your Watertown business with the right commercial insur
 targetKeyword: "commercial insurance Watertown NY"
 author: "PCFG Insurance Services"
 date: "2026-03-28"
-category: "Location Guides", "Small Business Insurance"
+category: ["Location Guides", "Small Business Insurance"]
 cta: "Get a Free Commercial Insurance Quote"
 ---
 
