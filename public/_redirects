@@ -10,4 +10,7 @@
 # Admin panel
 /admin /admin/index.html 200
 
+# Blog post redirect - URL was changed with date prefix
+/blog/independent-vs-captive-agent-syracuse-ny/ /blog/2026-03-22-independent-insurance-agent-syracuse-ny/ 301
+
 # Fallback for SPA routing

@@ -51,7 +51,10 @@ export const GET: APIRoute = async () => {
     { url: '/privacy', lastmod: currentDate, changefreq: 'yearly', priority: '0.3' },
     { url: '/terms', lastmod: currentDate, changefreq: 'yearly', priority: '0.3' },
     { url: '/security-policy', lastmod: currentDate, changefreq: 'yearly', priority: '0.3' },
-    { url: '/accessibility', lastmod: currentDate, changefreq: 'yearly', priority: '0.3' }
+    { url: '/accessibility', lastmod: currentDate, changefreq: 'yearly', priority: '0.3' },
+
+    // Blog posts
+    { url: '/blog/2026-03-22-independent-insurance-agent-syracuse-ny', lastmod: currentDate, changefreq: 'monthly', priority: '0.7' },
   ];
 
   // Generate XML according to Google's sitemap protocol
