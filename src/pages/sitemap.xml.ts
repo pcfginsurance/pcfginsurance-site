@@ -1,8 +1,17 @@
 import type { APIRoute } from 'astro';
+import { getCollection } from 'astro:content';
 
 export const GET: APIRoute = async () => {
   const baseUrl = 'https://pcfginsurance.com';
   const currentDate = new Date().toISOString();
+
+  const blogPosts = await getCollection('blog');
+  const blogEntries = blogPosts.map(post => ({
+    url: `/blog/${post.slug}`,
+    lastmod: post.data.pubDate ? post.data.pubDate.toISOString() : currentDate,
+    changefreq: 'monthly',
+    priority: '0.7',
+  }));
 
   // All pages with proper priority and change frequency according to Google guidelines
   const pages = [
@@ -53,8 +62,8 @@ export const GET: APIRoute = async () => {
     { url: '/security-policy', lastmod: currentDate, changefreq: 'yearly', priority: '0.3' },
     { url: '/accessibility', lastmod: currentDate, changefreq: 'yearly', priority: '0.3' },
 
-    // Blog posts
-    { url: '/blog/2026-03-22-independent-insurance-agent-syracuse-ny', lastmod: currentDate, changefreq: 'monthly', priority: '0.7' },
+    // Blog posts (dynamically loaded)
+    ...blogEntries,
   ];
 
   // Generate XML according to Google's sitemap protocol
