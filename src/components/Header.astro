@@ -10,7 +10,7 @@
           <img src="/assets/PCFG-Insurance-Logo-Main.png" alt="PCFG Insurance Services - Home" class="h-10 w-auto" loading="eager" fetchpriority="high" width="200" height="40">
         </a>
       </div>
-      
+
       <!-- Desktop Navigation -->
       <nav class="hidden md:block" role="navigation" aria-label="Main navigation">
         <div class="ml-10 flex items-center space-x-8">
@@ -136,7 +136,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Mobile menu button -->
       <div class="md:hidden">
         <button type="button" class="mobile-menu-button bg-neutral-light inline-flex items-center justify-center p-2 rounded-md text-neutral-dark hover:text-primary hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open main menu">
@@ -147,65 +147,81 @@
         </button>
       </div>
     </div>
-    
-    <!-- Mobile Navigation -->
-    <div id="mobile-menu" class="mobile-menu hidden md:hidden fixed top-16 left-0 right-0 bottom-0 z-40 bg-white overflow-y-auto overscroll-contain" style="-webkit-overflow-scrolling: touch;" role="navigation" aria-label="Mobile navigation">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
-        <a href="/" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Home</a>
-        <a href="/about" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">About</a>
-        <a href="/cyberpartners" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Partner Program</a>
-        <a href="/affinity-programs" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Affinity Programs</a>
-        <a href="/services" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Business Insurance</a>
-        <a href="/cyber-liability" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium pl-6">Cyber Liability</a>
-        <a href="/professional-liability" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium pl-6">Professional Liability</a>
-        <a href="/umbrella-insurance" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium pl-6">Commercial Umbrella</a>
-        <a href="/directors-officers" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium pl-6">Directors & Officers</a>
-        <a href="/personal-insurance" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Personal Insurance</a>
-        <a href="/employee-benefits" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Employee Benefits</a>
-        <a href="/ichra" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium pl-6">ICHRA</a>
-        <a href="/vitaledge" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">VitalEdge Program</a>
-        <a href="/life-insurance" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Life Insurance</a>
-        <a href="/health-insurance" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Health Insurance</a>
-        <a href="/annuities" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Annuities</a>
-        <a href="/industries" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Industries</a>
-        <a href="/client-services" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Client Services</a>
-        <a href="/blog" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Blog</a>
-        <a href="/careers" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Careers</a>
-        <a href="/contact" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Contact</a>
-        <a href="https://seppay.com/s/al?a=V18tksWZD3qgVTD1z2TO%2BA" target="_blank" rel="noopener noreferrer" class="no-underline bg-primary hover:bg-primary-dark text-white block px-3 py-2 rounded-lg text-base font-medium mt-4">Make Payment</a>
-        <a href="/commercial-quote" class="no-underline bg-primary hover:bg-primary-dark text-white block px-3 py-2 rounded-lg text-base font-medium mt-2">Commercial Quote</a>
-        <a href="/personal-lines-quote" class="no-underline bg-primary hover:bg-primary-dark text-white block px-3 py-2 rounded-lg text-base font-medium mt-2">Personal Lines Quote</a>
-      </div>
-    </div>
   </nav>
 </header>
 
+<!-- Mobile Navigation — lives OUTSIDE <header> so header's CSS transform cannot affect fixed positioning -->
+<div id="mobile-menu" class="mobile-menu hidden fixed left-0 right-0 bottom-0 z-40 bg-white overflow-y-auto overscroll-contain" style="top: 64px; -webkit-overflow-scrolling: touch;" role="navigation" aria-label="Mobile navigation">
+  <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
+    <a href="/" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Home</a>
+    <a href="/about" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">About</a>
+    <a href="/cyberpartners" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Partner Program</a>
+    <a href="/affinity-programs" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Affinity Programs</a>
+    <a href="/services" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Business Insurance</a>
+    <a href="/cyber-liability" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium pl-6">Cyber Liability</a>
+    <a href="/professional-liability" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium pl-6">Professional Liability</a>
+    <a href="/umbrella-insurance" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium pl-6">Commercial Umbrella</a>
+    <a href="/directors-officers" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium pl-6">Directors & Officers</a>
+    <a href="/personal-insurance" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Personal Insurance</a>
+    <a href="/employee-benefits" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Employee Benefits</a>
+    <a href="/ichra" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium pl-6">ICHRA</a>
+    <a href="/vitaledge" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">VitalEdge Program</a>
+    <a href="/life-insurance" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Life Insurance</a>
+    <a href="/health-insurance" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Health Insurance</a>
+    <a href="/annuities" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Annuities</a>
+    <a href="/industries" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Industries</a>
+    <a href="/client-services" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Client Services</a>
+    <a href="/blog" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Blog</a>
+    <a href="/careers" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Careers</a>
+    <a href="/contact" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Contact</a>
+    <a href="https://seppay.com/s/al?a=V18tksWZD3qgVTD1z2TO%2BA" target="_blank" rel="noopener noreferrer" class="no-underline bg-primary hover:bg-primary-dark text-white block px-3 py-2 rounded-lg text-base font-medium mt-4">Make Payment</a>
+    <a href="/commercial-quote" class="no-underline bg-primary hover:bg-primary-dark text-white block px-3 py-2 rounded-lg text-base font-medium mt-2">Commercial Quote</a>
+    <a href="/personal-lines-quote" class="no-underline bg-primary hover:bg-primary-dark text-white block px-3 py-2 rounded-lg text-base font-medium mt-2">Personal Lines Quote</a>
+  </div>
+</div>
+
 <script>
-  // Essential header interactivity - runs immediately
   (function() {
-    // Mobile menu toggle - critical for mobile users
     var btn = document.querySelector('.mobile-menu-button');
-    var menu = document.querySelector('.mobile-menu');
+    var menu = document.getElementById('mobile-menu');
+    var scrollY = 0;
+
+    function openMenu() {
+      scrollY = window.scrollY;
+      menu.classList.remove('hidden');
+      btn.setAttribute('aria-expanded', 'true');
+      // iOS-safe scroll lock: fix the body in place at current scroll position
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + scrollY + 'px';
+      document.body.style.width = '100%';
+    }
+
+    function closeMenu() {
+      menu.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+      // Restore body scroll and jump back to saved position
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, scrollY);
+    }
+
     if (btn && menu) {
       btn.addEventListener('click', function() {
-        var isOpen = menu.classList.toggle('hidden') === false;
-        // classList.toggle returns true if class was ADDED (hidden), false if removed
-        var nowOpen = !menu.classList.contains('hidden');
-        btn.setAttribute('aria-expanded', String(nowOpen));
-        document.body.style.overflow = nowOpen ? 'hidden' : '';
+        if (menu.classList.contains('hidden')) {
+          openMenu();
+        } else {
+          closeMenu();
+        }
       });
-      // Close menu and restore scroll on any nav link tap
+
       menu.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          menu.classList.add('hidden');
-          btn.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-        });
+        link.addEventListener('click', closeMenu);
       });
     }
   })();
 
-  // Defer scroll behavior to idle time (non-critical)
+  // Hide/show header on scroll (non-critical, deferred)
   var idleCallback = window.requestIdleCallback || function(cb) { setTimeout(cb, 1); };
   idleCallback(function() {
     var lastScrollTop = 0;
