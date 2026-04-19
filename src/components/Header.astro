@@ -149,8 +149,8 @@
     </div>
     
     <!-- Mobile Navigation -->
-    <div id="mobile-menu" class="mobile-menu hidden md:hidden overflow-y-auto max-h-[calc(100vh-4rem)]" role="navigation" aria-label="Mobile navigation">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+    <div id="mobile-menu" class="mobile-menu hidden md:hidden fixed top-16 left-0 right-0 bottom-0 z-40 bg-white overflow-y-auto overscroll-contain" style="-webkit-overflow-scrolling: touch;" role="navigation" aria-label="Mobile navigation">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
         <a href="/" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Home</a>
         <a href="/about" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">About</a>
         <a href="/cyberpartners" class="no-underline text-neutral-dark hover:text-primary block px-3 py-2 text-base font-medium">Partner Program</a>
@@ -188,8 +188,19 @@
     var menu = document.querySelector('.mobile-menu');
     if (btn && menu) {
       btn.addEventListener('click', function() {
-        menu.classList.toggle('hidden');
-        btn.setAttribute('aria-expanded', String(!menu.classList.contains('hidden')));
+        var isOpen = menu.classList.toggle('hidden') === false;
+        // classList.toggle returns true if class was ADDED (hidden), false if removed
+        var nowOpen = !menu.classList.contains('hidden');
+        btn.setAttribute('aria-expanded', String(nowOpen));
+        document.body.style.overflow = nowOpen ? 'hidden' : '';
+      });
+      // Close menu and restore scroll on any nav link tap
+      menu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          menu.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
       });
     }
   })();
