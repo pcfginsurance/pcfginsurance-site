@@ -1,0 +1,1 @@
+import"./hoisted.B9gEwcFY.js";document.addEventListener("DOMContentLoaded",function(){const t=document.getElementById("quick-quote-form");t&&t.addEventListener("submit",function(e){e.preventDefault();const n=new FormData(t),o=Object.fromEntries(n);localStorage.setItem("lifeInsuranceQuickQuote",JSON.stringify(o)),window.location.href="/life-insurance-quote"})});
