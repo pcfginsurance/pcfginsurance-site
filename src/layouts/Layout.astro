@@ -59,6 +59,8 @@ const ogImageURL = ogImage.startsWith('http') ? ogImage : `https://pcfginsurance
     <link rel="dns-prefetch" href="https://cdn.pagesense.io" />
     <link rel="dns-prefetch" href="https://s.adroll.com" />
     <link rel="dns-prefetch" href="https://identity.netlify.com" />
+    <link rel="preconnect" href="https://connect.facebook.net" />
+    <link rel="dns-prefetch" href="https://www.facebook.com" />
 
     <!-- Preload Critical Resources -->
     <link rel="preload" href="/assets/PCFG-Insurance-Logo-Main.png" as="image" fetchpriority="high" />
@@ -308,6 +310,14 @@ const ogImageURL = ogImage.startsWith('http') ? ogImage : `https://pcfginsurance
       gtag('js', new Date());
       gtag('config', 'G-DB7T9QNC21');
     </script>
+
+    <!-- Meta Pixel -->
+    <script is:inline>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '2238941756158858');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2238941756158858&ev=PageView&noscript=1" /></noscript>
 
   </head>
   <body class="font-sans antialiased">
