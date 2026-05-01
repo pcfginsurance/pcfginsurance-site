@@ -209,6 +209,11 @@ const {
             messageDiv.classList.add('bg-green-100', 'text-green-700');
             (form as HTMLFormElement).reset();
 
+            // Fire conversion ONLY on confirmed successful submission
+            if (typeof (window as any).pcfgFireConversion === 'function') {
+              (window as any).pcfgFireConversion();
+            }
+
             setTimeout(() => {
               window.location.href = '/thank-you.html';
             }, 2000);

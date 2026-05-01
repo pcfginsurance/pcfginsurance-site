@@ -343,16 +343,8 @@ const ogImageURL = ogImage.startsWith('http') ? ogImage : `https://pcfginsurance
         var idleCallback = window.requestIdleCallback || function(cb) { setTimeout(cb, 1); };
 
         // Note: GA4 is now loaded synchronously in <head> for accurate tracking
-        // Google Ads Conversion tracking only (deferred)
-        idleCallback(function() {
-          if (window.gtag) {
-            gtag('event', 'conversion', {
-              'send_to': 'AW-16706905838/PyfqCMOzwtQZEO7NvJ4-',
-              'value': 1.0,
-              'currency': 'USD'
-            });
-          }
-        }, { timeout: 6000 });
+        // Google Ads Conversion event is intentionally NOT fired here.
+        // It must only fire on confirmed form submission (see window.pcfgFireConversion).
 
         // Load AdRoll (medium priority) - staggered
         idleCallback(function() {
@@ -396,6 +388,28 @@ const ogImageURL = ogImage.startsWith('http') ? ogImage : `https://pcfginsurance
 
       // Fallback: load after 5 seconds if no interaction (allows TTI to complete)
       setTimeout(loadThirdPartyScripts, 5000);
+
+      /**
+       * pcfgFireConversion()
+       * Call this ONLY after a confirmed form submission or qualified user action.
+       * Fires the Google Ads conversion event and a GA4 generate_lead event.
+       * Safe to call multiple times — deduplication is handled by Google's tag.
+       */
+      window.pcfgFireConversion = function() {
+        if (window.gtag) {
+          // Google Ads conversion
+          gtag('event', 'conversion', {
+            'send_to': 'AW-16706905838/PyfqCMOzwtQZEO7NvJ4-',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+          // GA4 lead event for reporting
+          gtag('event', 'generate_lead', {
+            'event_category': 'form',
+            'event_label': 'quote_or_contact_submission'
+          });
+        }
+      };
     </script>
 
     <script is:inline>
